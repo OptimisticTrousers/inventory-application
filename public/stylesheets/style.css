@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.layout__container {
+  display: flex;
+  align-items: center;
+}
