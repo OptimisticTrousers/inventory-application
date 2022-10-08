@@ -12,7 +12,7 @@ if (!userArgs[0].startsWith('mongodb')) {
     return
 }
 */
-var async = require("async");
+const async = require("async");
 var Category = require("./models/category");
 var Item = require("./models/item")
 
