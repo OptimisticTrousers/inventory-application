@@ -3,3 +3,18 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  h1 Dynamic content
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The library has the following record counts:
+
+    ul
+      li #[strong Jerseys:] 
+      li #[strong Photographs:] 
+      li #[strong T-Shirts:] 
+      li #[strong Pants:] 
+      li #[strong Sweaters:] 
+      li #[strong Sweaters:] 
