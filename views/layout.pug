@@ -6,4 +6,17 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
   body
-    block content
+  div(class='layout')
+    div(class='layout__container')
+      aside(class='layout__aside')
+        block sidebar
+          ul(class='layout__nav')
+            li
+              a(href='/catalog') Home
+            li
+              a(href='/catalog') All jerseys
+            li
+              a(href='/catalog') All photographs
+      section(class='layout__content')
+        block content
+
