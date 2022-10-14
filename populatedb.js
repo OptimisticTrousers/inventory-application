@@ -14,7 +14,7 @@ if (!userArgs[0].startsWith('mongodb')) {
 */
 const async = require("async");
 var Category = require("./models/category");
-var Item = require("./models/item")
+var Item = require("./models/item");
 
 var mongoose = require("mongoose");
 var mongoDB = userArgs[0];
@@ -42,8 +42,23 @@ function categoryCreate(name, description, cb) {
   });
 }
 
-function itemCreate(name, description, category, price, number_in_stock, cb) {
-  var item = new Item({ name, description, category, price, number_in_stock});
+function itemCreate(
+  name,
+  description,
+  category,
+  price,
+  number_in_stock,
+  size = undefined,
+  cb
+) {
+  var item = new Item({
+    name,
+    description,
+    category,
+    price,
+    number_in_stock,
+    size,
+  });
 
   item.save(function (err) {
     if (err) {
