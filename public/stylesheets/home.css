@@ -1,20 +1,34 @@
 .home {
-    border-radius: 16px;
-    height: 100%;
+  border-radius: 16px;
+  height: 100%;
 }
 
 .home__container {
-    color: white;
-    height: 90%;
-    margin: 3rem;
-    border-radius: 16px;
-    background-image: url(../images/lebron.webp);
-    background-size: cover;
+  color: white;
+  height: 90%;
+  margin: 3rem;
+  border-radius: 16px;
+  background-image: url(../images/lebron.webp);
+  background-size: cover;
 }
 
 .home__card {
-    background-color: rgb(196,191,184, 0.5);
-    border-radius: 6px;
-    width: 200px;
-    height: 150px;
+  background-color: rgb(196, 191, 184, 0.5);
+  border-radius: 6px;
+  width: 200px;
+  height: 150px;
+}
+
+.home__button {
+  padding: 2rem 4rem;
+  border-radius: 100px;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  font-weight: 900;
+}
+
+.home__icon {
+  background-color: blue;
+  border-radius: 100%;
 }
