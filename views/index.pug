@@ -4,16 +4,18 @@ block styles
   link(rel='stylesheet', href='/stylesheets/home.css')
 
 block content
-  h1= title
-  p Welcome to the #[em NBA Store], built with Express.js!
+  div(class="home")
+    div(class="home__container")
+      p Welcome to the #[em NBA Store], built with Express.js!
+      h1= title
 
-  h1 Dynamic content
+      if error
+        p Error getting dynamic content.
+      else
+        p The library has the following record counts:
 
-  if error
-    p Error getting dynamic content.
-  else
-    p The library has the following record counts:
+        ul
+          li #[strong Categories: !{data.category_count}] 
+          li #[strong Items: !{data.item_count}] 
 
-    ul
-      li #[strong Categories: !{data.category_count}] 
-      li #[strong Items: !{data.item_count}] 
+      nav(class="home__navigation")
