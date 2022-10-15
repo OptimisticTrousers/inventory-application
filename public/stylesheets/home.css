@@ -1,4 +1,9 @@
 @font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins-Regular.ttf)
+}
+
+@font-face {
   font-family: "Goldplay";
   src: url(../fonts/GoldplayAlt-Bold.ttf);
 }
@@ -109,6 +114,7 @@
 .home__description {
   padding: 2rem 1rem;
   color: black;
+  font-family: "Poppins";
 }
 
 .home__content {
@@ -126,8 +132,8 @@
 }
 
 .home__footer {
-    padding: 1rem;
-    line-height: 1.5;
+  padding: 1rem;
+  line-height: 1.5;
   background-color: #4d6df0;
   margin-top: auto;
   height: 8%;
@@ -149,16 +155,16 @@ li {
   color: black;
 }
 
-@media(max-width: 600px) {
-    .home__header {
-        flex-direction: column;
-        row-gap: 16px;
-        padding: 2rem 0rem;
-    }
+@media (max-width: 600px) {
+  .home__header {
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 2rem 0rem;
+  }
 }
 
-@media(max-width: 440px) {
-    .home__navigation{
-        padding: 1rem;
-    }
+@media (max-width: 440px) {
+  .home__navigation {
+    padding: 1rem;
+  }
 }
