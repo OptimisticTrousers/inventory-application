@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 console.log(
-  "This script populates some test books, authors, genres and bookinstances to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true"
+  "This script populates some test categories, and items to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true"
 );
 
 // Get arguments passed on command line
@@ -48,7 +48,7 @@ function itemCreate(
   category,
   price,
   number_in_stock,
-  size = undefined,
+  size,
   cb
 ) {
   var item = new Item({
@@ -85,7 +85,6 @@ function createCategories(cb) {
         categoryCreate(
           "T-Shirts",
           "Shop for all the latest t-shirts from any of your favorite NBA teams right here at NBAStore.com! Browse our wide collection of exclusive t-shirts from any team in the NBA, including championship t-shirts, name and number tees, and much more. Our collection of t-shirts come in a variety of styles from short and long sleeved tees to tank tops. No matter if you're looking for shirts or tops for men, women, or kids, you can find any kind of shirt from any NBA team right here at the official online store of the NBA. Place your order on your NBA t-shirt today and be sure to check back later for new arrivals that may be added!",
-          "1932-11-8",
           callback
         );
       },
@@ -246,6 +245,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Accessories"),
           35.99,
           10,
+          undefined,
           callback
         );
       },
@@ -267,6 +267,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Collectibles"),
           49.99,
           10,
+          undefined,
           callback
         );
       },
@@ -277,6 +278,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Collectibles"),
           262.49,
           10,
+          undefined,
           callback
         );
       },
