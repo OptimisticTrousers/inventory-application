@@ -33,19 +33,20 @@
 }
 
 .home__card {
+  padding: 2rem;
   background-color: rgb(196, 191, 184);
   border-radius: 26px;
   background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
   box-shadow: 0 5px 55px 0 rgba(0, 0, 0, 0.25);
 }
 
-.home__category {
+.home__subtitle {
   margin-left: 1rem;
   font-weight: 900;
   font-size: 2rem;
 }
 
-.home__card-content {
+.home__images {
   display: flex;
   justify-content: space-between;
   padding: 0rem 1rem;
@@ -111,7 +112,7 @@
   color: #4d6df0;
 }
 
-.home__description {
+.home__category-description {
   padding: 2rem 1rem;
   color: black;
   font-family: "Poppins";
@@ -131,7 +132,7 @@
   font-size: 2rem;
 }
 
-.home__content-description {
+.home__description {
   color: black;
   padding-left: 2rem;
 }
@@ -147,12 +148,19 @@
 }
 
 .home__link {
+  cursor: pointer;
+}
+
+.home__link--footer {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-decoration-thickness: 4px;
   text-decoration-color: #a7e8bd;
-  cursor: pointer;
   color: white;
+}
+
+.home__link--category {
+  text-decoration: none;
 }
 
 li {

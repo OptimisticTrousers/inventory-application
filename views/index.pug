@@ -15,7 +15,7 @@ block content
         p Error getting dynamic content.
       else
         div(class="home__content")
-          p(class="home__content-description") The NBA Store has the following record counts:
+          p(class="home__description") The NBA Store has the following record counts:
 
           ul
             li #[strong Categories: !{data.category_count}] 
@@ -25,14 +25,15 @@ block content
 
       nav(class="home__navigation")
         each category in data.category_list
-          div(class="home__card")
-            h2(class="home__category") #{category.name}
-            div(class="home__card-content")
-              img(class="home__image" src="/images/basketball-jersey.png")
-              img(class="home__image" src="/images/icons8-external-link.svg")
-            p(class="home__description") #{category.description}
+          a(class="home__link home__link--category" href=`/category/${category.url}`)
+            div(class="home__card")
+              h2(class="home__subtitle") #{category.name}
+              div(class="home__images")
+                img(class="home__image" src="/images/basketball-jersey.png")
+                img(class="home__image" src="/images/icons8-external-link.svg")
+              p(class="home__category-description") #{category.description}
       
       footer(class="home__footer")
-        a(class="home__link" href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
-        a(class="home__link" target="_blank" href="https://icons8.com/icon/zWS3SNRj7odb/external-link") External Link icon by 
-          a(class="home__link" target="_blank" href="https://icons8.com") Icons8
+        a(class="home__link home__link--footer" href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
+        a(class="home__link home__link--footer" target="_blank" href="https://icons8.com/icon/zWS3SNRj7odb/external-link") External Link icon by 
+          a(class="home__link home__link--footer" target="_blank" href="https://icons8.com") Icons8
