@@ -15,7 +15,37 @@ const category_detail = (req, res, next) => {
   })
 };
 
+const category_update_get = (req, res, next) => {
+
+}
+
+const category_update_post = (req, res, next) => {
+
+}
+
+const category_delete_get = (req, res, next) => {
+
+}
+
+const category_delete_post = (req, res, next) => {
+
+}
+
+const category_create_get = (req, res, next) => {
+
+}
+
+const category_create_post = (req, res, next) => {
+
+}
+
 module.exports = {
   index,
   category_detail,
+  category_update_get,
+  category_update_post,
+  category_delete_get,
+  category_delete_post,
+  category_create_get,
+  category_create_post
 };
