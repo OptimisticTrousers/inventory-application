@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to the #[em NBA Store], built with Express.js!
 
   h1 Dynamic content
 
@@ -12,9 +12,5 @@ block content
     p The library has the following record counts:
 
     ul
-      li #[strong Jerseys:] 
-      li #[strong Photographs:] 
-      li #[strong T-Shirts:] 
-      li #[strong Pants:] 
-      li #[strong Sweaters:] 
-      li #[strong Sweaters:] 
+      li #[strong Categories: !{data.category_count}] 
+      li #[strong Items: !{data.item_count}] 
