@@ -20,9 +20,11 @@
 
 .home__container {
   color: white;
-  height: 100%;
+  min-height: 100%;
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/halftone-yellow.png");
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 
 .home__card {
@@ -85,7 +87,7 @@
 
 .home__title {
   margin-top: 0;
-  font-size: 2rem;
+  font-size: 4rem;
   text-align: center;
   color: black;
   font-family: "Vilane";
@@ -113,6 +115,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Vilane";
+  font-size: 2rem;
 }
 
 .home__content-description {
@@ -120,7 +123,9 @@
 }
 
 .home__footer {
-  background-color: #e3e3de;
+    padding: 1rem;
+    line-height: 1.5;
+  background-color: #4d6df0;
   margin-top: auto;
   height: 8%;
   display: grid;
@@ -133,7 +138,7 @@
   text-decoration-thickness: 4px;
   text-decoration-color: #a7e8bd;
   cursor: pointer;
-  color: black;
+  color: white;
 }
 
 li {
