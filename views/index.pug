@@ -1,11 +1,17 @@
 extends layout
 
 block styles
-  link(rel='stylesheet', href='/stylesheets/home.css')
+  link(rel='stylesheet' href='/stylesheets/home.css')
 
 block content
   div(class="home")
     div(class="home__container")
+      header(class="home__main-nav")
+        img(src=require("../public/images/optimistictrousers.jpg"))
+        button(class="home__button") ADD NEW CATEGORY
+          div(class="home__icon") +
+
+
       p Welcome to the #[em NBA Store], built with Express.js!
       h1= title
 
@@ -19,3 +25,20 @@ block content
           li #[strong Items: !{data.item_count}] 
 
       nav(class="home__navigation")
+        div(class="home__card")
+          h2 Jerseys
+          div(class="home__card-content")
+            img(src="../public/images/basketball-jersey.png")
+            img(src="../public/images/icons8-external-link.svg")
+          p Description of jerseys
+        div(class="home__card")
+          h2 Jerseys
+          div(class="home__card-content")
+            img(src="../public/images/basketball-jersey.png")
+            img(src="../public/images/icons8-external-link.svg")
+          p Description of jerseys
+        
+
+      a(href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
+      a(target="_blank" href="https://icons8.com/icon/zWS3SNRj7odb/external-link") External Link icon by 
+        a(target="_blank" href="https://icons8.com") Icons8
