@@ -1,13 +1,25 @@
-body {
-  padding: 50px;
+body, html {
+  height: 100%;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
 }
 
 a {
   color: #00B7FF;
 }
 
-.layout__container {
+p {
+  margin: 0;
+}
+
+main {
+  height: 100%;
+  background-image: url(../images/lebron.webp);
+  background-size: cover;
+}
+
+.layout{
   display: flex;
   align-items: center;
 }
