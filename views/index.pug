@@ -6,39 +6,38 @@ block styles
 block content
   div(class="home")
     div(class="home__container")
-      header(class="home__main-nav")
-        img
+      header(class="home__header")
+        img(class="home__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
         button(class="home__button") ADD NEW CATEGORY
           div(class="home__icon") +
-
-
-      p Welcome to the #[em NBA Store], built with Express.js!
-      h1= title
 
       if error
         p Error getting dynamic content.
       else
-        p The library has the following record counts:
+        div(class="home__content")
+          p(class="home__content-description") The NBA Store has the following record counts:
 
-        ul
-          li #[strong Categories: !{data.category_count}] 
-          li #[strong Items: !{data.item_count}] 
+          ul
+            li #[strong Categories: !{data.category_count}] 
+            li #[strong Items: !{data.item_count}] 
+
+      h1(class="home__title")= title
 
       nav(class="home__navigation")
         div(class="home__card")
-          h2 Jerseys
+          h2(class="home__category") JERSEYS
           div(class="home__card-content")
-            img(src="../public/images/basketball-jersey.png")
-            img(src="../public/images/icons8-external-link.svg")
-          p Description of jerseys
+            img(class="home__image" src="/images/basketball-jersey.png")
+            img(class="home__image" src="/images/icons8-external-link.svg")
+          p(class="home__description") Description of jerseys
         div(class="home__card")
-          h2 Jerseys
+          h2(class="home__category") JERSEYS
           div(class="home__card-content")
-            img(src="../public/images/basketball-jersey.png")
-            img(src="../public/images/icons8-external-link.svg")
-          p Description of jerseys
-        
-
-      a(href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
-      a(target="_blank" href="https://icons8.com/icon/zWS3SNRj7odb/external-link") External Link icon by 
-        a(target="_blank" href="https://icons8.com") Icons8
+            img(class="home__image" src="/images/basketball-jersey.png")
+            img(class="home__image" src="/images/icons8-external-link.svg")
+          p(class="home__description") Description of jerseys
+      
+      footer(class="home__footer")
+        a(class="home__link" href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
+        a(class="home__link" target="_blank" href="https://icons8.com/icon/zWS3SNRj7odb/external-link") External Link icon by 
+          a(class="home__link" target="_blank" href="https://icons8.com") Icons8
