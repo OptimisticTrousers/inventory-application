@@ -11,6 +11,9 @@ const home_controller = (req, res, next) => {
       item_count(callback) {
         Item.countDocuments({}, callback);
       },
+      category_list(callback) {
+        Category.find({}, callback);
+      },
     },
     (err, results) => {
       if (err) {
