@@ -75,28 +75,47 @@ function createCategories(cb) {
   async.series(
     [
       function (callback) {
-        categoryCreate("Patrick", "Rothfuss", "1973-06-06", false, callback);
+        categoryCreate(
+          "Jerseys",
+          "Celebrate your team and your city with the 2021/22 NBA City Edition Jerseys to rep your team in style. We also offer NBA Statement Edition jerseys for your favorite players.",
+          callback
+        );
       },
       function (callback) {
-        categoryCreate("Ben", "Bova", "1932-11-8", false, callback);
+        categoryCreate(
+          "T-Shirts",
+          "Shop for all the latest t-shirts from any of your favorite NBA teams right here at NBAStore.com! Browse our wide collection of exclusive t-shirts from any team in the NBA, including championship t-shirts, name and number tees, and much more. Our collection of t-shirts come in a variety of styles from short and long sleeved tees to tank tops. No matter if you're looking for shirts or tops for men, women, or kids, you can find any kind of shirt from any NBA team right here at the official online store of the NBA. Place your order on your NBA t-shirt today and be sure to check back later for new arrivals that may be added!",
+          "1932-11-8",
+          callback
+        );
       },
       function (callback) {
-        categoryCreate("Isaac", "Asimov", "1920-01-02", "1992-04-06", callback);
+        categoryCreate(
+          "Hats",
+          "Buy NBA team hats from the official online store of the NBA. We carry the latest NBA basketball hats from Mitchell & Ness and New Era. Complete your basketball gear with your favorite NBA team cap. The NBA store offers a wide range of NBA fitted hats, NBA snapback hats, NBA stretchfit hats, novelty hats, and knit hats. Visit us regularly for exclusive online discounts on the latest and hottest NBA hats! Make sure to check NBA hat sizing before you buy a fitted cap!",
+          callback
+        );
       },
       function (callback) {
-        categoryCreate("Bob", "Billings", false, false, callback);
+        categoryCreate(
+          "Footwear",
+          "When you're ready to hit the court, make sure you get your kicks at the official NBA Store! We're your source for the latest and hottest NBA basketball shoes from your favorite stars! Shop the newest arrivals of NBA Jordan Shoes featuring sneakers from Carmelo Anthony, Chris Paul, and Michael Jordan. Or, our Nike Sneaker collection boasts of shoes from LeBron James, Kobe Bryant, and Kevin Durant. Also, don't forget about our selection of new Air Jordan Shoes and Under Armour Footwear featuring new, unique designs. Whether you're looking for the KD VII, LeBron XII, or any other NBA shoe, stay tuned to NBAStore.com for the latest updates.",
+          callback
+        );
       },
       function (callback) {
-        categoryCreate("Jim", "Jones", "1971-12-16", false, callback);
+        categoryCreate(
+          "Accessories",
+          "Don't limit your basketball gear to just jerseys and hats! NBA Store is your top source for all the best NBA accessories and gifts as well. Buy NBA jewelry, sunglasses, watches, and so much more featuring your favorite team's logo and colors. Check out the latest electronics like headphones, bluetooth speakers, and covers for your phone, tablet, or laptop, including the latest iPhone and Android phone cases. We have hundreds of accessories for men, women, and kids. You are sure to find the perfect basketball accessory for yourself or as a gift for a loved one at the official online store of the NBA.",
+          callback
+        );
       },
       function (callback) {
-        categoryCreate("Fantasy", callback);
-      },
-      function (callback) {
-        categoryCreate("Science Fiction", callback);
-      },
-      function (callback) {
-        categoryCreate("French Poetry", callback);
+        categoryCreate(
+          "Collectibles",
+          "Grab the greatest NBA Collectibles from your favorite teams to remember all the greatest moments in NBA history. Enjoy your player Collectibles from the greats like Kobe Bryant, Lebron James, Stephen Curry and more. Get your Signed pictures and autographed jerseys from the hottest NBA players to ever play the game. Browse through and shop for your favorite NBA collectibles from the Official NBA Store.",
+          callback
+        );
       },
     ],
     // optional callback
@@ -109,61 +128,64 @@ function createItems(cb) {
     [
       function (callback) {
         itemCreate(
-          "The Name of the Wind (The Kingkiller Chronicle, #1)",
-          "I have stolen princesses back from sleeping barrow kings. I burned down the town of Trebon. I have spent the night with Felurian and left with both my sanity and my life. I was expelled from the University at a younger age than most people are allowed in. I tread paths by moonlight that others fear to speak of during day. I have talked to Gods, loved women, and written songs that make the minstrels weep.",
-          "9781473211896",
-          authors[0],
-          [genres[0]],
+          "Men's Chicago Bulls Zach LaVine Fanatics Branded Red Fast Break Replica Jersey - Icon Edition",
+          "We want fans to celebrate their fandom by customizing and personalizing certain products. For these customizable products, including jerseys, we invite customers to tell us how they would like their preferred name or other text to appear by typing that text into the field indicated. However, just because a customer is able to type proposed customization text into the field and is able to complete the order through the website, not all proposed customization text will be accepted. Please note, Fanatics may reject and cancel any customization order for any reason, including for messages that are deemed offensive or inappropriate. Represent your team's distinct on-court look with this Chicago Bulls Fast Break Replica jersey from Fanatics Branded.",
+          categories.find((category) => category.name === "Jerseys"),
+          55.99,
+          10,
+          ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
           callback
         );
       },
       function (callback) {
         itemCreate(
-          "The Wise Man's Fear (The Kingkiller Chronicle, #2)",
-          "Picking up the tale of Kvothe Kingkiller once again, we follow him into exile, into political intrigue, courtship, adventure, love and magic... and further along the path that has turned Kvothe, the mightiest magician of his age, a legend in his own time, into Kote, the unassuming pub landlord.",
-          "9788401352836",
-          authors[0],
-          [genres[0]],
+          "Men's Brooklyn Nets Kevin Durant Fanatics Branded Black 2019/20 Fast Break Replica Jersey - Icon Edition",
+          "If you're looking for cutting edge NBA style, then grab this Kevin Durant Brooklyn Nets Fast Break Replica Jersey, which captures the same great look your team sports on the court. This piece boasts vibrant Brooklyn Nets graphics and classic trims that showcase your team's distinct identity. Once you pull this jersey on, your Brooklyn Nets fandom will be proudly on display.",
+          categories.find((category) => category.name === "Jerseys"),
+          55.99,
+          10,
+          ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
           callback
         );
       },
       function (callback) {
         itemCreate(
-          "The Slow Regard of Silent Things (Kingkiller Chronicle)",
-          "Deep below the University, there is a dark place. Few people know of it: a broken web of ancient passageways and abandoned rooms. A young woman lives there, tucked among the sprawling tunnels of the Underthing, snug in the heart of this forgotten place.",
-          "9780756411336",
-          authors[0],
-          [genres[0]],
+          "Men's Golden State Warriors Stephen Curry Jordan Brand Navy 2022/23 Statement Edition Name & Number T-Shirt",
+          "Showcase your love for Stephen Curry and the Golden State Warriors with this Statement Edition Name & Number T-shirt from Jordan Brand. It features bold graphics inspired directly by the team's authentic jerseys. Pair this tee with your favorite team shorts or a hat for the ultimate game day look.",
+          categories.find((category) => category.name === "T-Shirts"),
+          34.99,
+          10,
+          ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
           callback
         );
       },
       function (callback) {
         itemCreate(
-          "Apes and Angels",
-          "Humankind headed out to the stars not for conquest, nor exploration, nor even for curiosity. Humans went to the stars in a desperate crusade to save intelligent life wherever they found it. A wave of death is spreading through the Milky Way galaxy, an expanding sphere of lethal gamma ...",
-          "9780765379528",
-          authors[1],
-          [genres[1]],
+          "Men's Los Angeles Lakers Nike Black 2022/23 Legend On-Court Practice Performance T-Shirt",
+          "Wear the same style of gear as your favorite Los Angeles Lakers players with this On-Court Practice Legend T-shirt from Nike. It features bold Los Angeles Lakers graphics that stand out against the contrasting fabric. With built-in Dri-FIT technology to wick away moisture, this tee helps you stay dry, fresh and comfortable from tip-off to the final whistle.",
+          categories.find((category) => category.name === "T-Shirts"),
+          34.99,
+          10,
           callback
         );
       },
       function (callback) {
         itemCreate(
-          "Death Wave",
-          "In Ben Bova's previous novel New Earth, Jordan Kell led the first human mission beyond the solar system. They discovered the ruins of an ancient alien civilization. But one alien AI survived, and it revealed to Jordan Kell that an explosion in the black hole at the heart of the Milky Way galaxy has created a wave of deadly radiation, expanding out from the core toward Earth. Unless the human race acts to save itself, all life on Earth will be wiped out...",
-          "9780765379504",
-          authors[1],
-          [genres[1]],
+          "Men's Los Angeles Lakers New Era Cream Color Pop 59FIFTY Fitted Hat",
+          "Add a touch of fitted Los Angeles Lakers flair to your collection of stylish gear with this New Era Color Pop 59FIFTY hat. Along with a high crown, this cap offers a structured construction and flat bill for an elevated, street-ready look. Plus, the vibrant Los Angeles Lakers graphics and unique colorway make it the perfect top off to your game day selection.",
+          categories.find((category) => category.name === "Hats"),
+          31.49,
+          10,
           callback
         );
       },
       function (callback) {
         itemCreate(
-          "Test Book 1",
-          "Summary of test book 1",
-          "ISBN111111",
-          authors[4],
-          [genres[0], genres[1]],
+          "Men's Los Angeles New Era Born x Raised Black 2020 Dual Champions 59FIFTY Fitted Hat",
+          "Los Angeles is for winners. Both the Dodgers and the Lakers overcame each and every obstacle in this unprecedented season, making this year in LA sports history one worth honoring for years to come. Celebrate the reign of the 2020 World Series Champions and the 2020 NBA Finals Champions with this 59FIFTY Fitted Hat. This sweet gear is a special collaboration between New Era and Born x Raised. It features exclusive graphics to show off your excitement for the city of Los Angeles and commemorate this unforgettable moment in LA history.",
+          categories.find((category) => category.name === "Hats"),
+          54.99,
+          10,
           callback
         );
       },
