@@ -24,18 +24,13 @@ block content
       h1(class="home__title")= title
 
       nav(class="home__navigation")
-        div(class="home__card")
-          h2(class="home__category") Jerseys
-          div(class="home__card-content")
-            img(class="home__image" src="/images/basketball-jersey.png")
-            img(class="home__image" src="/images/icons8-external-link.svg")
-          p(class="home__description") Description of jerseys
-        div(class="home__card")
-          h2(class="home__category") Jerseys
-          div(class="home__card-content")
-            img(class="home__image" src="/images/basketball-jersey.png")
-            img(class="home__image" src="/images/icons8-external-link.svg")
-          p(class="home__description") Description of jerseys
+        each category in data.category_list
+          div(class="home__card")
+            h2(class="home__category") #{category.name}
+            div(class="home__card-content")
+              img(class="home__image" src="/images/basketball-jersey.png")
+              img(class="home__image" src="/images/icons8-external-link.svg")
+            p(class="home__description") #{category.description}
       
       footer(class="home__footer")
         a(class="home__link" href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
