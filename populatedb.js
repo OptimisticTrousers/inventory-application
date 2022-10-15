@@ -166,6 +166,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "T-Shirts"),
           34.99,
           10,
+          ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL"],
           callback
         );
       },
@@ -176,6 +177,21 @@ function createItems(cb) {
           categories.find((category) => category.name === "Hats"),
           31.49,
           10,
+          [
+            "6 3/4",
+            "6 7/8",
+            "7",
+            "7 1/8",
+            "7 1/4",
+            "7 3/8",
+            "7 1/2",
+            "7 5/8",
+            "7 3/4",
+            "7 7/8",
+            "8",
+            "8 1/8",
+            "8 1/4",
+          ],
           callback
         );
       },
@@ -186,16 +202,81 @@ function createItems(cb) {
           categories.find((category) => category.name === "Hats"),
           54.99,
           10,
+          [
+            "6 7/8",
+            "7",
+            "7 1/8",
+            "7 1/4",
+            "7 3/8",
+            "7 1/2",
+            "7 5/8",
+            "7 3/4",
+            "7 7/8",
+            "8",
+          ],
           callback
         );
       },
       function (callback) {
         itemCreate(
-          "Test Book 2",
-          "Summary of test book 2",
-          "ISBN222222",
-          authors[4],
-          false,
+          "Men's Los Angeles Lakers ISlide Black Tonal Pop Slide Sandals",
+          "Show off your team spirit when you get these Los Angeles Lakers Tonal Pop Slide Sandals from ISlide.",
+          categories.find((category) => category.name === "Footwear"),
+          39.99,
+          10,
+          ["7", "8", "9", "10", "11", "12", "13", "14/15"],
+          callback
+        );
+      },
+      function (callback) {
+        itemCreate(
+          "Men's Los Angeles Lakers FOCO Team Logo Flannel Moccasin Slippers",
+          "Keep your feet toasty warm while showing your Los Angeles Lakers pride in these FOCO moccasin slippers. Ideal for lounging at home, the slip-on style and soft flannel lining ensure a comfy fit. The embroidered Los Angeles Lakers logo and eye-catching stitching make every day look like game day.",
+          categories.find((category) => category.name === "Footwear"),
+          29.99,
+          10,
+          ["S", "M", "L", "XL"],
+          callback
+        );
+      },
+      function (callback) {
+        itemCreate(
+          "Los Angeles Lakers 24oz. Personalized Jr. Thirst Water Bottle",
+          "We want fans to celebrate their fandom by customizing and personalizing certain products. For these customizable products, including jerseys, we invite customers to tell us how they would like their preferred name or other text to appear by typing that text into the field indicated. However, just because a customer is able to type proposed customization text into the field and is able to complete the order through the website, not all proposed customization text will be accepted. Please note, Fanatics may reject and cancel any customization order for any reason, including for messages that are deemed offensive or inappropriate.Give your kitchen cupboard an update with this Los Angeles Lakers 24oz. Personalized Jr. Thirst Water Bottle. The crisp graphics will showcase your love for the Los Angeles Lakers anytime with its sleek design and crisp graphics. This stainless steel drinkware also features a lid with a built in straw, making it the perfect accessory on game days or every day.",
+          categories.find((category) => category.name === "Accessories"),
+          35.99,
+          10,
+          callback
+        );
+      },
+      function (callback) {
+        itemCreate(
+          "Men's Los Angeles Lakers Gold Stripe Crew Socks",
+          "Showcase your intense Los Angeles Lakers fervor in a fresh way with these remarkable Stripe crew socks!",
+          categories.find((category) => category.name === "Accessories"),
+          5.99,
+          10,
+          ["L"],
+          callback
+        );
+      },
+      function (callback) {
+        itemCreate(
+          "Los Angeles Lakers LeBron James NBA x Hasbro Starting Lineup Series 1 Action Figure",
+          "Starting Lineup is bouncing back into action with a game-changing line of NBA action figures. This figure features premium design and detail, bringing the legacy of the original 1980s Kenner Starting Lineup figures to today's fans and collectors. Figure comes loaded with accessories, including extra hands, a flight stand, and an exclusive Panini basketball trading card that can only be found with Starting Lineup 6-inch figures. Thanks to modern design and detailing, photoreal technology, and premium articulation, the latest Starting Lineup figures will have fans cheering as they celebrate some of their favorite NBA players with super accurate details and portraits in iconic poses right out of the game!",
+          categories.find((category) => category.name === "Collectibles"),
+          49.99,
+          10,
+          callback
+        );
+      },
+      function (callback) {
+        itemCreate(
+          "Autographed Los Angeles Lakers Shaquille O'Neal Fanatics Authentic Mitchell & Ness 1999-2000 Swingman Jersey",
+          "Take your collection of Los Angeles Lakers memorabilia to the next level by adding this Shaquille O'Neal autographed Mitchell & Ness 1999-2000 Swingman Jersey. Whether displayed in your home or office, it's the perfect way to highlight your passion for the Los Angeles Lakers for years to come.",
+          categories.find((category) => category.name === "Collectibles"),
+          262.49,
+          10,
           callback
         );
       },
