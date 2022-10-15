@@ -2,22 +2,11 @@ doctype html
 html(lang='en')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/stylesheets/style.css')
     meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     block styles
   body
-  div(class='layout')
-    div(class='layout__container')
-      aside(class='layout__aside')
-        block sidebar
-          ul(class='layout__nav')
-            li
-              a(href='/catalog') Home
-            li
-              a(href='/catalog/jerseys') All jerseys
-            li
-              a(href='/catalog/photographs') All photographs
-      section(class='layout__content')
-        block content
+    main
+      block content
 
