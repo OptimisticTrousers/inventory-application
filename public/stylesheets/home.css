@@ -104,7 +104,7 @@
   grid-template-columns: repeat(auto-fit, 300px);
   place-content: center;
   gap: 64px;
-  padding: 1rem 5rem;
+  padding: 2rem 5rem;
 }
 
 .home__category {
