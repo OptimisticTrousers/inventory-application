@@ -87,6 +87,7 @@
 
 .home__title {
   margin-top: 0;
+  padding: 0 1rem;
   font-size: 4rem;
   text-align: center;
   color: black;
@@ -96,6 +97,7 @@
 .home__navigation {
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
+  place-content: center;
   gap: 64px;
   padding: 1rem 5rem;
 }
@@ -120,6 +122,7 @@
 
 .home__content-description {
   color: black;
+  padding-left: 2rem;
 }
 
 .home__footer {
@@ -144,4 +147,18 @@
 li {
   font-size: 1.5rem;
   color: black;
+}
+
+@media(max-width: 600px) {
+    .home__header {
+        flex-direction: column;
+        row-gap: 16px;
+        padding: 2rem 0rem;
+    }
+}
+
+@media(max-width: 440px) {
+    .home__navigation{
+        padding: 1rem;
+    }
 }
