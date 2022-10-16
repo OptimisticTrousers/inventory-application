@@ -68,7 +68,7 @@ exports.iteminstance_update_get = (req, res, next) => {
       items(callback) {
         Item.find({}, "name").exec(callback)
       },
-      iteminstance(callback) {
+      item_instance(callback) {
         ItemInstance.findById(req.params.id).exec(callback)
       }
     },
@@ -80,7 +80,7 @@ exports.iteminstance_update_get = (req, res, next) => {
       res.render("iteminstance_form", {
         title: "Update ItemInstance",
         item_list: results.items,
-        iteminstance: results.iteminstance
+        item_instance: results.item_instance
       })
     }
   )
