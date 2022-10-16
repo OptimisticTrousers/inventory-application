@@ -1,3 +1,4 @@
+const async = require("async");
 const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
@@ -9,19 +10,33 @@ exports.index = (req, res, next) => {
 
 // Display detail page for a specific Category
 exports.category_detail = (req, res, next) => {
-  Item.find({category: req.params.id})
-    .sort({ name: 1 })
-    .populate("category")
-    .exec(function (err, category_detail) {
+  async.parallel(
+    {
+      category(callback) {
+        Category.findById(req.params.id).exec(callback);
+      },
+      category_items(callback) {
+        Item.find({ category: req.params.id }).sort({ name: 1 }).exec(callback);
+      },
+    },
+    (err, results) => {
       if (err) {
+        return next(err);
+      }
+      if (results.category == null) {
+        // No results
+        const err = new Error("Category not found");
+        err.status = 404;
         return next(err);
       }
 
       res.render("category_detail", {
-        title: `Category List`,
-        category_detail,
+        title: "Category Detail",
+        category: results.category,
+        category_items: results.category_items,
       });
-    });
+    }
+  );
 };
 
 // Display Category create form on GET
@@ -32,7 +47,7 @@ exports.category_create_post = (req, res, next) => {};
 
 // Display Author update form on GET
 exports.category_update_get = (req, res, next) => {
-  res.render("category_form", {title: "Create Category"})
+  res.render("category_form", { title: "Create Category" });
 };
 
 // Handle Author update on POST
@@ -43,4 +58,3 @@ exports.category_delete_get = (req, res, next) => {};
 
 // Handle Author delete on POST
 exports.category_delete_post = (req, res, next) => {};
-
