@@ -56,7 +56,31 @@ exports.category_update_get = (req, res, next) => {
 exports.category_update_post = (req, res, next) => {};
 
 // Display Author delete form on GET
-exports.category_delete_get = (req, res, next) => {};
+exports.category_delete_get = (req, res, next) => {
+  async.parallel(
+    {
+      category(callback) {
+        Category.findById(req.params.id).exec(callback)
+      },
+      category_items(callback) {
+        Item.find({category: req.params.id}).exec(callback)
+      }
+    },
+    (err, results) => {
+      if(err) {
+        return next(err)
+      }
+      if(results.category == null) {
+        res.redirect("/")
+      }
+      res.render("category_delete", {
+        title: "Delete Category",
+        category: results.category,
+        category_items: results.category_items
+      })
+    }
+  )
+};
 
 // Handle Author delete on POST
 exports.category_delete_post = (req, res, next) => {};
