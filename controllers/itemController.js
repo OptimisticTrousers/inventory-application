@@ -51,13 +51,13 @@ exports.item_detail = (req, res, next) => {
 exports.item_create_get = (req, res, next) => {
   Category.find({})
     .sort({ name: 1 })
-    .exec((err, category) => {
+    .exec((err, categories) => {
       if (err) {
         return next(err);
       }
       res.render("item_form", {
         title: "Create Item",
-        category,
+        categories,
       });
     });
 };
