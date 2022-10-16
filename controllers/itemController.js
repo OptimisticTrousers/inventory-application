@@ -17,7 +17,35 @@ exports.index = (req, res, next) => {
 };
 
 // Display detail page for a specific item
-exports.item_detail = (req, res, next) => {};
+exports.item_detail = (req, res, next) => {
+  async.parallel(
+    {
+      item(callback) {
+        Item.findById(req.params.id).populate("category").exec(callback);
+      },
+      item_instance(callback) {
+        ItemInstance.find({ category: req.params.id }).exec(callback);
+      },
+    },
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+      if (results.item == null) {
+        // No results
+        const err = new Error("Item not found");
+        err.status = 404;
+        return next(err);
+      }
+
+      res.render("item_detail", {
+        title: results.item.name,
+        item: results.item,
+        item_instance: results.item_instance,
+      });
+    }
+  );
+};
 
 // Display item create form on GET
 exports.item_create_get = (req, res, next) => {};
