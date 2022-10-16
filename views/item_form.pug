@@ -11,16 +11,25 @@ block content
         form(class="form__form" method="POST" action="")
             div(class="form__group")
                 label(class="form__label" for='name') Name:
-                input(id="name" name="name" class="form__control" required="true" placeholder="Name of category")
+                input(id="name" name="name" class="form__control" required="true" placeholder="Name of item")
             div(class="form__group")
                 label(class="form__label" for='category') Category:
-                select(id="category" type="select" name="category" class="form__control" required="true" placeholder="Category selection")
+                select(id="category" type="select" name="category" class="form__control" required="true" placeholder="Category of item")
                     - categories.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                     for category in categories
                         option(value=category._id) #{category.name}
             div(class="form__group")
+                label(class="form__label" for='price') Price:
+                input(type="number" id="price" name="price" class="form__control" required="true" placeholder="Price of item")
+            div(class="form__group")
+                label(class="form__label" for='number_in_stock') Number In Stock:
+                input(type="number" id="number_in_stock" name="number_in_stock" class="form__control" required="true" placeholder="Stock of item")
+            div(class="form__group")
+                label(class="form__label" for='sizes') Sizes (Optional):
+                input(type="number" id="sizes" name="sizes" class="form__control" required="true" placeholder="Stock of item")
+            div(class="form__group")
                 label(class="form__label" for='description') Description
-                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of category")
+                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of item")
             button(class="form__button" type="submit") SUBMIT
 
         if errors
