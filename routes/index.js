@@ -1,9 +1,9 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
-var home_controller = require("../controllers/homeController");
+const home_controller = require("../controllers/homeController");
 
-/// HOME ROUTE /// 
+/// HOME ROUTE ///
 
 // GET home page
 router.get("/", home_controller);

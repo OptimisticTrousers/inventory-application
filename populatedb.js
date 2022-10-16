@@ -5,7 +5,7 @@ console.log(
 );
 
 // Get arguments passed on command line
-var userArgs = process.argv.slice(2);
+const userArgs = process.argv.slice(2);
 /*
 if (!userArgs[0].startsWith('mongodb')) {
     console.log('ERROR: You need to specify a valid mongodb URL as the first argument');
@@ -13,23 +13,23 @@ if (!userArgs[0].startsWith('mongodb')) {
 }
 */
 const async = require("async");
-var Category = require("./models/category");
-var Item = require("./models/item");
+const Category = require("./models/category");
+const Item = require("./models/item");
 
-var mongoose = require("mongoose");
-var mongoDB = userArgs[0];
+const mongoose = require("mongoose");
+const mongoDB = userArgs[0];
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = global.Promise;
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-var categories = [];
-var items = [];
+const categories = [];
+const items = [];
 
 function categoryCreate(name, description, cb) {
   authordetail = { name, description };
 
-  var category = new Category(authordetail);
+  const category = new Category(authordetail);
 
   category.save(function (err) {
     if (err) {
@@ -51,7 +51,7 @@ function itemCreate(
   size,
   cb
 ) {
-  var item = new Item({
+  const item = new Item({
     name,
     description,
     category,
@@ -84,7 +84,7 @@ function createCategories(cb) {
       function (callback) {
         categoryCreate(
           "T-Shirts",
-          "Shop for all the latest t-shirts from any of your favorite NBA teams right here at NBAStore.com! Browse our wide collection of exclusive t-shirts from any team in the NBA, including championship t-shirts, name and number tees, and much more. Our collection of t-shirts come in a variety of styles from short and long sleeved tees to tank tops. No matter if you're looking for shirts or tops for men, women, or kids, you can find any kind of shirt from any NBA team right here at the official online store of the NBA. Place your order on your NBA t-shirt today and be sure to check back later for new arrivals that may be added!",
+          "Shop for all the latest t-shirts from any of your favorite NBA teams right here at NBAStore.com! Browse our wide collection of exclusive t-shirts from any team in the NBA, including championship t-shirts, name and number tees, and much more. Our collection of t-shirts come in a constiety of styles from short and long sleeved tees to tank tops. No matter if you're looking for shirts or tops for men, women, or kids, you can find any kind of shirt from any NBA team right here at the official online store of the NBA. Place your order on your NBA t-shirt today and be sure to check back later for new arrivals that may be added!",
           callback
         );
       },
