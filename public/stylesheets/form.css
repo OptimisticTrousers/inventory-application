@@ -5,6 +5,7 @@ h1 {
 .form {
   display: grid;
   place-items: center;
+  padding-bottom: 2rem;
 }
 
 .form__form {
