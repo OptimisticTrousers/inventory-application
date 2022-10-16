@@ -1,6 +1,7 @@
 const async = require("async");
 const Category = require("../models/category");
 const Item = require("../models/item");
+const ItemInstance = require("../models/iteminstance");
 
 const home_controller = (req, res, next) => {
   async.parallel(
