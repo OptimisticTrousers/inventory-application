@@ -68,7 +68,27 @@ exports.iteminstance_update_get = (req, res, next) => {};
 exports.iteminstance_update_post = (req, res, next) => {};
 
 // Display ItemInstance delete form on GET
-exports.iteminstance_delete_get = (req, res, next) => {};
+exports.iteminstance_delete_get = (req, res, next) => {
+  ItemInstance.findById(req.params.id)
+    .populate("item")
+    .exec((err, iteminstance) => {
+      if(err) {
+        return next(err)
+      }
+      if(iteminstance == null) {
+        // No results
+        const err = new Error("Item instance not found")
+        err.status = 404
+        return next(err)
+      }
+
+      // Successful, so render
+      res.render("iteminstance_delete", {
+        title: `Copy: ${iteminstance.item.name}`,
+        iteminstance
+      })
+    })
+};
 
 // Handle ItemInstance delete on POST
 exports.iteminstance_delete_post = (req, res, next) => {};
