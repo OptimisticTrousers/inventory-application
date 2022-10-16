@@ -1,0 +1,74 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-height: 100%;
+  color: white;
+  min-height: 100%;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/halftone-yellow.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #00b7ff;
+}
+
+p {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 6rem;
+}
+.header__button {
+  padding: 2rem 4rem;
+  border-radius: 100px;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  font-weight: 900;
+  border: none;
+  box-shadow: 0 10px 150px 0 currentColor;
+  font-family: "Goldplay";
+}
+
+.header__icon {
+  background-color: #375af2;
+  display: grid;
+  place-items: center;
+  color: white;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  box-shadow: -10px 0 80px 0 black;
+}
+
+.header__link {
+  cursor: pointer;
+}
+
+.header__image {
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border-radius: 30%;
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 2rem 0rem;
+  }
+}
