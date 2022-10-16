@@ -20,7 +20,7 @@ block content
 
     nav(class="home__navigation")
       each category in data.category_list
-        a(class="home__link home__link--category" href=`/category/${category.url}`)
+        a(class="home__link home__link--category" href=`${category.url}`)
           div(class="home__card")
             h2(class="home__subtitle") #{category.name}
             div(class="home__images")
