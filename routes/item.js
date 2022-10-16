@@ -6,7 +6,7 @@ const item_controller = require("../controllers/itemController")
 /// ITEM ROUTES ///
 
 // Redirect the user to the page of Items inside of a Category
-router.get("/:id", item_controller.index)
+router.get("/", item_controller.index)
 
 // GET request to view Item details
 router.get("/:id", item_controller.item_detail)
