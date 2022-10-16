@@ -2,7 +2,21 @@ const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
 
-exports.index = (req, res, next) => {};
+// Display list of all ItemInstances
+exports.index = (req, res, next) => {
+  ItemInstance.find()
+    .populate("item")
+    .exec((err, list_iteminstances) => {
+      if (err) {
+        return next(err);
+      }
+
+      res.render("iteminstance_list", {
+        title: "Item Instance List",
+        iteminstance_list: list_iteminstances,
+      });
+    });
+};
 
 exports.iteminstance_detail = (req, res, next) => {
   ItemInstance.findById(req.params.id)
