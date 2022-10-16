@@ -41,7 +41,7 @@ exports.category_detail = (req, res, next) => {
 
 // Display Category create form on GET
 exports.category_create_get = (req, res, next) => {
-  res.render("category_form", {title: "Create Category"})
+  res.render("category_form", { title: "Create Category" });
 };
 
 // Handle Category create on POST
@@ -49,7 +49,16 @@ exports.category_create_post = (req, res, next) => {};
 
 // Display Author update form on GET
 exports.category_update_get = (req, res, next) => {
-  res.render("category_form", { title: "Create Category" });
+  Category.findById(req.params.id).exec((err, category) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.render("category_form", {
+      title: "Update Category",
+      category,
+    });
+  });
 };
 
 // Handle Author update on POST
@@ -60,26 +69,26 @@ exports.category_delete_get = (req, res, next) => {
   async.parallel(
     {
       category(callback) {
-        Category.findById(req.params.id).exec(callback)
+        Category.findById(req.params.id).exec(callback);
       },
       category_items(callback) {
-        Item.find({category: req.params.id}).exec(callback)
-      }
+        Item.find({ category: req.params.id }).exec(callback);
+      },
     },
     (err, results) => {
-      if(err) {
-        return next(err)
+      if (err) {
+        return next(err);
       }
-      if(results.category == null) {
-        res.redirect("/")
+      if (results.category == null) {
+        res.redirect("/");
       }
       res.render("category_delete", {
         title: "Delete Category",
         category: results.category,
-        category_items: results.category_items
-      })
+        category_items: results.category_items,
+      });
     }
-  )
+  );
 };
 
 // Handle Author delete on POST
