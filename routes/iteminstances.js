@@ -3,7 +3,7 @@ const router = express.Router();
 
 const item_instance_controller = require("../controllers/iteminstanceController");
 
-/// ITEM ROUTES ///
+/// ITEM INSTANCE ROUTES ///
 
 // GET request for list of all ItemInstance items
 router.get("/", item_instance_controller.index);
