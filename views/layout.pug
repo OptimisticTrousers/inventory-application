@@ -2,11 +2,16 @@ doctype html
 html(lang='en')
   head
     title= title
-    link(rel='stylesheet' href='/stylesheets/style.css')
+    link(rel='stylesheet' href='/stylesheets/global.css')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     block styles
   body
-    main(class="main")
+    header(class="header")
+      a(class="header__link" href="/")
+        img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
+      button(class="header__button") ADD NEW CATEGORY
+        div(class="header__icon") +
+    main
       block content
 
