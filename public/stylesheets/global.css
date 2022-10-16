@@ -67,6 +67,7 @@ li {
   border: none;
   box-shadow: 15px 15px 50px 0 rgba(0, 0, 0, 0.5);
   font-family: "Goldplay";
+  cursor: pointer;
 }
 
 .header__icon {
