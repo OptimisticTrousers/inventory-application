@@ -9,7 +9,7 @@ exports.index = (req, res, next) => {
 
 // Display detail page for a specific Category
 exports.category_detail = (req, res, next) => {
-  Item.find({})
+  Item.find({category: req.params.id})
     .sort({ name: 1 })
     .populate("category")
     .exec(function (err, category_detail) {
