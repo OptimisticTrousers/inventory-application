@@ -11,6 +11,7 @@ exports.index = (req, res, next) => {
         return next(err);
       }
 
+      // Successful, so render
       res.render("iteminstance_list", {
         title: "Item Instance List",
         iteminstance_list: list_iteminstances,
@@ -18,6 +19,7 @@ exports.index = (req, res, next) => {
     });
 };
 
+// Display detail page for a specific ItemInstance
 exports.iteminstance_detail = (req, res, next) => {
   ItemInstance.findById(req.params.id)
     .populate("item")
@@ -40,6 +42,7 @@ exports.iteminstance_detail = (req, res, next) => {
     });
 };
 
+// Display ItemInstance create form on GET
 exports.iteminstance_create_get = (req, res, next) => {
   Item.find({}, "name")
     .sort({ name: 1 })
@@ -55,12 +58,17 @@ exports.iteminstance_create_get = (req, res, next) => {
     });
 };
 
+// Handle ItemInstance create on POST
 exports.iteminstance_create_post = (req, res, next) => {};
 
+// Display ItemInstance update form on GET
 exports.iteminstance_update_get = (req, res, next) => {};
 
+// Handle ItemInstance update on POST
 exports.iteminstance_update_post = (req, res, next) => {};
 
+// Display ItemInstance delete form on GET
 exports.iteminstance_delete_get = (req, res, next) => {};
 
+// Handle ItemInstance delete on POST
 exports.iteminstance_delete_post = (req, res, next) => {};
