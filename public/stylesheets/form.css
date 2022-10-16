@@ -16,19 +16,18 @@ h1 {
   box-shadow: 10px 0 25px 0 rgba(0, 0, 0, 0.25);
 }
 
-.ofmr__label {
-  font-size: 0.94rem;
-  padding: 0 10px;
-}
-
-.form__input {
+.form__control {
   border-radius: 8px;
   font-size: 1rem;
   height: 50px;
-  padding: 0 15px;
+  padding: 0px 15px;
   vertical-align: middle;
   background: transparent;
   border: 2px solid #e8e8e8;
+}
+
+select {
+    padding-right: 50px;
 }
 
 .form__group:not(.form__group:nth-child(1)) {

@@ -1,0 +1,29 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/form.css')
+
+block content
+
+    h1=title
+
+    section(class="form")
+        form(class="form__form" method="POST" action="")
+            div(class="form__group")
+                label(class="form__label" for='name') Name:
+                input(id="name" name="name" class="form__control" required="true" placeholder="Name of category")
+            div(class="form__group")
+                label(class="form__label" for='category') Category:
+                select(id="category" type="select" name="category" class="form__control" required="true" placeholder="Category selection")
+                    - categories.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                    for category in categories
+                        option(value=category._id) #{category.name}
+            div(class="form__group")
+                label(class="form__label" for='description') Description
+                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of category")
+            button(class="form__button" type="submit") SUBMIT
+
+        if errors
+            ul
+                for error in errors
+                    li!= error.msg
