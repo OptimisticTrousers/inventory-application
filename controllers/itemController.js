@@ -48,7 +48,19 @@ exports.item_detail = (req, res, next) => {
 };
 
 // Display item create form on GET
-exports.item_create_get = (req, res, next) => {};
+exports.item_create_get = (req, res, next) => {
+  Category.find({})
+    .sort({ name: 1 })
+    .exec((err, category) => {
+      if (err) {
+        return next(err);
+      }
+      res.render("item_form", {
+        title: "Create Item",
+        category,
+      });
+    });
+};
 
 // Handle book create on POST
 exports.item_create_post = (req, res, next) => {};
