@@ -62,7 +62,29 @@ exports.iteminstance_create_get = (req, res, next) => {
 exports.iteminstance_create_post = (req, res, next) => {};
 
 // Display ItemInstance update form on GET
-exports.iteminstance_update_get = (req, res, next) => {};
+exports.iteminstance_update_get = (req, res, next) => {
+  async.parallel(
+    {
+      items(callback) {
+        Item.find({}, "name").exec(callback)
+      },
+      iteminstance(callback) {
+        ItemInstance.findById(req.params.id).exec(callback)
+      }
+    },
+    (err, results) => {
+      if(err) {
+        return next(err)
+      }
+
+      res.render("iteminstance_form", {
+        title: "Update ItemInstance",
+        item_list: results.items,
+        iteminstance: results.iteminstance
+      })
+    }
+  )
+};
 
 // Handle ItemInstance update on POST
 exports.iteminstance_update_post = (req, res, next) => {};
