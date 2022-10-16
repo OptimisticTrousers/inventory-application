@@ -40,7 +40,9 @@ exports.category_detail = (req, res, next) => {
 };
 
 // Display Category create form on GET
-exports.category_create_get = (req, res, next) => {};
+exports.category_create_get = (req, res, next) => {
+  res.render("category_form", {title: "Create Category"})
+};
 
 // Handle Category create on POST
 exports.category_create_post = (req, res, next) => {};
