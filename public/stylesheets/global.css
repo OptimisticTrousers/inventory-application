@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Poppins";
+  src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Goldplay";
+  src: url(../fonts/GoldplayAlt-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Vilane";
+  src: url(../fonts/Vilane\ Semi\ Bold.ttf);
+}
+
+@font-face {
+  font-family: "Isidora";
+  src: url(../fonts/FontsFree-Net-Isidora-Soft.ttf);
+}
+
 html,
 body {
   height: 100%;
