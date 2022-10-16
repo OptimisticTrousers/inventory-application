@@ -101,11 +101,6 @@
   text-decoration: none;
 }
 
-li {
-  font-size: 1.5rem;
-  color: black;
-}
-
 @media (max-width: 440px) {
   .home__navigation {
     padding: 1rem;

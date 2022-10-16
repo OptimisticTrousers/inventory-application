@@ -43,6 +43,11 @@ p {
   margin: 0;
 }
 
+li {
+  font-size: 1.5rem;
+  color: black;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
