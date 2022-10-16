@@ -62,11 +62,38 @@ exports.item_create_get = (req, res, next) => {
     });
 };
 
-// Handle book create on POST
+// Handle item create on POST
 exports.item_create_post = (req, res, next) => {};
 
-// Display book update form on GET
-exports.item_update_get = (req, res, next) => {};
+// Display item update form on GET
+exports.item_update_get = (req, res, next) => {
+  async.parallel(
+    {
+      item(callback) {
+        Item.findById(req.params.id).populate("category").exec(callback);
+      },
+      categories(callback) {
+        Category.find(callback);
+      },
+    },
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+      if (results.item == null) {
+        const err = new Error("Item not found");
+        err.status = 404;
+        return next(err);
+      }
+
+      res.render("item_form", {
+        title: "Update Item",
+        item: results.item,
+        categories: results.categories,
+      });
+    }
+  );
+};
 
 // Handle book update on POST
 exports.item_update_post = (req, res, next) => {};
