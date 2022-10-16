@@ -1,62 +1,52 @@
-const Category = require("../models/category")
-const Item = require("../models/item")
-const ItemInstance = require("../models/iteminstance")
+const Category = require("../models/category");
+const Item = require("../models/item");
+const ItemInstance = require("../models/iteminstance");
 
-exports.index = (req, res, next) => {
-
-}
+exports.index = (req, res, next) => {};
 
 exports.iteminstance_detail = (req, res, next) => {
   ItemInstance.findById(req.params.id)
     .populate("item")
     .exec((err, iteminstance) => {
-      if(err) {
-        return next(err)
+      if (err) {
+        return next(err);
       }
-      if(iteminstance == null) {
+      if (iteminstance == null) {
         // No results.
-        const err = new Error("Item instance not found")
-        err.status = 404
-        return next(err)
+        const err = new Error("Item instance not found");
+        err.status = 404;
+        return next(err);
       }
 
       // Successful, so render
       res.render("iteminstance_detail", {
         title: `Instance: ${iteminstance.item.name}`,
-        iteminstance
-      })
-    })
-}
+        iteminstance,
+      });
+    });
+};
 
 exports.iteminstance_create_get = (req, res, next) => {
-  Item.find({}, "name").exec((err, items) => {
-    if(err) {
-      return next(err)
-    }
+  Item.find({}, "name")
+    .sort({ name: 1 })
+    .exec((err, items) => {
+      if (err) {
+        return next(err);
+      }
 
-    res.render("iteminstance_form", {
-      title: "Create ItemInstance",
-      item_list: items
-    })
-  })
-}
+      res.render("iteminstance_form", {
+        title: "Create ItemInstance",
+        item_list: items,
+      });
+    });
+};
 
-exports.iteminstance_create_post = (req, res, next) => {
+exports.iteminstance_create_post = (req, res, next) => {};
 
-}
+exports.iteminstance_update_get = (req, res, next) => {};
 
-exports.iteminstance_update_get = (req, res, next) => {
+exports.iteminstance_update_post = (req, res, next) => {};
 
-}
+exports.iteminstance_delete_get = (req, res, next) => {};
 
-exports.iteminstance_update_post = (req, res, next) => {
-
-}
-
-exports.iteminstance_delete_get = (req, res, next) => {
-
-}
-
-exports.iteminstance_delete_post = (req, res, next) => {
-  
-}
+exports.iteminstance_delete_post = (req, res, next) => {};
