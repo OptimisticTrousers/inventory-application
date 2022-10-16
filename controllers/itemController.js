@@ -72,7 +72,31 @@ exports.item_update_get = (req, res, next) => {};
 exports.item_update_post = (req, res, next) => {};
 
 // Display book delete form on GET
-exports.item_delete_get = (req, res, next) => {};
+exports.item_delete_get = (req, res, next) => {
+  async.parallel(
+    {
+      item(callback) {
+        Item.findById(req.params.id).exec(callback);
+      },
+      item_instances(callback) {
+        ItemInstance.find({ book: req.params.id }).exec(callback);
+      },
+    },
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+      if (results.item_instance == null) {
+        res.redirect("/item");
+      }
+      res.render("item_delete", {
+        title: "Delete Item",
+        item: results.item,
+        item_instances: results.item_instances,
+      });
+    }
+  );
+};
 
 // Handle book delete on POST
 exports.item_delete_post = (req, res, next) => {};
