@@ -5,7 +5,7 @@ const category_controller = require("../controllers/categoryController")
 
 /// CATEGORY ROUTES ///
 
-// Redirect /category to home page
+// GET request for list of all categories
 router.get("/", category_controller.index)
 
 // GET request for each Item in a Category
