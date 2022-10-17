@@ -4,18 +4,23 @@ block styles
     link(rel='stylesheet' href='/stylesheets/form.css')
 
 block content
+
     h1=title
 
-    form(class="form" method="POST" action="")
-        div.form-group
-            label(class="form__label" for='name') Name:
-            input(id="name" name="name" class="form__control" required="true" placeholder="Name of category")
-        div.form-group
-            label(class="form__label" for='description') Description
-            textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of category")
-        button(class="form__button" type="submit") Submit
+    section(class="form")
+        form(class="form__form" method="POST" action="")
+            div(class="form__group")
+                label(class="form__label" for='item') Item:
+                select(id="item" name="item" class="form__control" required="true")
+                    - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                    for item in item_list
+                        option(value=item._id) #{item.name}
+            div(class="form__group")
+                label(class="form__label" for='description') Description
+                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of category")
+            button(class="form__button" type="submit") SUBMIT
 
-    if errors
-        ul
-            for error in errors
-                li!= error.msg
+        if errors
+            ul
+                for error in errors
+                    li!= error.msg
