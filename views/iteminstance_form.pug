@@ -16,8 +16,24 @@ block content
                     for item in item_list
                         option(value=item._id) #{item.name}
             div(class="form__group")
-                label(class="form__label" for='description') Description
-                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of category")
+                label(class="form__label" for='size') Size
+                select(id="item" name="item" class="form__control" required="true")
+                    - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                    for item in item_list
+                        option(value=item._id) #{item.name}
+            div(class="form__group")
+                label(class="form__label" for='condition') Condition
+                select(id="condition" name="condition" class="form_control" required="true")
+                    option(value="New") New
+                    option(value="Used") Used
+                    option(value="Refurbished") Refurbished
+            div(class="form__group")
+                label(class="form__label" for='defective') Defective
+                textarea(id="defective" name="defective" class="form__textarea" required="true" placeholder="Description of category")
+            div(class="form__group")
+                label(class="form__label" for='available') Available
+                select(id="available" name="available" class="form_control" required="true")
+                    option(value=true) true
             button(class="form__button" type="submit") SUBMIT
 
         if errors
