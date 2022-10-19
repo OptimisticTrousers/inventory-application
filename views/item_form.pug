@@ -20,10 +20,10 @@ block content
                         option(value=category._id) #{category.name}
             div(class="form__group")
                 label(class="form__label" for='price') Price:
-                input(type="number" id="price" name="price" class="form__control" required="true" placeholder="Price of item")
+                input(type="number" id="price" name="price" class="form__control" min="0" required="true" placeholder="Price of item")
             div(class="form__group")
                 label(class="form__label" for='number_in_stock') Number In Stock:
-                input(type="number" id="number_in_stock" name="number_in_stock" class="form__control" required="true" placeholder="Stock of item")
+                input(type="number" id="number_in_stock" name="number_in_stock" min="0" class="form__control" required="true" placeholder="Stock of item")
             div(class="form__group")
                 label(class="form__label" for='sizes') Sizes (Optional):
                 input(type="number" id="sizes" name="sizes" class="form__control" required="true" placeholder="Stock of item")
