@@ -29,11 +29,14 @@ block content
                     option(value="Refurbished") Refurbished
             div(class="form__group")
                 label(class="form__label" for='defective') Defective
-                textarea(id="defective" name="defective" class="form__textarea" required="true" placeholder="Description of category")
+                select(id="defective" name="defective" class="form_control" required="true")
+                    option(value=true) true
+                    option(value=false) false
             div(class="form__group")
                 label(class="form__label" for='available') Available
                 select(id="available" name="available" class="form_control" required="true")
                     option(value=true) true
+                    option(value=false) false
             button(class="form__button" type="submit") SUBMIT
 
         if errors
