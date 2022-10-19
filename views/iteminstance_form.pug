@@ -18,9 +18,9 @@ block content
             div(class="form__group")
                 label(class="form__label" for='size') Size
                 select(id="item" name="item" class="form__control" required="true")
-                    - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                     for item in item_list
-                        option(value=item._id) #{item.name}
+                        for size in item.size
+                            option(value=true) #{size}
             div(class="form__group")
                 label(class="form__label" for='condition') Condition
                 select(id="condition" name="condition" class="form_control" required="true")
