@@ -1,6 +1,7 @@
 const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
+const async = require("async");
 
 // Display list of all Items
 exports.index = (req, res, next) => {
@@ -23,7 +24,7 @@ exports.item_detail = (req, res, next) => {
       item(callback) {
         Item.findById(req.params.id).populate("category").exec(callback);
       },
-      item_instance(callback) {
+      item_instances(callback) {
         ItemInstance.find({ category: req.params.id }).exec(callback);
       },
     },
@@ -39,9 +40,8 @@ exports.item_detail = (req, res, next) => {
       }
 
       res.render("item_detail", {
-        title: results.item.name,
         item: results.item,
-        item_instance: results.item_instance,
+        item_instances: results.item_instances,
       });
     }
   );
