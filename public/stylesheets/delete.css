@@ -1,14 +1,5 @@
-.description {
+.error {
     text-align: center;
-    font-size: 2rem;
-}
-
-.list {
-    text-align: center;
-}
-
-.list__title {
-    font-size: 2rem;
 }
 
 .delete {
