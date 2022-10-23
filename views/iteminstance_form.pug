@@ -15,26 +15,26 @@ block content
                     - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                     for item in item_list
                         option(value=item._id) #{item.name}
-            div(class="form__group")
-                label(class="form__label" for='size') Size
-                select(id="item" name="item" class="form__control" required="true")
-                    for item in item_list
-                        for size in item.size
-                            option(value=true) #{size}
+            //- div(class="form__group")
+            //-     label(class="form__label" for='size') Size
+            //-     select(id="item" name="item" class="form__control" required="true")
+            //-         for item in item_list
+            //-             for size in item.size
+            //-                 option(value=true) #{size}
             div(class="form__group")
                 label(class="form__label" for='condition') Condition
-                select(id="condition" name="condition" class="form_control" required="true")
+                select(id="condition" name="condition" class="form__control" required="true")
                     option(value="New") New
                     option(value="Used") Used
                     option(value="Refurbished") Refurbished
             div(class="form__group")
                 label(class="form__label" for='defective') Defective
-                select(id="defective" name="defective" class="form_control" required="true")
+                select(id="defective" name="defective" class="form__control" required="true")
                     option(value=true) true
                     option(value=false) false
             div(class="form__group")
                 label(class="form__label" for='available') Available
-                select(id="available" name="available" class="form_control" required="true")
+                select(id="available" name="available" class="form__control" required="true")
                     option(value=true) true
                     option(value=false) false
             button(class="form__button" type="submit") SUBMIT
