@@ -1,0 +1,19 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+
+block content
+
+    div(class="delete")
+        div(class="delete__container")
+            h2(class="delete__header") Delete item?
+
+            p(class="delete__description") Are you sure you want to delete "#[strong #{iteminstance._id}]" from #{iteminstance.item.name}
+            p(class="delete__description") You can't undo this action.
+
+            form(method='POST' action='')
+                div(class="form__group")
+                    input(id="iteminstanceid" class="form__control" type="hidden" name="iteminstanceid" required="true" value=iteminstance._id)
+
+                button(class="form__button" type="submit") Delete

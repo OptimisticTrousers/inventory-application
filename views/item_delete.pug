@@ -6,18 +6,16 @@ block styles
 block content
 
     if item_instances.length 
-        p(class="description") #[strong Delete the following item instances before attempting to delete this book.]
+        div(class="error")
+            h1(class="error__title") #{title}: #{item.name}
 
-        div(class="list")
-            h4(class="list__title") Item Instances
+            p(class="error__description") #[strong Delete the following item instances before attempting to delete this item.]
 
+            ul(class="error__list")
             each instance in item_instances
-                hr
-                p(class="list__description") #[strong ID:]
-                    a(class="list__link" href=instance.url) #{instance._id}
-
+                li(class="error__item")
+                    a(class="error__link" href=instance.url) #{instance._id}
     else
-
         div(class="delete")
             div(class="delete__container")
                 h2(class="delete__header") Delete item?
@@ -26,7 +24,7 @@ block content
                 p(class="delete__description") You can't undo this action.
 
                 form(method='POST' action='')
-                    div(class="form__control")
+                    div(class="form__group")
                         input(id="itemid" class="form__control" type="hidden" name="itemid" required="true" value=item._id)
 
                     button(class="form__button" type="submit") Delete
