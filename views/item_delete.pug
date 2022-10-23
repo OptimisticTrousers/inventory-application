@@ -4,15 +4,29 @@ block styles
     link(rel='stylesheet' href='/stylesheets/delete.css')
 
 block content
-    if item_instances.length
 
-        p #[strong Delete the following item instances before attempting to delete this book.]
+    if item_instances.length 
+        p(class="description") #[strong Delete the following item instances before attempting to delete this book.]
+
+        div(class="list")
+            h4(class="list__title") Item Instances
+
+            each instance in item_instances
+                hr
+                p(class="list__description") #[strong ID:]
+                    a(class="list__link" href=instance.url) #{instance._id}
 
     else
-        p Do you really want to delete this item?
 
-        form(method='POST' action='')
-            div
-                input(value=item._id)
-            
-            button Delete
+        div(class="delete")
+            div(class="delete__container")
+                h2(class="delete__header") Delete item?
+
+                p(class="delete__description") Are you sure you want to delete "#[strong #{item.name}]"
+                p(class="delete__description") You can't undo this action.
+
+                form(method='POST' action='')
+                    div(class="form__control")
+                        input(id="itemid" class="form__control" type="hidden" name="itemid" required="true" value=item._id)
+
+                    button(class="form__button" type="submit") Delete
