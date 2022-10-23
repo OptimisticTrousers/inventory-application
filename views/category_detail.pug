@@ -1,0 +1,31 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+
+block content
+
+
+    div(class="detail")
+        h1(class="detail__title")=category.name
+        p(class="detail__count") #{category_items.length} products
+
+        div(class="detail__list")
+            for item in category_items
+                article(class="detail__article")
+                    h2(class="detail__name")=item.name
+                    p(class="detail__description")=item.description
+                    p(class="detail__price") $#{item.price}
+                    //- p(class="detail__stock")=item.number_in_stock
+                    div(class="detail__buttons")
+                        button(class="detail__button") Details
+                        button(class="detail__button") Edit
+                        button(class="detail__button") Delete
+                    if item.size
+                        ul(class="detail__sizes")
+                            for size in item.size
+                                li(class="detail__size")=size
+
+
+
+
