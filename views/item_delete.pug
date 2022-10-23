@@ -1,0 +1,18 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+
+block content
+    if item_instances.length
+
+        p #[strong Delete the following item instances before attempting to delete this book.]
+
+    else
+        p Do you really want to delete this item?
+
+        form(method='POST' action='')
+            div
+                input(value=item._id)
+            
+            button Delete

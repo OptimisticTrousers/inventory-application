@@ -1,0 +1,18 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+
+block content
+    article(class="detail__article")
+        h1=item.name
+        p=item.description
+        p=item.price
+        p=item.number_in_stock
+        p #[strong Category:]
+
+        hr
+        p
+            a(href=`${item.url}/delete`) Delete Item
+        p
+            a(href=`${item.url}/update`) Update Item

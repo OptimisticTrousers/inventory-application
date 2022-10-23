@@ -113,9 +113,7 @@ exports.item_delete_get = (req, res, next) => {
       if (err) {
         return next(err);
       }
-      if (results.item_instance == null) {
-        res.redirect("/item");
-      }
+
       res.render("item_delete", {
         title: "Delete Item",
         item: results.item,
