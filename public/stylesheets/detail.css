@@ -23,8 +23,10 @@
   margin-bottom: 1rem;
 }
 
-.detail__description {
-    margin-bottom: 30px;
+.header__text{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .detail__price {
