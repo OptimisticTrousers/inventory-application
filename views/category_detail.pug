@@ -5,17 +5,21 @@ block styles
 
 block content
 
-
     div(class="detail")
-        h1(class="detail__title")=category.name
-        p(class="detail__count") #{category_items.length} products
+        header(class="detail__header")
+            div(class="header__text")
+                h1(class="detail__title")=category.name
+                p(class="detail__count") #{category_items.length} products
+
+            div(class="detail__links")
+                a(class="detail__link" href=`${category.url}/update`) Edit
+                a(class="detail__link" href=`${category.url}/delete`) Delete
 
         div(class="detail__list")
             for item in category_items
                 article(class="detail__article")
                     h2(class="detail__name")=item.name
                     p(class="detail__description")=item.description
-                    p(class="detail__price") $#{item.price}
                     //- p(class="detail__stock")=item.number_in_stock
                     div(class="detail__links")
                         a(class="detail__link" href=item.url) Details
