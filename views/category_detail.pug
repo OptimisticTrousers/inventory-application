@@ -9,6 +9,7 @@ block content
         header(class="detail__header")
             div(class="header__text")
                 h1(class="detail__title")=category.name
+                p(class="detail__description")=category.description
                 p(class="detail__count") #{category_items.length} products
 
             div(class="detail__links")
