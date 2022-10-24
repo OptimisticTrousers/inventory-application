@@ -25,9 +25,6 @@ block content
             div(class="form__group")
                 label(class="form__label" for='price') Price:
                 input(type="number" id="price" name="price" class="form__control" min="0" required="true" placeholder="Price of item" value=(item && item.price))
-            div(class="form__group")
-                label(class="form__label" for='number_in_stock') Number In Stock:
-                input(type="number" id="number_in_stock" name="number_in_stock" min="0" class="form__control" required="true" placeholder="Stock of item" value=(item && item.number_in_stock))
             //- div(class="form__group")
             //-     label(class="form__label" for='sizes') Sizes (Optional):
             //-     input(type="number" id="sizes" name="sizes" class="form__control" placeholder="Stock of item")
