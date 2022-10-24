@@ -10,9 +10,9 @@ block content
             div(class="header__text")
                 h1(class="detail__title") ID: #{iteminstance._id}
                 p(class="detail__description") Product: #{iteminstance.item.name}
-                p(class="detail__price") Size: #{iteminstance.size}
+                if iteminstance.size
+                    p(class="detail__price") Size: #{iteminstance.size}
                 p(class="detail__description") Condition: #{iteminstance.condition}
-                p(class="detail__description") Defective: #{iteminstance.defective}
                 p(class="detail__description") Available: #{iteminstance.available}
 
             div(class="detail__links")

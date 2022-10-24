@@ -25,13 +25,10 @@ block content
                 label(class="form__label" for='condition') Condition
                 select(id="condition" name="condition" class="form__control" required="true")
                     option(value="New") New
+                    option(value="Open Box") Open Box
                     option(value="Used") Used
                     option(value="Refurbished") Refurbished
-            div(class="form__group")
-                label(class="form__label" for='defective') Defective
-                select(id="defective" name="defective" class="form__control" required="true")
-                    option(value=true) true
-                    option(value=false) false
+                    option(value="For parts or not working") For parts or not working
             div(class="form__group")
                 label(class="form__label" for='available') Available
                 select(id="available" name="available" class="form__control" required="true")
