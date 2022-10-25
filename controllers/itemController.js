@@ -2,6 +2,7 @@ const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
 const async = require("async");
+const { body, validationResult } = require("express-validator");
 
 // Display list of all Items
 exports.index = (req, res, next) => {
@@ -63,7 +64,19 @@ exports.item_create_get = (req, res, next) => {
 };
 
 // Handle item create on POST
-exports.item_create_post = (req, res, next) => {};
+exports.item_create_post = (req, res, next) => {}
+// exports.item_create_post = [
+//   // Convert the category to an array.
+//   (req, res, next) => {
+//     if (!(req.body.item instanceof Array)) {
+//       if (typeof req.body.item === "undefined") req.body.category = [];
+//       else req.body.item = new Array(req.body.item);
+//     }
+//     next();
+//   },
+//   // Validate and sanitize fields.
+//   body("name").body("category").body("price").body("description"),
+// ];
 
 // Display item update form on GET
 exports.item_update_get = (req, res, next) => {
