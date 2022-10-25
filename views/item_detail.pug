@@ -10,8 +10,13 @@ block content
             div(class="header__text")
                 h1(class="detail__title") #{item.name}
                 p(class="detail__description") #{item.description}
-                p(class="detail__price") $#{item.price}
-                p(class="detail__description") Category: #{item.category.name}
+                p(class="detail__bold") $#{item.price}
+                p(class="detail__description") Category: 
+                    for category, index in item.category
+                        if index === item.category.length - 1
+                            span(class="detail__bold") #{category.name}
+                        else
+                            span(class="detail__bold") #{category.name},
                 p(class="detail__count") #{item_instances.length} instances
 
             div(class="detail__links")
