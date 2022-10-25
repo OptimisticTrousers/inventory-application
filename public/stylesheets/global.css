@@ -20,11 +20,11 @@
 
 html,
 body {
-  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 body {
+  margin: 0;
   color: black;
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/halftone-yellow.png");
   background-size: cover;
@@ -53,8 +53,8 @@ li {
   padding: 4rem 6rem;
 }
 
-.header__button {
-  padding: 2rem 4rem;
+.header__link{
+  padding:1.5rem 4rem;
   border-radius: 100px;
   color: black;
   display: flex;
@@ -80,10 +80,6 @@ li {
   box-shadow: 5px 0 15px 0 rgba(0, 0, 0, 0.5);
 }
 
-.header__link {
-  cursor: pointer;
-}
-
 .header__image {
   width: 100px;
   height: 100px;
@@ -92,7 +88,7 @@ li {
   box-shadow: 15px 10px 20px 0px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1225px) {
   .header {
     flex-direction: column;
     row-gap: 16px;
