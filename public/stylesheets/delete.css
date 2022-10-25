@@ -48,3 +48,9 @@
 
     background-color: #dc6068;
 }
+
+@media(max-width: 520px) {
+    .delete__container {
+        border-radius: 0;
+    }
+}
