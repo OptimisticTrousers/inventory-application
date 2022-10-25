@@ -71,3 +71,11 @@ select {
 .form__button:hover {
   background-color: rgb(44, 60, 203, 0.7);
 }
+
+@media(max-width: 520px) {
+  .form__form {
+    width: 100%;
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+}
