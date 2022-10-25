@@ -141,34 +141,34 @@ exports.item_delete_post = (req, res, next) => {
   async.parallel(
     {
       item: function (callback) {
-        Item.findById(req.body.id).populate("category").exec(callback)
+        Item.findById(req.body.id).populate("category").exec(callback);
       },
       item_iteminstances: function (callback) {
-        ItemInstance.find({item: req.body.id}).exec(callback)
-      }
+        ItemInstance.find({ item: req.body.id }).exec(callback);
+      },
     },
     (err, results) => {
-      if(err) {
-        return next(err)
+      if (err) {
+        return next(err);
       }
       // Success
-      if(results.item_iteminstances.length > 0) {
+      if (results.item_iteminstances.length > 0) {
         // Item has item_instances. Render in the same way as for GET route.
         res.render("item_delete", {
           title: "Delete Item",
-          item_instances: results.item_iteminstances
-        })
+          item_instances: results.item_iteminstances,
+        });
         return;
       } else {
         Item.findByIdAndRemove(req.body.itemid, function deleteItem(err) {
-          if(err) {
-            return next(err)
+          if (err) {
+            return next(err);
           }
 
-          // Success - got to home page.
-          res.redirect("/")
-        })
+          // Success - go to list of Item items.
+          res.redirect("/item");
+        });
       }
     }
-  )
+  );
 };
