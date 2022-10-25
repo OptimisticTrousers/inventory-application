@@ -107,7 +107,6 @@ exports.category_delete_post = (req, res, next) => {
         return next(err)
       }
 
-      // Success
       if(results.category_items.length > 0) {
         res.render("category_delete", {
           title: "Delete Category",
