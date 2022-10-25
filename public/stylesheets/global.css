@@ -108,9 +108,11 @@ li {
   cursor: pointer;
   text-decoration: underline;
   text-decoration-style: dotted;
-  text-decoration-thickness: 4px;
+  text-decoration-thickness: 2px;
+  line-height: 2;
   text-decoration-color: #a7e8bd;
   color: #d3f3ff;
+  text-underline-position: under;
 }
 
 @media (max-width: 1225px) {
