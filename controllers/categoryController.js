@@ -2,7 +2,7 @@ const async = require("async");
 const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
-const { body, validationResult} = require("express-validator");
+const { body, validationResult } = require("express-validator");
 
 // Redirect to the home page
 exports.index = (req, res, next) => {
@@ -48,11 +48,14 @@ exports.category_create_get = (req, res, next) => {
 // Handle Category create on POST
 exports.category_create_post = [
   // Validate and sanitize the name field.
-  body("name", "Category name must contain at least 3 characters")
+  body("name", "Please enter a category name")
     .trim()
-    .isLength({ min: 3 })
+    .isLength({ min: 1 })
     .escape(),
-  body("description").trim().isLength({ min: 3 }).escape(),
+  body("description", "Please enter a category description")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
   // Process request after validation and sanization
   (req, res, next) => {
     // Extract the validation errors from a request.
@@ -60,27 +63,30 @@ exports.category_create_post = [
     const errors = validationResult(req);
 
     // Create a new category object with escaped and trimmed data
-    const category = new Category({ name: req.body.name , description: req.body.description});
+    const category = new Category({
+      name: req.body.name,
+      description: req.body.description,
+    });
 
-    if(!errors.isEmpty()) {
+    if (!errors.isEmpty()) {
       // There are errors. Render form again with sanitized values/errors messages.
       res.render("category_form", {
         title: "Create Category",
         category,
         errors: errors.array(),
-      })
+      });
     } else {
       // Data from form is valid.
 
       // Save category.
-      category.save(function(err) {
-        if(err) {
-          return next(err)
+      category.save(function (err) {
+        if (err) {
+          return next(err);
         }
 
         // Successful - redirect to new category record
-        res.redirect(category.url)
-      })
+        res.redirect(category.url);
+      });
     }
   },
 ];
@@ -153,13 +159,16 @@ exports.category_delete_post = (req, res, next) => {
         });
         return;
       } else {
-        Category.findByIdAndRemove(req.body.categoryid, function deleteCategory(err) {
-          if (err) {
-            return next(err);
+        Category.findByIdAndRemove(
+          req.body.categoryid,
+          function deleteCategory(err) {
+            if (err) {
+              return next(err);
+            }
+            // Success - go to category list(ie. homepage)
+            res.redirect("/");
           }
-          // Success - go to category list(ie. homepage)
-          res.redirect("/");
-        });
+        );
       }
     }
   );
