@@ -8,16 +8,13 @@ html(lang='en')
     block styles
   body
     header(class="header")
-      a(class="header__link" href="/")
+      a(href="/")
         img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
-      a(href="/category/create")
-        button(class="header__button") ADD NEW CATEGORY
+      a(class="header__link" href="/category/create") ADD NEW CATEGORY
           div(class="header__icon") +
-      a(href="/item/create")
-        button(class="header__button") ADD NEW ITEM
+      a(class="header__link" href="/item/create") ADD NEW ITEM
           div(class="header__icon") +
-      a(href="/iteminstance/create")
-        button(class="header__button") ADD NEW ITEM INSTANCE
+      a(class="header__link" href="/iteminstance/create") ADD NEW ITEM INSTANCE
           div(class="header__icon") +
     main
       block content
