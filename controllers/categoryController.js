@@ -106,7 +106,52 @@ exports.category_update_get = (req, res, next) => {
 };
 
 // Handle Author update on POST
-exports.category_update_post = (req, res, next) => {};
+exports.category_update_post = [
+  // Validate and sanitize the name and description field.
+  body("name", "Please enter a category name")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("description", "Please enter a category description")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request
+
+    const errors = validationResult(req);
+
+    const category = new Category({
+      name: req.body.name,
+      description: req.body.description,
+      _id: req.params.id,
+    });
+
+    if (!errors.isEmpty()) {
+      // There are errors. Render the form again with sanitized values and error messages.
+      res.render("category_form", {
+        title: "Update Category",
+        category,
+        errors: errors.array(),
+      });
+      return;
+    } else {
+      Category.findByIdAndUpdate(
+        req.params.id,
+        category,
+        {},
+        function (err, thecategory) {
+          if (err) {
+            return next(err);
+          }
+          // Successful - redirect to genre detail page.
+          res.redirect(thecategory.url);
+        }
+      );
+    }
+  },
+];
 
 // Display Author delete form on GET
 exports.category_delete_get = (req, res, next) => {
