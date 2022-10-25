@@ -66,24 +66,24 @@ exports.iteminstance_update_get = (req, res, next) => {
   async.parallel(
     {
       items(callback) {
-        Item.find({}, "name").exec(callback)
+        Item.find({}, "name").exec(callback);
       },
       item_instance(callback) {
-        ItemInstance.findById(req.params.id).exec(callback)
-      }
+        ItemInstance.findById(req.params.id).exec(callback);
+      },
     },
     (err, results) => {
-      if(err) {
-        return next(err)
+      if (err) {
+        return next(err);
       }
 
       res.render("iteminstance_form", {
         title: "Update ItemInstance",
         item_list: results.items,
-        item_instance: results.item_instance
-      })
+        item_instance: results.item_instance,
+      });
     }
-  )
+  );
 };
 
 // Handle ItemInstance update on POST
@@ -94,23 +94,33 @@ exports.iteminstance_delete_get = (req, res, next) => {
   ItemInstance.findById(req.params.id)
     .populate("item")
     .exec((err, iteminstance) => {
-      if(err) {
-        return next(err)
+      if (err) {
+        return next(err);
       }
-      if(iteminstance == null) {
+      if (iteminstance == null) {
         // No results
-        const err = new Error("Item instance not found")
-        err.status = 404
-        return next(err)
+        const err = new Error("Item instance not found");
+        err.status = 404;
+        return next(err);
       }
 
       // Successful, so render
       res.render("iteminstance_delete", {
         title: `Copy: ${iteminstance.item.name}`,
-        iteminstance
-      })
-    })
+        iteminstance,
+      });
+    });
 };
 
 // Handle ItemInstance delete on POST
-exports.iteminstance_delete_post = (req, res, next) => {};
+exports.iteminstance_delete_post = (req, res, next) => {
+  // Assume valid ItemInstance id in field.
+  ItemInstance.findByIdAndRemove(req.body.id, function deleteItemInstance(err) {
+    if (err) {
+      return next(err);
+    }
+
+    // Success, so redirect to list of ItemInstance items.
+    res.redirect("/iteminstance");
+  });
+};
