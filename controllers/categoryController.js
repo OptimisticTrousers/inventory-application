@@ -153,7 +153,7 @@ exports.category_delete_post = (req, res, next) => {
         });
         return;
       } else {
-        Genre.findByIdAndRemove(req.body.id, function deleteCategory(err) {
+        Category.findByIdAndRemove(req.body.categoryid, function deleteCategory(err) {
           if (err) {
             return next(err);
           }
