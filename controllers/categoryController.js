@@ -92,4 +92,38 @@ exports.category_delete_get = (req, res, next) => {
 };
 
 // Handle Author delete on POST
-exports.category_delete_post = (req, res, next) => {};
+exports.category_delete_post = (req, res, next) => {
+  async.parallel(
+    {
+      category: function (callback) {
+        Category.findById(req.params.id).exec(callback)
+      },
+      category_items: function(callback) {
+        Item.find({category: req.params.id}).exec(callback)
+      },
+    },
+    function (err, results) {
+      if(err) {
+        return next(err)
+      }
+
+      // Success
+      if(results.category_items.length > 0) {
+        res.render("category_delete", {
+          title: "Delete Category",
+          category: results.category,
+          category_items: results.category_items
+        })
+        return
+      } else {
+        Genre.findByIdAndRemove(req.body.id, function deleteCategory(err) {
+          if(err) {
+            return next(err)
+          }
+          // Success - go to category list(ie. homepage)
+          res.redirect("/")
+        })
+      }
+    }
+  )
+};
