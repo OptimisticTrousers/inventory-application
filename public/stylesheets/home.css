@@ -76,27 +76,6 @@
   padding-left: 2rem;
 }
 
-.home__footer {
-  padding: 1rem;
-  line-height: 1.5;
-  background-color: #4d6df0;
-  margin-top: auto;
-  height: 8%;
-  display: grid;
-  place-items: center;
-}
-
-.home__link {
-  cursor: pointer;
-}
-
-.home__link--footer {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 4px;
-  text-decoration-color: #a7e8bd;
-  color: white;
-}
 
 .home__link--category {
   text-decoration: none;

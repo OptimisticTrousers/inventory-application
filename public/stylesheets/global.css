@@ -18,12 +18,14 @@
   src: url(../fonts/FontsFree-Net-Isidora-Soft.ttf);
 }
 
-html,
-body {
+html
+{
+  height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 body {
+  min-height: 100%;
   margin: 0;
   color: black;
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/halftone-yellow.png");
@@ -39,6 +41,10 @@ a {
 
 p {
   margin: 0;
+}
+
+main {
+  padding-bottom: 5rem;
 }
 
 li {
@@ -88,6 +94,25 @@ li {
   box-shadow: 15px 10px 20px 0px rgba(0, 0, 0, 0.25);
 }
 
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  line-height: 1.5;
+  background-color: #375af2;
+  height: 8%;
+  display: grid;
+  place-items: center;
+}
+
+.footer__link {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 4px;
+  text-decoration-color: #a7e8bd;
+  color: #d3f3ff;
+}
+
 @media (max-width: 1225px) {
   .header {
     flex-direction: column;
@@ -108,8 +133,6 @@ li {
 @media (max-width: 708px) {
   .header__link {
     font-size: 2rem;
-    gap: 4px;
-    vertical-align: middle;
     display: initial;
   }
   .header__icon {
