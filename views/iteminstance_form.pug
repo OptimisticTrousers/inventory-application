@@ -14,13 +14,14 @@ block content
                 select(id="item" name="item" class="form__control" required="true")
                     - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
                     for item in item_list
-                        option(value=item._id) #{item.name}
-            //- div(class="form__group")
-            //-     label(class="form__label" for='size') Size
-            //-     select(id="item" name="item" class="form__control" required="true")
-            //-         for item in item_list
-            //-             for size in item.size
-            //-                 option(value=true) #{size}
+                        option(value=item._id selected=(selected_item=item._id.toString() ? 'selected' : false)) #{item.name}
+            div(class="form__group")
+                label(class="form__label" for='size') Size
+                select(id="item" name="item" class="form__control" required="true")
+                    for item in item_list
+                        if item.size
+                            for size in item.size
+                                option(value=size) #{size}
             div(class="form__group")
                 label(class="form__label" for='condition') Condition
                 select(id="condition" name="condition" class="form__control" required="true")
@@ -32,8 +33,8 @@ block content
             div(class="form__group")
                 label(class="form__label" for='available') Available
                 select(id="available" name="available" class="form__control" required="true")
-                    option(value=true) Yes
-                    option(value=false) No
+                    option(value="Yes" selected=(undefined===iteminstance || iteminstance.available != 'Yes' ? false: 'selected')) Yes
+                    option(value="No" selected=(undefined==iteminstance || iteminstance.available!='No' ? false: 'selected')) No
             button(class="form__button" type="submit") SUBMIT
 
         if errors
