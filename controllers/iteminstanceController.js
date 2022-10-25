@@ -1,6 +1,7 @@
 const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
+const { body, validationResult } = require("express-validator");
 
 // Display list of all ItemInstances
 exports.index = (req, res, next) => {
@@ -59,7 +60,57 @@ exports.iteminstance_create_get = (req, res, next) => {
 };
 
 // Handle ItemInstance create on POST
-exports.iteminstance_create_post = (req, res, next) => {};
+exports.iteminstance_create_post = [
+  // Validate and sanitize fields.
+  body("item", "Item must be specified").trim().isLength({ min: 1 }).escape(),
+  body("size")
+    .optional({ checkFalsy: true })
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("condition").escape(),
+  body("available").escape(),
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    // Create a ItemInstance object with escaped and trimmed data.
+    const iteminstance = new ItemInstance({
+      item: req.body.item,
+      size: req.body.size,
+      condition: req.body.condition,
+      available: req.body.available,
+    });
+
+    if (!errors.isEmpty()) {
+      // There are errors. Render form again with sanitized values and error messages.
+      Item.find({}, "name").exec(function (err, items) {
+        if (err) {
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("iteminstance_form", {
+          title: "Create ItemInstance",
+          item_list: items,
+          selected_item: iteminstance.item._id,
+          errors: errors.array(),
+          iteminstance,
+        });
+      });
+      return;
+    } else {
+      // Data from form is valid
+      iteminstance.save(function (err) {
+        if (err) {
+          return next(err);
+        }
+        // Successful - redirect to new record.
+        res.redirect(iteminstance.url);
+      });
+    }
+  },
+];
 
 // Display ItemInstance update form on GET
 exports.iteminstance_update_get = (req, res, next) => {
