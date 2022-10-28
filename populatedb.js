@@ -132,7 +132,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Jerseys"),
           55.99,
           10,
-          "S M L XL 2XL 3XL 4XL 5XL",
+          "S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
         );
       },
@@ -143,7 +143,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Jerseys"),
           55.99,
           10,
-          "S M L XL 2XL 3XL 4XL 5XL",
+          "S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
         );
       },
@@ -154,7 +154,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "T-Shirts"),
           34.99,
           10,
-          "XS S M L XL 2XL 3XL 4XL 5XL",
+          "XS  S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
         );
       },
@@ -165,7 +165,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "T-Shirts"),
           34.99,
           10,
-          "XS S M L XL 2XL 3XL 4XL",
+          "XS  S  M  L  XL  2XL  3XL  4XL",
           callback
         );
       },
@@ -175,8 +175,8 @@ function createItems(cb) {
           "Add a touch of fitted Los Angeles Lakers flair to your collection of stylish gear with this New Era Color Pop 59FIFTY hat. Along with a high crown, this cap offers a structured construction and flat bill for an elevated, street-ready look. Plus, the vibrant Los Angeles Lakers graphics and unique colorway make it the perfect top off to your game day selection.",
           categories.find((category) => category.name === "Hats"),
           31.49,
-          10,
-          "6 3/4 6 7/8 7 7 1/8 7 1/4 7 3/8 7 1/2 7 5/8 7 3/4 7 7/8 8 8 1/8 8 1/4",
+          10, 
+            "6 3/4  6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8  8 1/8  8 1/4",
           callback
         );
       },
@@ -187,7 +187,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Hats"),
           54.99,
           10,
-          "6 7/8 7 7 1/8 7 1/4 7 3/8 7 1/2 7 5/8 7 3/4 7 7/8 8",
+            "6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8",
           callback
         );
       },
@@ -198,7 +198,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Footwear"),
           39.99,
           10,
-          "7 8 9 10 11 12 13 14/15",
+          "7  8  9  10  11  12  13  14/15",
           callback
         );
       },
@@ -209,7 +209,7 @@ function createItems(cb) {
           categories.find((category) => category.name === "Footwear"),
           29.99,
           10,
-          "S M L XL",
+          "S  M  L  XL",
           callback
         );
       },
