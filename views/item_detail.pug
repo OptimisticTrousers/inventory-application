@@ -16,7 +16,7 @@ block content
                 p(class="detail__description") Category: 
                     for category, index in item.category
                         if index === item.category.length - 1
-                            span(class="detail__bold") #{category.name}
+                            span(class="detail__bold") #{` ${category.name}`}
                         else
                             span(class="detail__bold") #{category.name},
                 p(class="detail__count") #{item_instances.length} instances
