@@ -27,7 +27,7 @@ body {
   min-height: 100%;
   margin: 0;
   color: black;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/halftone-yellow.png");
+  background-image: url("/images/halftone-yellow.png");
   background-size: cover;
   display: flex;
   flex-direction: column;
