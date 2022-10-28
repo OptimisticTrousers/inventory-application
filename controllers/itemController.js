@@ -165,7 +165,76 @@ exports.item_update_get = (req, res, next) => {
 };
 
 // Handle book update on POST
-exports.item_update_post = (req, res, next) => {};
+exports.item_update_post = [
+  // Convert the genre to an array.
+  (req, res, next) => {
+    if (!(req.body.category instanceof Array)) {
+      if (typeof req.body.category === "undefined") req.body.category = [];
+      else req.body.category = new Array(req.body.category);
+    }
+    next();
+  },
+  // Validate and sanitize fields.
+  body("name", "Name must not be empty.").trim().isLength({ min: 1 }).escape(),
+  body("size").trim().isLength({ min: 1 }).escape(),
+  body("price", "Price must not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("description", "Description must not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    // Create an Item object with escaped/trimmed data and old id.
+    const item = new Item({
+      _id: req.params.id,
+      name: req.body.name,
+      description: req.body.description,
+      category:
+        typeof req.body.category === "undefined" ? [] : req.body.category,
+      size: req.body.size,
+      price: req.body.price,
+    });
+
+    if (!errors.isEmpty()) {
+      // There are errors. Render form again with sanitized values/error messages.
+      Category.find({}).exec(function (err, categories) {
+        if (err) {
+          return next(err);
+        }
+
+        // Mark our selected categories as checked.
+        for (let i = 0; i < categories.length; i++) {
+          if (item.category.indexOf(categories[i]._id) > -1) {
+            categories[i].checked = "true";
+          }
+        }
+        res.render("item_form", {
+          title: "Update Item",
+          categories,
+          item,
+          errors: errors.array(),
+        });
+      });
+      return;
+    } else {
+      // Data from form is valid. Update the record.
+      Item.findByIdAndUpdate(req.params.id, item, {}, function (err, theitem) {
+        if (err) {
+          return next(err);
+        }
+        // Successful - redirect to book detail page.
+        res.redirect(theitem.url);
+      });
+    }
+  },
+];
 
 // Display book delete form on GET
 exports.item_delete_get = (req, res, next) => {
