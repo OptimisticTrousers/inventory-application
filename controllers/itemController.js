@@ -91,6 +91,7 @@ exports.item_create_post = [
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
+    console.log(req.file);
     // Create a Item object with escaped and trimmed data.
     const item = new Item({
       name: req.body.name,
@@ -98,7 +99,7 @@ exports.item_create_post = [
       category: req.body.category,
       price: req.body.price,
       size: req.body.size,
-      picture: req.file
+      picture: req.file,
     });
 
     if (!errors.isEmpty()) {
@@ -214,6 +215,7 @@ exports.item_update_post = [
         typeof req.body.category === "undefined" ? [] : req.body.category,
       size: req.body.size,
       price: req.body.price,
+      picture: req.file,
     });
 
     if (!errors.isEmpty()) {
