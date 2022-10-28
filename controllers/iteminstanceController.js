@@ -62,14 +62,14 @@ exports.iteminstance_create_get = (req, res, next) => {
 // Handle ItemInstance create on POST
 exports.iteminstance_create_post = [
   // Validate and sanitize fields.
-  body("item", "Item must be specified").trim().isLength({ min: 1 }).escape(),
+  body("item", "Item must be specified").escape(),
   body("size")
     .optional({ checkFalsy: true })
     .trim()
     .isLength({ min: 1 })
     .escape(),
-  body("condition").escape(),
-  body("available").escape(),
+  body("condition").trim().isLength({ min: 1 }).escape(),
+  body("available").escape().trim().isLength({ min: 1 }).escape(),
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
