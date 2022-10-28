@@ -26,10 +26,6 @@ block content
                         a(class="detail__link" href=item.url) Details
                         a(class="detail__link" href=`${item.url}/update`) Edit
                         a(class="detail__link" href=`${item.url}/delete`) Delete
-                    if item.size
-                        ul(class="detail__sizes")
-                            for size in item.size
-                                li(class="detail__size")=size
 
 
 
