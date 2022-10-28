@@ -23,7 +23,7 @@ router.get("/:id", item_instance_controller.iteminstance_detail);
 router.get("/:id/update", item_instance_controller.iteminstance_update_get);
 
 // POST request to update an ItemInstance
-router.post("/:id/update", item_instance_controller.iteminstance_update_post);
+router.post("/:id/update", upload.single("picture"), item_instance_controller.iteminstance_update_post);
 
 // GET request to delete an ItemInstance
 router.get("/:id/delete", item_instance_controller.iteminstance_delete_get);

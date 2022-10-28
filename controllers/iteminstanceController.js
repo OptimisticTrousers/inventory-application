@@ -159,6 +159,7 @@ exports.iteminstance_update_post = [
       size: req.body.size,
       condition: req.body.condition,
       available: req.body.available,
+      picture:req.file
     });
 
     if (!errors.isEmpty()) {
