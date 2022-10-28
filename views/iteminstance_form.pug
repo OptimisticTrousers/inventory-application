@@ -33,6 +33,9 @@ block content
                 select(id="available" name="available" class="form__control" required="true")
                     option(value="Yes" selected=(iteminstance && iteminstance.available === "Yes" && "selected")) Yes
                     option(value="No" selected=(iteminstance&& iteminstance.available === "No" && "selected")) No
+            div(class="form__group")
+                label(class="form__label" for='picture') Picture
+                input(id="picture" name="picture" type="file")
             button(class="form__button" type="submit") SUBMIT
 
         if errors

@@ -19,6 +19,8 @@ block content
                     span(class="detail__bold") #{iteminstance.condition}
                 p(class="detail__description") Available: 
                     span(class="detail__bold") #{iteminstance.available}
+                if iteminstance.picture
+                    img(class="detail__image" src=`/uploads/${iteminstance.picture.filename}`)
 
             div(class="detail__links")
                 a(class="detail__link" href=`${iteminstance.url}/update`) Edit

@@ -6,6 +6,7 @@ const ItemInstanceSchema = new Schema({
   size: { type: String },
   condition: { type: String, required: true },
   available: { type: String, required: true },
+  picture: { type: Map, of: String },
 });
 
 ItemInstanceSchema.virtual("url").get(function () {

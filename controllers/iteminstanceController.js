@@ -82,6 +82,7 @@ exports.iteminstance_create_post = [
       size: req.body.size,
       condition: req.body.condition,
       available: req.body.available,
+      picture: req.file,
     });
 
     if (!errors.isEmpty()) {
