@@ -5,18 +5,21 @@ html(lang='en')
     link(rel='stylesheet' href='/stylesheets/global.css')
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel="shortcut icon", href="/images/optimistictrousers.jpg", type="image/x-icon")
+    link(rel="shortcut icon" href="/images/optimistictrousers.jpg" type="image/x-icon")
     block styles
   body
     header(class="header")
       a(href="/")
         img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
       a(class="header__link" href="/category/create") ADD NEW CATEGORY
-          div(class="header__icon") +
+        div(class="header__icon") +
       a(class="header__link" href="/item/create") ADD NEW ITEM
-          div(class="header__icon") +
+        div(class="header__icon") +
       a(class="header__link" href="/iteminstance/create") ADD NEW ITEM INSTANCE
-          div(class="header__icon") +
+        div(class="header__icon") +
+      a(class="header__link" href="/") CATEGORIES
+      a(class="header__link" href="/item") ITEMS
+      a(class="header__link" href="/iteminstance") ITEM INSTANCES
     main
       block content
     footer(class="footer")
