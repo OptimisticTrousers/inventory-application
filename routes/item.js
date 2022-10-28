@@ -1,5 +1,7 @@
 const express = require("express")
 const router = express.Router()
+const multer = require("multer");
+const upload = multer({ dest: "public/uploads/", limits: { fieldSize: 10 } });
 
 const item_controller = require("../controllers/itemController")
 
@@ -9,7 +11,7 @@ const item_controller = require("../controllers/itemController")
 router.get("/create", item_controller.item_create_get)
 
 // POST request to create Item
-router.post("/create", item_controller.item_create_post)
+router.post("/create", upload.single("picture"), item_controller.item_create_post)
 
 // GET request for list of all Item items 
 router.get("/", item_controller.index)

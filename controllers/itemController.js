@@ -26,7 +26,7 @@ exports.item_detail = (req, res, next) => {
         Item.findById(req.params.id).populate("category").exec(callback);
       },
       item_instances(callback) {
-        ItemInstance.find({ category: req.params.id }).exec(callback);
+        ItemInstance.find({ item: req.params.id }).exec(callback);
       },
     },
     (err, results) => {
@@ -98,6 +98,7 @@ exports.item_create_post = [
       category: req.body.category,
       price: req.body.price,
       size: req.body.size,
+      picture: req.file
     });
 
     if (!errors.isEmpty()) {

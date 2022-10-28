@@ -8,10 +8,11 @@ const ItemSchema = new Schema({
   category: [{ type: Schema.Types.ObjectId, ref: "Category", required: true }],
   price: { type: Number, required: true },
   size: { type: String },
+  picture: { type: Map, of: String },
 });
 
 ItemSchema.virtual("url").get(function () {
   return `/item/${this._id}`;
 });
 
-module.exports = mongoose.model("Item", ItemSchema)
+module.exports = mongoose.model("Item", ItemSchema);

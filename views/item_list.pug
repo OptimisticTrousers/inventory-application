@@ -15,6 +15,8 @@ block content
                     article(class="detail__article")
                         h2(class="detail__name")=item.name
                         p(class="detail__description")=item.description
+                        if item.picture
+                            img(class="detail__image" src=`/uploads/${item.picture.filename}`)
                         div(class="detail__links")
                             a(class="detail__link" href=item.url) Details
                             a(class="detail__link" href=`${item.url}/update`) Edit
