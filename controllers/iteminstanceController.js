@@ -2,6 +2,7 @@ const Category = require("../models/category");
 const Item = require("../models/item");
 const ItemInstance = require("../models/iteminstance");
 const { body, validationResult } = require("express-validator");
+const async = require("async");
 
 // Display list of all ItemInstances
 exports.index = (req, res, next) => {
@@ -69,7 +70,7 @@ exports.iteminstance_create_post = [
     .isLength({ min: 1 })
     .escape(),
   body("condition").trim().isLength({ min: 1 }).escape(),
-  body("available").escape().trim().isLength({ min: 1 }).escape(),
+  body("available").trim().escape(),
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
