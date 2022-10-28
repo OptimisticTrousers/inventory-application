@@ -4,7 +4,6 @@ block styles
     link(rel='stylesheet' href='/stylesheets/detail.css')
 
 block content
-
     div(class="detail")
         header(class="detail__header")
             div(class="header__text")
@@ -18,11 +17,9 @@ block content
                         else
                             span(class="detail__bold") #{category.name},
                 p(class="detail__count") #{item_instances.length} instances
-
             div(class="detail__links")
                 a(class="detail__link" href=`${item.url}/update`) Edit
                 a(class="detail__link" href=`${item.url}/delete`) Delete
-
         div(class="detail__list")
             for instance in item_instances
                 article(class="detail__article")
@@ -32,7 +29,6 @@ block content
                     p(class="detail__description") Condition: #{item.condition}
                     p(class="detail__description") Defective: #{item.defective}
                     p(class="detail__description") Available: #{item.defective}
-                    //- p(class="detail__stock")=item.number_in_stock
                     div(class="detail__links")
                         a(class="detail__link" href=item.url) Details
                         a(class="detail__link" href=`${item.url}/update`) Edit
