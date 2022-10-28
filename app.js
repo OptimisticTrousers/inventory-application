@@ -10,8 +10,8 @@ const categoryRouter = require("./routes/category");
 const iteminstanceRouter = require("./routes/iteminstance");
 const itemRouter = require("./routes/item");
 
-const compression = require("compression")
-const helmet = require("helmet")
+const compression = require("compression");
+const helmet = require("helmet");
 
 const app = express();
 
@@ -31,7 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.use(compression());
 
 app.use("/", indexRouter);
