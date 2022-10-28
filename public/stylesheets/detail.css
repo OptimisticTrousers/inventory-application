@@ -32,6 +32,11 @@
   gap: 16px;
 }
 
+.detail__image {
+  display: block;
+  width: 200px;
+}
+
 .detail__bold {
   font-weight: 900;
 }

@@ -24,7 +24,8 @@ block content
             div(class="home__card")
               h2(class="home__subtitle") #{category.name}
               div(class="home__images")
-                img(class="home__image" src="/images/basketball-jersey.png")
+                if category.picture
+                  img(class="home__image" src=`/uploads/${category.picture.get("filename")}`)
                 img(class="home__image" src="/images/icons8-external-link.svg")
               p(class="home__category-description") #{category.description}
       else

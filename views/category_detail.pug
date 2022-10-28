@@ -11,6 +11,7 @@ block content
                 h1(class="detail__title")=category.name
                 p(class="detail__description")=category.description
                 p(class="detail__count") #{category_items.length} products
+                img(class="detail__image" src=`/uploads/${category.picture.get("filename")}`)
 
             div(class="detail__links")
                 a(class="detail__link" href=`${category.url}/update`) Edit
