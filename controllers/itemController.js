@@ -65,19 +65,74 @@ exports.item_create_get = (req, res, next) => {
 };
 
 // Handle item create on POST
-exports.item_create_post = (req, res, next) => {}
-// exports.item_create_post = [
-//   // Convert the category to an array.
-//   (req, res, next) => {
-//     if (!(req.body.item instanceof Array)) {
-//       if (typeof req.body.item === "undefined") req.body.category = [];
-//       else req.body.item = new Array(req.body.item);
-//     }
-//     next();
-//   },
-//   // Validate and sanitize fields.
-//   body("name").body("category").body("price").body("description"),
-// ];
+// exports.item_create_post = (req, res, next) => {}
+exports.item_create_post = [
+  // Convert the category to an array.
+  (req, res, next) => {
+    if (!(req.body.category instanceof Array)) {
+      if (typeof req.body.category === "undefined") req.body.category = [];
+      else req.body.category = new Array(req.body.category);
+    }
+    next();
+  },
+  // Validate and sanitize fields.
+  body("name", "Name must not be empty.").trim().isLength({ min: 1 }).escape(),
+  body("size").trim().isLength({ min: 1 }).escape(),
+  body("price", "Price must not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body("description", "Description must not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    // Create a Item object with escaped and trimmed data.
+    const item = new Item({
+      name: req.body.name,
+      description: req.body.description,
+      category: req.body.category,
+      price: req.body.price,
+      size: req.body.size,
+    });
+
+    if (!errors.isEmpty()) {
+      // There are errors. Render form again with sanitized values/error messages.
+
+      // Get all categories for form
+      Category.find({}, "name").exec(function (err, categories) {
+        if (err) {
+          return next(err);
+        }
+        for (let i = 0; i < categories.length; i++) {
+          if (item.category.indexOf(categories[i]._id) > -1) {
+            categories[i].checked = "true";
+          }
+        }
+        res.render("item_form", {
+          title: "Create Item",
+          categories,
+          item,
+          errors: errors.array(),
+        });
+      });
+      return;
+    } else {
+      // Data from form is valid. Save item.
+      item.save(function (err) {
+        if (err) {
+          return next(err);
+        }
+        // Successful - redirect to new item record.
+        res.redirect(item.url);
+      });
+    }
+  },
+];
 
 // Display item update form on GET
 exports.item_update_get = (req, res, next) => {
