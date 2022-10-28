@@ -155,6 +155,19 @@ exports.item_update_get = (req, res, next) => {
         return next(err);
       }
 
+      // Success.
+      // Mark our selected categories as checked.
+      for (let i = 0; i < results.categories.length; i++) {
+        for (var j = 0; j < results.item.category.length; j++) {
+          if (
+            results.categories[i]._id.toString() ===
+            results.item.category[j]._id.toString()
+          ) {
+            results.categories[i].checked = "true";
+          }
+        }
+      }
+
       res.render("item_form", {
         title: "Update Item",
         item: results.item,
