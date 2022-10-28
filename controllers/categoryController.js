@@ -126,6 +126,7 @@ exports.category_update_post = [
     const category = new Category({
       name: req.body.name,
       description: req.body.description,
+      picture: req.file,
       _id: req.params.id,
     });
 

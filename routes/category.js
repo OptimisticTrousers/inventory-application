@@ -27,7 +27,7 @@ router.get("/:id", category_controller.category_detail);
 router.get("/:id/update", category_controller.category_update_get);
 
 // POST request for updating a category
-router.post("/:id/update", category_controller.category_update_post);
+router.post("/:id/update", upload.single("picture"), category_controller.category_update_post);
 
 // GET request for deleting a category
 router.get("/:id/delete", category_controller.category_delete_get);
