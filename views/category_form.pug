@@ -8,13 +8,16 @@ block content
     h1=title
 
     section(class="form")
-        form(class="form__form" method="POST" action="")
+        form(class="form__form" method="POST" action="" enctype="multipart/form-data")
             div(class="form__group")
                 label(class="form__label" for='name') Name:
                 input(id="name" name="name" class="form__control" required="true" placeholder="Jerseys" value=(category && category.name))
             div(class="form__group")
                 label(class="form__label" for='description') Description
                 textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Celebrate your team and your city with the 2021/22 NBA City Edition Jerseys to rep your team in style. We also offer NBA Statement Edition jerseys for your favorite players.") #{category && category.description}
+            div(class="form__group")
+                label(class="form__label" for='picture') Picture
+                input(id="picture" name="picture" type="file")
             button(class="form__button" type="submit") SUBMIT
 
         if errors

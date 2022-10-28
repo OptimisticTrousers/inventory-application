@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 const CategorySchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
+  picture: {
+    type: Map,
+    of: String
+  },
 });
 
 CategorySchema.virtual("url").get(function () {
