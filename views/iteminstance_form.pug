@@ -12,27 +12,27 @@ block content
             div(class="form__group")
                 label(class="form__label" for='item') Item:
                 select(id="item" name="item" class="form__control" required="true")
-                    for item, index in item_list
-                        option(value=item._id) #{item.name}
+                    each item in item_list
+                        option(value=item._id selected=(iteminstance && item._id.equals(iteminstance.item._id) && "selected")) #{item.name}
             div(class="form__group")
-                    label(class="form__label" for='size') Size
-                    select(id="size" name="size" class="form__control" required="true")
-                            if item_list[0].size 
-                                each size in item_list[0].size.split("  ")
-                                    option(value=size) #{size}
+                label(class="form__label" for='size') Size
+                select(id="size" name="size" class="form__control" required="true")
+                    if item_list[0].size 
+                        each size, index in item_list[0].size.split("  ")
+                            option(value=size selected=(iteminstance.size === size && "selected")) #{size}
             div(class="form__group")
                 label(class="form__label" for='condition') Condition
                 select(id="condition" name="condition" class="form__control" required="true")
-                    option(value="New") New
-                    option(value="Open Box") Open Box
-                    option(value="Used") Used
-                    option(value="Refurbished") Refurbished
-                    option(value="For parts or not working") For parts or not working
+                    option(value="New" selected=(iteminstance && iteminstance.condition === "New" && "selected")) New
+                    option(value="Open Box" selected=(iteminstance && iteminstance.condition === "Open box" && "selected")) Open Box
+                    option(value="Used" selected=(iteminstance && iteminstance.condition === "Used" && "selected")) Used
+                    option(value="Refurbished" selected=(iteminstance && iteminstance.condition === "Refurbished" && "selected")) Refurbished
+                    option(value="For parts or not working" selected=(iteminstance && iteminstance.condition === "For parts or not working" && "selected")) For parts or not working
             div(class="form__group")
                 label(class="form__label" for='available') Available
                 select(id="available" name="available" class="form__control" required="true")
-                    option(value="Yes") Yes
-                    option(value="No") No
+                    option(value="Yes" selected=(iteminstance && iteminstance.available === "Yes" && "selected")) Yes
+                    option(value="No" selected=(iteminstance&& iteminstance.available === "No" && "selected")) No
             button(class="form__button" type="submit") SUBMIT
 
         if errors

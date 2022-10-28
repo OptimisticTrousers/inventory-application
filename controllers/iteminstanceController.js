@@ -118,10 +118,10 @@ exports.iteminstance_update_get = (req, res, next) => {
   async.parallel(
     {
       items(callback) {
-        Item.find({}, "name").exec(callback);
+        Item.find({}).exec(callback);
       },
-      item_instance(callback) {
-        ItemInstance.findById(req.params.id).exec(callback);
+      iteminstance(callback) {
+        ItemInstance.findById(req.params.id).populate("item").exec(callback);
       },
     },
     (err, results) => {
@@ -132,14 +132,67 @@ exports.iteminstance_update_get = (req, res, next) => {
       res.render("iteminstance_form", {
         title: "Update ItemInstance",
         item_list: results.items,
-        item_instance: results.item_instance,
+        iteminstance: results.iteminstance,
       });
     }
   );
 };
 
 // Handle ItemInstance update on POST
-exports.iteminstance_update_post = (req, res, next) => {};
+exports.iteminstance_update_post = [
+  // Validate and sanitize fields.
+  body("item").trim().escape(),
+  body("size").optional({ checkFalsy: true }).trim().escape(),
+  body("condition").trim().escape(),
+  body("available").trim().escape(),
+
+  // Process request after validation and sanitization.
+  (req, res, next) => {
+    // Extract the validation errors from a request.
+    const errors = validationResult(req);
+
+    // Create an ItemInstance object with escaped/trimmed data and current id.
+    const iteminstance = new ItemInstance({
+      _id: req.params.id,
+      item: req.body.item,
+      size: req.body.size,
+      condition: req.body.condition,
+      available: req.body.available,
+    });
+
+    if (!errors.isEmpty()) {
+      // There are errors so render the form again, passing sanitized values and errors.
+      Item.find({}).exec(function (err, items) {
+        if (err) {
+          return next(err);
+        }
+        // Successful, so render.
+        res.render("iteminstance_form", {
+          title: "Create ItemInstance",
+          item_list: items,
+          selected_item: iteminstance.item._id,
+          errors: errors.array(),
+          iteminstance,
+        });
+      });
+      return;
+    } else {
+      // Data from form is valid.
+      ItemInstance.findByIdAndUpdate(
+        req.params.id,
+        iteminstance,
+        {},
+        function (err, theiteminstance) {
+          if (err) {
+            return next(err);
+          }
+          // Successful - redirect to detail page.
+          res.redirect(theiteminstance.url);
+        }
+      );
+    }
+  },
+];
 
 // Display ItemInstance delete form on GET
 exports.iteminstance_delete_get = (req, res, next) => {
@@ -167,12 +220,15 @@ exports.iteminstance_delete_get = (req, res, next) => {
 // Handle ItemInstance delete on POST
 exports.iteminstance_delete_post = (req, res, next) => {
   // Assume valid ItemInstance id in field.
-  ItemInstance.findByIdAndRemove(req.body.iteminstanceid, function deleteItemInstance(err) {
-    if (err) {
-      return next(err);
-    }
+  ItemInstance.findByIdAndRemove(
+    req.body.iteminstanceid,
+    function deleteItemInstance(err) {
+      if (err) {
+        return next(err);
+      }
 
-    // Success, so redirect to list of ItemInstance items.
-    res.redirect("/iteminstance");
-  });
+      // Success, so redirect to list of ItemInstance items.
+      res.redirect("/iteminstance");
+    }
+  );
 };
