@@ -23,8 +23,8 @@ block content
                 label(class="form__label" for='price') Price:
                 input(type="number" id="price" name="price" class="form__control" step="0.01" min="0" required="true" placeholder="39.99" value=(item && item.price))
             div(class="form__group")
-                label(class="form__label" for='size') Sizes (optional, seperate sizes by one space):
-                input(id="size" name="size" class="form__control" placeholder="S M L XL 2XL" value=(item && item.size))
+                label(class="form__label" for='size') Sizes (optional, seperate sizes by TWO spaces):
+                input(id="size" name="size" class="form__control" placeholder="S  M  L  XL  2XL" value=(item && item.size))
             div(class="form__group")
                 label(class="form__label" for='description') Description
                 textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Show off your team spirit when you get these Los Angeles Lakers Tonal Pop Slide Sandals from ISlide." ) #{item && item.description}
