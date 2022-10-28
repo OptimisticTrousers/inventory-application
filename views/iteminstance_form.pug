@@ -12,16 +12,14 @@ block content
             div(class="form__group")
                 label(class="form__label" for='item') Item:
                 select(id="item" name="item" class="form__control" required="true")
-                    - item_list.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
-                    for item in item_list
-                        option(value=item._id selected=(selected_item=item._id.toString() ? 'selected' : false)) #{item.name}
+                    for item, index in item_list
+                        option(value=item._id) #{item.name}
             div(class="form__group")
-                label(class="form__label" for='size') Size
-                select(id="item" name="item" class="form__control" required="true")
-                    for item in item_list
-                        if item.size
-                            for size in item.size
-                                option(value=size) #{size}
+                    label(class="form__label" for='size') Size
+                    select(id="size" name="size" class="form__control" required="true")
+                            if item_list[0].size 
+                                each size in item_list[0].size.split("  ")
+                                    option(value=size) #{size}
             div(class="form__group")
                 label(class="form__label" for='condition') Condition
                 select(id="condition" name="condition" class="form__control" required="true")
@@ -41,3 +39,32 @@ block content
             ul
                 for error in errors
                     li!= error.msg
+
+    script.
+        const itemDropdown = document.querySelector("#item");
+
+        let currentIndex = 0;
+
+        itemDropdown.addEventListener("change", (event) => {
+
+            const sizeDropdown = document.querySelector("#size");
+            const itemList = !{JSON.stringify(item_list)};
+
+            sizeDropdown.options.length = 0;
+            currentIndex = itemDropdown.selectedIndex;
+
+            const currentItem = itemList[currentIndex];
+
+            let sizeIndex = 0;
+
+            if(currentItem.size)  {
+                const splitCurrentItemSize = currentItem.size.split("  ");
+                while(sizeDropdown.options.length != splitCurrentItemSize.length) {
+                    const option = document.createElement("option");
+                    option.value = splitCurrentItemSize[sizeIndex];
+                    option.textContent = splitCurrentItemSize[sizeIndex];
+                    sizeIndex++;
+                    sizeDropdown.append(option);
+                }
+            }
+        })
