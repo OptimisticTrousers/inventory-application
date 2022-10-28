@@ -45,7 +45,7 @@ exports.iteminstance_detail = (req, res, next) => {
 
 // Display ItemInstance create form on GET
 exports.iteminstance_create_get = (req, res, next) => {
-  Item.find({}, "name")
+  Item.find({})
     .sort({ name: 1 })
     .exec((err, items) => {
       if (err) {
@@ -85,7 +85,7 @@ exports.iteminstance_create_post = [
 
     if (!errors.isEmpty()) {
       // There are errors. Render form again with sanitized values and error messages.
-      Item.find({}, "name").exec(function (err, items) {
+      Item.find({}).exec(function (err, items) {
         if (err) {
           return next(err);
         }
