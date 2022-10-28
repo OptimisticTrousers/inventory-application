@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
+const upload = multer({ dest: "public/uploads/", limits: { fieldSize: 10 } });
 
 const category_controller = require("../controllers/categoryController");
 
@@ -9,7 +11,11 @@ const category_controller = require("../controllers/categoryController");
 router.get("/create", category_controller.category_create_get);
 
 // POST request for creating a Category
-router.post("/create", category_controller.category_create_post);
+router.post(
+  "/create",
+  upload.single("picture"),
+  category_controller.category_create_post
+);
 
 // GET request for list of all Category items
 router.get("/", category_controller.index);
