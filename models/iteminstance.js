@@ -5,7 +5,7 @@ const ItemInstanceSchema = new Schema({
   item: { type: Schema.Types.ObjectId, ref: "Item", required: true },
   size: { type: String },
   condition: { type: String, required: true },
-  available: { type: Boolean, required: true },
+  available: { type: String, required: true },
 });
 
 ItemInstanceSchema.virtual("url").get(function () {
