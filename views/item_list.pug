@@ -16,7 +16,8 @@ block content
                         h2(class="detail__name")=item.name
                         p(class="detail__description")=item.description
                         div(class="detail__links")
-                            a(class="detail__link" href=`${item.url}/update`) Details
-                            a(class="detail__link" href=`${item.url}/delete`) Edit
+                            a(class="detail__link" href=item.url) Details
+                            a(class="detail__link" href=`${item.url}/update`) Edit
+                            a(class="detail__link" href=`${item.url}/delete`) Delete
             else
                 li There are no items in this application
