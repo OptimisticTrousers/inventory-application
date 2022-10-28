@@ -1,0 +1,22 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+
+block content
+    div(class="detail")
+        header(class="detail__header")
+            div(class="detail__text")
+                h1(class="detail__title") Item Instances
+                p(class="detail__description") A list of all item instances in the application
+        div(class="detail__list")
+                for instance in iteminstance_list
+                    article(class="detail__article")
+                        h2(class="detail__name")=instance.item.name
+                        p(class="detail__description")=instance.item
+                        p(class="detail__description")=instance.size
+                        p(class="detail__description")=instance.condition
+                        p(class="detail__description")=instance.available
+                        div(class="detail__links")
+                            a(class="detail__link" href=`${instance.url}/update`) Details
+                            a(class="detail__link" href=`${instance.url}/delete`) Edit
