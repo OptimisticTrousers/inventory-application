@@ -12,7 +12,7 @@ block content
                 p(class="detail__bold") $#{item.price}
                 if item.size
                     p(class="detail__description") Sizes Available: 
-                        span(class="detail__bold") #{item.size.split(" ").join(", ")}
+                        span(class="detail__bold") #{item.size.split("  ").join(", ")}
                 p(class="detail__description") Category: 
                     for category, index in item.category
                         if index === item.category.length - 1
