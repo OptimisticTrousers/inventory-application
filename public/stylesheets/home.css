@@ -27,6 +27,7 @@
   height: 100px;
   background-color: transparent;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .home__title {

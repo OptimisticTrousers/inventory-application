@@ -26,6 +26,8 @@ block content
               div(class="home__images")
                 if category.picture
                   img(class="home__image" src=`/uploads/${category.picture.get("filename")}`)
+                else 
+                  img(class="home__image" src="/images/placeholder.png")
                 img(class="home__image" src="/images/icons8-external-link.svg")
               p(class="home__category-description") #{category.description}
       else
