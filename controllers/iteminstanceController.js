@@ -167,7 +167,7 @@ exports.iteminstance_delete_get = (req, res, next) => {
 // Handle ItemInstance delete on POST
 exports.iteminstance_delete_post = (req, res, next) => {
   // Assume valid ItemInstance id in field.
-  ItemInstance.findByIdAndRemove(req.body.id, function deleteItemInstance(err) {
+  ItemInstance.findByIdAndRemove(req.body.iteminstanceid, function deleteItemInstance(err) {
     if (err) {
       return next(err);
     }
