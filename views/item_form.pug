@@ -11,7 +11,7 @@ block content
         form(class="form__form" method="POST" action="")
             div(class="form__group")
                 label(class="form__label" for='name') Name:
-                input(id="name" name="name" class="form__control" required="true" placeholder="Name of item" value=(item && item.name))
+                input(id="name" name="name" class="form__control" required="true" placeholder="Men's Los Angeles Lakers ISlide Black Tonal Pop Slide Sandals" value=(item && item.name))
             div(class="form__group")
                 label(class="form__label" for='category') Category:
                 div
@@ -21,13 +21,13 @@ block content
                             label(for=category._id) #{category.name}
             div(class="form__group")
                 label(class="form__label" for='price') Price:
-                input(type="number" id="price" name="price" class="form__control" min="0" required="true" placeholder="Price of item" value=(item && item.price))
-            //- div(class="form__group")
-            //-     label(class="form__label" for='sizes') Sizes (Optional):
-            //-     input(type="number" id="sizes" name="sizes" class="form__control" placeholder="Stock of item")
+                input(type="number" id="price" name="price" class="form__control" min="0" required="true" placeholder="39.99" value=(item && item.price))
+            div(class="form__group")
+                label(class="form__label" for='sizes') Sizes (optional, seperate sizes by one space):
+                input(id="sizes" name="sizes" class="form__control" placeholder="S M L XL 2XL")
             div(class="form__group")
                 label(class="form__label" for='description') Description
-                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Description of item" ) #{item && item.description}
+                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Show off your team spirit when you get these Los Angeles Lakers Tonal Pop Slide Sandals from ISlide." ) #{item && item.description}
             button(class="form__button" type="submit") SUBMIT
 
         if errors
