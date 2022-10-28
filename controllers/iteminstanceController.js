@@ -6,7 +6,7 @@ const async = require("async");
 
 // Display list of all ItemInstances
 exports.index = (req, res, next) => {
-  ItemInstance.find()
+  ItemInstance.find({})
     .populate("item")
     .exec((err, list_iteminstances) => {
       if (err) {

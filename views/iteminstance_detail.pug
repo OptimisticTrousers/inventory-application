@@ -8,12 +8,17 @@ block content
     div(class="detail")
         header(class="detail__header")
             div(class="detail__text")
-                h1(class="detail__title") ID: #{iteminstance._id}
-                p(class="detail__description") Product: #{iteminstance.item.name}
+                h1(class="detail__title") ID: 
+                    span(class="detail__bold") #{iteminstance._id}
+                p(class="detail__description") Product: 
+                    span(class="detail__bold") #{iteminstance.item.name}
                 if iteminstance.size
-                    p(class="detail__price") Size: #{iteminstance.size}
-                p(class="detail__description") Condition: #{iteminstance.condition}
-                p(class="detail__description") Available: #{iteminstance.available}
+                    p(class="detail__price") Size: 
+                        span(class="detail__bold") #{iteminstance.size}
+                p(class="detail__description") Condition: 
+                    span(class="detail__bold") #{iteminstance.condition}
+                p(class="detail__description") Available: 
+                    span(class="detail__bold") #{iteminstance.available}
 
             div(class="detail__links")
                 a(class="detail__link" href=`${iteminstance.url}/update`) Edit

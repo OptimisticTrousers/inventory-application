@@ -31,8 +31,8 @@ block content
             div(class="form__group")
                 label(class="form__label" for='available') Available
                 select(id="available" name="available" class="form__control" required="true")
-                    option(value="Yes" selected=(undefined===iteminstance || iteminstance.available != 'Yes' ? false: 'selected')) Yes
-                    option(value="No" selected=(undefined==iteminstance || iteminstance.available!='No' ? false: 'selected')) No
+                    option(value="Yes") Yes
+                    option(value="No") No
             button(class="form__button" type="submit") SUBMIT
 
         if errors

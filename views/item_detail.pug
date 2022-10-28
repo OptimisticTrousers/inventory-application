@@ -28,11 +28,13 @@ block content
                 article(class="detail__article")
                     h2(class="detail__name") ID: #{instance._id}
                     if instance.size
-                        p(class="detail__description") Size: #{item.size}
-                    p(class="detail__description") Condition: #{item.condition}
-                    p(class="detail__description") Defective: #{item.defective}
-                    p(class="detail__description") Available: #{item.defective}
+                        p(class="detail__description") Size: 
+                            span(class="detail__bold") #{instance.size}
+                    p(class="detail__description") Condition: 
+                        span(class="detail__bold") #{instance.condition}
+                    p(class="detail__description") Available: 
+                        span(class="detail__bold") #{instance.available}
                     div(class="detail__links")
-                        a(class="detail__link" href=item.url) Details
-                        a(class="detail__link" href=`${item.url}/update`) Edit
-                        a(class="detail__link" href=`${item.url}/delete`) Delete
+                        a(class="detail__link" href=instance.url) Details
+                        a(class="detail__link" href=`${instance.url}/update`) Edit
+                        a(class="detail__link" href=`${instance.url}/delete`) Delete

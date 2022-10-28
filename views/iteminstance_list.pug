@@ -13,13 +13,17 @@ block content
             if iteminstance_list.length > 0 
                 for instance in iteminstance_list
                     article(class="detail__article")
-                        h2(class="detail__name")=instance.item.name
-                        p(class="detail__description")=instance.item
-                        p(class="detail__description")=instance.size
-                        p(class="detail__description")=instance.condition
-                        p(class="detail__description")=instance.available
+                        h2(class="detail__name") 
+                            span(class="detail__bold")=instance.item.name
+                        p(class="detail__description") Item Size: 
+                            span(class="detail__bold")=instance.size
+                        p(class="detail__description") Item Condition: 
+                            span(class="detail__bold")=instance.condition
+                        p(class="detail__description") Item Available: 
+                            span(class="detail__bold")=instance.available
                         div(class="detail__links")
-                            a(class="detail__link" href=`${instance.url}/update`) Details
-                            a(class="detail__link" href=`${instance.url}/delete`) Edit
+                            a(class="detail__link" href=instance.url) Details
+                            a(class="detail__link" href=`${instance.url}/update`) Edit
+                            a(class="detail__link" href=`${instance.url}/delete`) Delete
             else
                 li There are no item instances
