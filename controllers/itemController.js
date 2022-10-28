@@ -6,7 +6,7 @@ const { body, validationResult } = require("express-validator");
 
 // Display list of all Items
 exports.index = (req, res, next) => {
-  Item.find({}, "name category")
+  Item.find({})
     .sort({ name: 1 })
     .populate("category")
     .exec((err, list_items) => {

@@ -10,10 +10,13 @@ block content
                 h1(class="detail__title") Items
                 p(class="detail__description") A list of all items in the application
         div(class="detail__list")
-            for item in item_list
-                article(class="detail__article")
-                    h2(class="detail__name")=item.name
-                    p(class="detail__description")=item.description
-                    div(class="detail__links")
-                        a(class="detail__link" href=`${item.url}/update`) Details
-                        a(class="detail__link" href=`${item.url}/delete`) Edit
+            if item_list.length > 0
+                for item in item_list
+                    article(class="detail__article")
+                        h2(class="detail__name")=item.name
+                        p(class="detail__description")=item.description
+                        div(class="detail__links")
+                            a(class="detail__link" href=`${item.url}/update`) Details
+                            a(class="detail__link" href=`${item.url}/delete`) Edit
+            else
+                li There are no items in this application

@@ -10,6 +10,7 @@ block content
                 h1(class="detail__title") Item Instances
                 p(class="detail__description") A list of all item instances in the application
         div(class="detail__list")
+            if iteminstance_list.length > 0 
                 for instance in iteminstance_list
                     article(class="detail__article")
                         h2(class="detail__name")=instance.item.name
@@ -20,3 +21,5 @@ block content
                         div(class="detail__links")
                             a(class="detail__link" href=`${instance.url}/update`) Details
                             a(class="detail__link" href=`${instance.url}/delete`) Edit
+            else
+                li There are no item instances

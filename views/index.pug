@@ -18,11 +18,14 @@ block content
     h1(class="home__title")= title
 
     nav(class="home__navigation")
-      each category in data.category_list
-        a(class="home__link home__link--category" href=`${category.url}`)
-          div(class="home__card")
-            h2(class="home__subtitle") #{category.name}
-            div(class="home__images")
-              img(class="home__image" src="/images/basketball-jersey.png")
-              img(class="home__image" src="/images/icons8-external-link.svg")
-            p(class="home__category-description") #{category.description}
+      if data.category_list.length > 0
+        each category in data.category_list
+          a(class="home__link home__link--category" href=`${category.url}`)
+            div(class="home__card")
+              h2(class="home__subtitle") #{category.name}
+              div(class="home__images")
+                img(class="home__image" src="/images/basketball-jersey.png")
+                img(class="home__image" src="/images/icons8-external-link.svg")
+              p(class="home__category-description") #{category.description}
+      else
+        li There are no categories in this application
