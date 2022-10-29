@@ -9,7 +9,7 @@
 
 ## Purpose
 
-Creating an Express application using MongoDB, Mongoose and Pug to learn how Express works with routing, middleware, and rendering. Using the MVC pattern to design the application. Application generated with the express-application-generator command. https://expressjs.com/en/starter/generator.html
+Creating an Express application using MongoDB, Mongoose and Pug. Learned how Express works with routing, middleware, and rendering. Learned how to use Mongoose to query data. Learned how to use Pug for templating. Using the MVC pattern to design the application. Application generated with the express-application-generator command. https://expressjs.com/en/starter/generator.html
 
 Beyond that, other learning outcomes were:
 
@@ -41,6 +41,7 @@ Beyond that, other learning outcomes were:
 
 - [Express](https://expressjs.com/) - Web framework
 - [MongoDB](https://www.mongodb.com/) - Database
+- [Node](https://nodejs.org/en/) - JavaScript runtime
 - [Mongoose](https://mongoosejs.com/docs/) - Object Data Model for MongoDB
 - [Pug](https://pugjs.org/api/getting-started.html) - A templating engine
 
