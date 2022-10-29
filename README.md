@@ -21,7 +21,6 @@ Beyond that, other learning outcomes were:
 - Writing models and querying data with Mongoose
 - Using 'multer' middleware to allow users to upload images
 
-
 ## Features
 
 1. Allows users to create categories, items, and item instances
@@ -52,6 +51,8 @@ Beyond that, other learning outcomes were:
 * [ ] Use a hamburger menu for navigation
 * [ ] Delete images from database once the user deletes that category/item/item instance
 * [ ] Verify that the user is sending an image file and not any other type of file
+* [ ] Use a better way to generate the 'Size' input field based on the 'Item' input field in the Item Instance creation form. Currently using an inline-script.
+
 
 ## Known Bugs
 
