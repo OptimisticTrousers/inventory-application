@@ -8,10 +8,10 @@ block content
         header(class="detail__header")
             div(class="detail__text")
                 h1(class="detail__title") #{item.name}
-                p(class="detail__description") #{item.description}
-                p(class="detail__bold") $#{item.price}
-                if item.picture
-                    img(class="detail__image" src=`/uploads/${item.picture.get("filename")}`)
+                p(class="detail__description") Description: 
+                    span(class="detail__bold") #{item.description}
+                p(class="detail__description") Price: 
+                    span(class="detail__bold") #{item.price}
                 if item.size
                     p(class="detail__description") Sizes Available: 
                         span(class="detail__bold") #{item.size.split("  ").join(", ")}
@@ -21,6 +21,8 @@ block content
                             span(class="detail__bold") #{` ${category.name}`}
                         else
                             span(class="detail__bold") #{category.name},
+                if item.picture
+                    img(class="detail__image" src=`/uploads/${item.picture.get("filename")}`)
                 p(class="detail__count") #{item_instances.length} instances
             div(class="detail__links")
                 a(class="detail__link" href=`${item.url}/update`) Edit
