@@ -22,7 +22,7 @@ block content
                         else
                             span(class="detail__bold") #{category.name},
                 if item.picture
-                    img(class="detail__image" src=`/uploads/${item.picture.get("filename")}`)
+                    img(class="detail__image" src=`/uploads/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
                 p(class="detail__count") #{item_instances.length} instances
             div(class="detail__links")
                 a(class="detail__link" href=`${item.url}/update`) Edit
@@ -39,7 +39,7 @@ block content
                     p(class="detail__description") Available: 
                         span(class="detail__bold") #{instance.available}
                     if instance.picture
-                        img(class="detail__image" src=`/uploads/${instance.picture.filename}`)
+                        img(class="detail__image" src=`/uploads/${instance.picture.filename}` alt=instance.picture.get("originalname"))
                     div(class="detail__links")
                         a(class="detail__link" href=instance.url) Details
                         a(class="detail__link" href=`${instance.url}/update`) Edit

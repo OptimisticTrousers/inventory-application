@@ -11,7 +11,7 @@ block content
                 h1(class="detail__title")=category.name
                 p(class="detail__description")=category.description
                 if category.picture
-                    img(class="detail__image" src=`/uploads/${category.picture.get("filename")}`)
+                    img(class="detail__image" src=`/uploads/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
                 p(class="detail__count") #{category_items.length} products
 
             div(class="detail__links")

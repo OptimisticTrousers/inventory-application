@@ -25,7 +25,7 @@ block content
               h2(class="home__subtitle") #{category.name}
               div(class="home__images")
                 if category.picture
-                  img(class="home__image" src=`/uploads/${category.picture.get("filename")}`)
+                  img(class="home__image" src=`/uploads/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
                 else 
                   img(class="home__image" src="/images/placeholder.png")
                 img(class="home__image" src="/images/icons8-external-link.svg")
