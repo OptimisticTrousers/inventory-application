@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const upload = multer({ dest: "public/uploads/", limits: { fieldSize: 10 } });
+const upload = multer({ dest: "public/uploads/" });
 
 const category_controller = require("../controllers/categoryController");
 
@@ -27,7 +27,11 @@ router.get("/:id", category_controller.category_detail);
 router.get("/:id/update", category_controller.category_update_get);
 
 // POST request for updating a category
-router.post("/:id/update", upload.single("picture"), category_controller.category_update_post);
+router.post(
+  "/:id/update",
+  upload.single("picture"),
+  category_controller.category_update_post
+);
 
 // GET request for deleting a category
 router.get("/:id/delete", category_controller.category_delete_get);

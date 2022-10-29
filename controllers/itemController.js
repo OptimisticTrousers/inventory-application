@@ -91,7 +91,6 @@ exports.item_create_post = [
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
-    console.log(req.file);
     // Create a Item object with escaped and trimmed data.
     const item = new Item({
       name: req.body.name,

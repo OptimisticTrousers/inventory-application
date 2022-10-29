@@ -11,7 +11,7 @@ block content
                 p(class="detail__description") #{item.description}
                 p(class="detail__bold") $#{item.price}
                 if item.picture
-                    img(class="detail__image" src=`/uploads/${item.picture.filename}`)
+                    img(class="detail__image" src=`/uploads/${item.picture.get("filename")}`)
                 if item.size
                     p(class="detail__description") Sizes Available: 
                         span(class="detail__bold") #{item.size.split("  ").join(", ")}
