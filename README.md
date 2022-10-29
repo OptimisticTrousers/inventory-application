@@ -51,7 +51,7 @@ Beyond that, other learning outcomes were:
 * [ ] Use a hamburger menu for navigation
 * [ ] Delete images from database once the user deletes that category/item/item instance
 * [ ] Verify that the user is sending an image file and not any other type of file
-* [ ] Use a better way to generate the 'Size' input field based on the 'Item' input field in the Item Instance creation form. Currently using an inline-script.
+* [ ] Use a better way to generate the 'Size' input field based on the 'Item' input field in the Item Instance creation form. Currently using an inline-script which is a Content Security Policy risk.
 
 
 ## Known Bugs
