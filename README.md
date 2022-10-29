@@ -1,4 +1,4 @@
-# Reddit Clone
+# Inventory Management Application
 
 ## Description
 
