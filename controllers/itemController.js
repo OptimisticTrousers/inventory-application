@@ -190,7 +190,7 @@ exports.item_update_post = [
   },
   // Validate and sanitize fields.
   body("name", "Name must not be empty.").trim().isLength({ min: 1 }).escape(),
-  body("size").trim().isLength({ min: 1 }).escape(),
+  body("size").optional().trim().escape(),
   body("price", "Price must not be empty.")
     .trim()
     .isLength({ min: 1 })
