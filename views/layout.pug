@@ -9,17 +9,21 @@ html(lang='en')
     block styles
   body
     header(class="header")
-      a(href="/")
-        img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
-      a(class="header__link" href="/category/create") ADD NEW CATEGORY
-        div(class="header__icon") +
-      a(class="header__link" href="/item/create") ADD NEW ITEM
-        div(class="header__icon") +
-      a(class="header__link" href="/iteminstance/create") ADD NEW ITEM INSTANCE
-        div(class="header__icon") +
-      a(class="header__link" href="/") CATEGORIES
-      a(class="header__link" href="/item") ITEMS
-      a(class="header__link" href="/iteminstance") ITEM INSTANCES
+      nav(class="header__navigation")
+        input(type="checkbox" id="check")
+        label(for="check" class="header__menu")
+          div(class="header__bar")
+          div(class="header__bar")
+          div(class="header__bar")
+        a(href="/")
+          img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
+        ul(class="header__list")
+          li(class="header__item")
+            a(class="header__link" href="/") Categories
+          li(class="header__item")
+            a(class="header__link" href="/item") Items
+          li(class="header__item")
+            a(class="header__link" href="/iteminstance") Item Stock
     main
       block content
     footer(class="footer")
