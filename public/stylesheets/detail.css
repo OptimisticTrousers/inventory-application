@@ -1,5 +1,5 @@
 .detail {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   border-radius: var(--border-size);
   background-color: white;
@@ -138,13 +138,13 @@
   border-radius: 8px;
   background-color: #375af2;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word;
 }
 
 @media (max-width: 858px) {
   .detail__container {
     position: fixed;
     margin-top: 7rem;
-    background-color: rgb(58, 58, 58);
   }
   .home{
     margin-top: 14rem;

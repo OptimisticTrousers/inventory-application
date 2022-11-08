@@ -112,6 +112,10 @@ li {
   cursor: pointer;
 }
 
+.header__image:hover {
+  opacity: 0.7;
+}
+
 .header__link:hover {
   background: #1b9bff;
   transition: 0.5s;

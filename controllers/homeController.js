@@ -21,7 +21,7 @@ const home_controller = (req, res, next) => {
         return next(err);
       }
       res.render("index", {
-        title: "NBA Store",
+        title: "Inventory Management Application",
         error: err,
         data: results,
       });
