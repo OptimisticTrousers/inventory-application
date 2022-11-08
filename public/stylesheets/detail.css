@@ -59,6 +59,7 @@
 .detail__image {
   display: block;
   width: 200px;
+  border-radius: 8px;
 }
 
 .detail__bold {
