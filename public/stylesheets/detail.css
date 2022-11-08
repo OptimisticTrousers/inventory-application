@@ -77,16 +77,6 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.detail__article:nth-child(1) {
-  border-top-right-radius: var(--border-size);
-  border-top-left-radius: var(--border-size);
-}
-
-.detail__article:nth-last-child(1) {
-  border-bottom-right-radius: var(--border-size);
-  border-bottom-left-radius: var(--border-size);
-}
-
 .detail__article {
   display: flex;
   flex-direction: column;
