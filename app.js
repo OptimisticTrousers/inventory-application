@@ -4,6 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const indexRouter = require("./routes/index");
 const categoryRouter = require("./routes/category");
@@ -15,9 +16,7 @@ const helmet = require("helmet");
 
 const app = express();
 
-const dev_db_url =
-  "mongodb+srv://optimistic:backatit2002@cluster0.8deylk9.mongodb.net/?retryWrites=true&w=majority";
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.DB_STRING;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
