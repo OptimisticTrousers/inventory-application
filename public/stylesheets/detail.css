@@ -1,12 +1,8 @@
-:root {
-  --border-size: 4px;
-}
-
 .detail {
   max-width: 800px;
   margin: 0 auto;
   border-radius: var(--border-size);
-  background-color: #eaeef0;
+  background-color: white;
   padding: 2rem 3rem;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
   margin-bottom: 3rem;
@@ -95,8 +91,10 @@
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  color: white;
   gap: 8px;
-  background-color: white;
+  border-radius: 8px;
+  background-color: #375af2;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
