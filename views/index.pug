@@ -13,20 +13,21 @@ block content
       a(class="detail__link detail__link--add" href="/category/create") Add Category
     if error
       p Error getting dynamic content.
-    h1(class="home__title")= title
+    section(class="home")
+      h1(class="home__title")= title
 
-    nav(class="home__navigation")
-      if data.category_list.length > 0
-        each category in data.category_list
-          a(class="home__link home__link--category" href=`${category.url}`)
-            div(class="home__card")
-              h2(class="home__subtitle") #{category.name}
-              div(class="home__images")
-                if category.picture
-                  img(class="home__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
-                else 
-                  img(class="home__image" src="/images/placeholder.png")
-                img(class="home__image" src="/images/icons8-external-link.svg")
-              p(class="home__category-description") #{category.description}
-      else
-        li There are no categories in this application
+      nav(class="home__navigation")
+        if data.category_list.length > 0
+          each category in data.category_list
+            a(class="home__link home__link--category" href=`${category.url}`)
+              div(class="home__card")
+                h2(class="home__subtitle") #{category.name}
+                div(class="home__images")
+                  if category.picture
+                    img(class="home__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
+                  else 
+                    img(class="home__image" src="/images/placeholder.png")
+                  img(class="home__image" src="/images/icons8-external-link.svg")
+                p(class="home__category-description") #{category.description}
+        else
+          li There are no categories in this application

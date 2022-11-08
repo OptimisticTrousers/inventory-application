@@ -149,6 +149,9 @@ li {
 /* https://stackoverflow.com/questions/1734618/how-to-increase-the-gap-between-text-and-underlining-in-cs */
 
 @media (max-width: 858px) {
+  .header {
+    position: fixed;
+  }
   .header__navigation {
     flex-direction: row-reverse;
   }

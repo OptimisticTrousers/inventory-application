@@ -72,6 +72,12 @@ select {
   background-color: rgb(44, 60, 203, 0.7);
 }
 
+@media(max-width: 858px) {
+  .form {
+    margin-top: 8rem;
+  }
+}
+
 @media(max-width: 520px) {
   .form__form {
     width: 100%;
