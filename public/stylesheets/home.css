@@ -10,6 +10,8 @@
   box-shadow: 20px 6px 30px 0 rgba(0, 0, 0, 0.25);
 }
 
+
+
 .home__subtitle {
   margin-left: 1rem;
   font-weight: 900;
@@ -35,7 +37,6 @@
   padding: 0 1rem;
   font-size: 4rem;
   text-align: center;
-  color: black;
   font-family: "Vilane";
 }
 
@@ -72,7 +73,6 @@
 }
 
 .home__description {
-  color: black;
   padding-left: 2rem;
 }
 

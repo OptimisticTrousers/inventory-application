@@ -2,19 +2,17 @@ extends layout
 
 block styles
   link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel='stylesheet' href='/stylesheets/global.css')
+  link(rel='stylesheet' href='/stylesheets/detail.css')
 
 block content
 
+    div(class="detail__container")
+      h2(class="detail__detail") Categories: 
+        span(class="detail__count") (#{data.category_count})
+      a(class="detail__link detail__link--add" href="/category/create") Add Category
     if error
       p Error getting dynamic content.
-    else
-      div(class="home__content")
-        p(class="home__description") The NBA Store has the following record counts:
-
-        ul
-          li #[strong Categories: !{data.category_count}] 
-          li #[strong Items: !{data.item_count}] 
-
     h1(class="home__title")= title
 
     nav(class="home__navigation")
