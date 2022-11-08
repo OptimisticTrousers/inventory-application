@@ -11,7 +11,7 @@ block content
                 h1(class="detail__title")=category.name
                 p(class="detail__description")=category.description
                 if category.picture
-                    img(class="detail__image" src=`/uploads/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
+                    img(class="detail__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
                 p(class="detail__count") #{category_items.length} products
 
             div(class="detail__links")
@@ -23,6 +23,8 @@ block content
                 article(class="detail__article")
                     h2(class="detail__name")=item.name
                     p(class="detail__description")=item.description
+                    if item.picture
+                        img(class="detail__image" src= `/images/${item.picture.get("filename")}`)
                     //- p(class="detail__stock")=item.number_in_stock
                     div(class="detail__links")
                         a(class="detail__link" href=item.url) Details
