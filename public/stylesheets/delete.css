@@ -3,6 +3,7 @@
 }
 
 .delete {
+    margin-top: 4rem;
     display: grid;
     place-items: center;
 }
