@@ -146,6 +146,7 @@ li {
   .detail__container {
     flex-direction: column;
     gap: 0;
+    padding-bottom: 30px;
   }
   .detail {
     padding: 1rem;
