@@ -53,11 +53,7 @@
 @media(max-width: 858px) {
     .delete, .error {
         margin-top: 10rem;
-    }
-}
-
-@media(max-width: 520px) {
-    .delete__container {
-        border-radius: 0;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
 }

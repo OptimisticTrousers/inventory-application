@@ -85,12 +85,6 @@
   text-decoration: none;
 }
 
-@media(Max-width: 858px) {
-  .home{
-    margin-top: 20rem;
-  }
-}
-
 @media (max-width: 520px) {
   .home__title {
     font-size: 2rem;
