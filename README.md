@@ -4,7 +4,7 @@
 
 [App] Creating an inventory management website for a fake business. Allows users to create, read, update, and delete categories, items, and item instances.
 
-> See it live on [optimistictrousers.github.io/inventory-application](https://optimistictrousers.github.io/inventory-application/)
+> See it live on [https://rocky-tundra-71808.herokuapp.com/](https://rocky-tundra-71808.herokuapp.com/)
 > Or clone repo, cd into repo, then run "npm run devstart"
 
 ## Purpose
