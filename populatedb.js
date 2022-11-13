@@ -26,10 +26,10 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 const categories = [];
 const items = [];
 
-function categoryCreate(name, description, cb) {
-  authordetail = { name, description };
+function categoryCreate(name, description, picture, cb) {
+  categorydetail = { name, description, picture };
 
-  const category = new Category(authordetail);
+  const category = new Category(categorydetail);
 
   category.save(function (err) {
     if (err) {
@@ -48,6 +48,7 @@ function itemCreate(
   category,
   price,
   number_in_stock,
+  picture,
   size,
   cb
 ) {
@@ -57,6 +58,7 @@ function itemCreate(
     category,
     price,
     number_in_stock,
+    picture,
     size,
   });
 
@@ -78,6 +80,10 @@ function createCategories(cb) {
         categoryCreate(
           "Jerseys",
           "Celebrate your team and your city with the 2021/22 NBA City Edition Jerseys to rep your team in style. We also offer NBA Statement Edition jerseys for your favorite players.",
+          {
+            filename: "jersey.png",
+            originalname: "jersey"
+          },
           callback
         );
       },
@@ -85,6 +91,10 @@ function createCategories(cb) {
         categoryCreate(
           "T-Shirts",
           "Shop for all the latest t-shirts from any of your favorite NBA teams right here at NBAStore.com! Browse our wide collection of exclusive t-shirts from any team in the NBA, including championship t-shirts, name and number tees, and much more. Our collection of t-shirts come in a constiety of styles from short and long sleeved tees to tank tops. No matter if you're looking for shirts or tops for men, women, or kids, you can find any kind of shirt from any NBA team right here at the official online store of the NBA. Place your order on your NBA t-shirt today and be sure to check back later for new arrivals that may be added!",
+          {
+            filename: "t-shirt.jpg",
+            originalname: "t-shirt"
+          },
           callback
         );
       },
@@ -92,6 +102,10 @@ function createCategories(cb) {
         categoryCreate(
           "Hats",
           "Buy NBA team hats from the official online store of the NBA. We carry the latest NBA basketball hats from Mitchell & Ness and New Era. Complete your basketball gear with your favorite NBA team cap. The NBA store offers a wide range of NBA fitted hats, NBA snapback hats, NBA stretchfit hats, novelty hats, and knit hats. Visit us regularly for exclusive online discounts on the latest and hottest NBA hats! Make sure to check NBA hat sizing before you buy a fitted cap!",
+          {
+            filename: "hat.jpg",
+            originalname: "hat"
+          },
           callback
         );
       },
@@ -99,6 +113,10 @@ function createCategories(cb) {
         categoryCreate(
           "Footwear",
           "When you're ready to hit the court, make sure you get your kicks at the official NBA Store! We're your source for the latest and hottest NBA basketball shoes from your favorite stars! Shop the newest arrivals of NBA Jordan Shoes featuring sneakers from Carmelo Anthony, Chris Paul, and Michael Jordan. Or, our Nike Sneaker collection boasts of shoes from LeBron James, Kobe Bryant, and Kevin Durant. Also, don't forget about our selection of new Air Jordan Shoes and Under Armour Footwear featuring new, unique designs. Whether you're looking for the KD VII, LeBron XII, or any other NBA shoe, stay tuned to NBAStore.com for the latest updates.",
+          {
+            filename: "footwear.png",
+            originalname: "footwear"
+          },
           callback
         );
       },
@@ -106,6 +124,10 @@ function createCategories(cb) {
         categoryCreate(
           "Accessories",
           "Don't limit your basketball gear to just jerseys and hats! NBA Store is your top source for all the best NBA accessories and gifts as well. Buy NBA jewelry, sunglasses, watches, and so much more featuring your favorite team's logo and colors. Check out the latest electronics like headphones, bluetooth speakers, and covers for your phone, tablet, or laptop, including the latest iPhone and Android phone cases. We have hundreds of accessories for men, women, and kids. You are sure to find the perfect basketball accessory for yourself or as a gift for a loved one at the official online store of the NBA.",
+          {
+            filename: "accessory.jpg",
+            originalname: "accessory"
+          },
           callback
         );
       },
@@ -113,6 +135,10 @@ function createCategories(cb) {
         categoryCreate(
           "Collectibles",
           "Grab the greatest NBA Collectibles from your favorite teams to remember all the greatest moments in NBA history. Enjoy your player Collectibles from the greats like Kobe Bryant, Lebron James, Stephen Curry and more. Get your Signed pictures and autographed jerseys from the hottest NBA players to ever play the game. Browse through and shop for your favorite NBA collectibles from the Official NBA Store.",
+          {
+            filename: "collectible.webp",
+            originalname: "collectible"
+          },
           callback
         );
       },
@@ -132,6 +158,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Jerseys"),
           55.99,
           10,
+          {
+            filename: "zach-lavine-jersey.jpg",
+            originalname: "zach lavine jersey"
+          },
           "S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
         );
@@ -143,6 +173,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Jerseys"),
           55.99,
           10,
+          {
+            filename: "kevin-durant-jersey.webp",
+            originalname: "kevin durant jersey"
+          },
           "S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
         );
@@ -154,6 +188,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "T-Shirts"),
           34.99,
           10,
+          {
+            filename: "steph-curry-shirt.webp",
+            originalname: "steph curry t-shirt"
+          },
           "XS  S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
         );
@@ -165,6 +203,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "T-Shirts"),
           34.99,
           10,
+          {
+            filename: "lakers-shirt.webp",
+            originalname: "lakers t-shirt"
+          },
           "XS  S  M  L  XL  2XL  3XL  4XL",
           callback
         );
@@ -175,8 +217,12 @@ function createItems(cb) {
           "Add a touch of fitted Los Angeles Lakers flair to your collection of stylish gear with this New Era Color Pop 59FIFTY hat. Along with a high crown, this cap offers a structured construction and flat bill for an elevated, street-ready look. Plus, the vibrant Los Angeles Lakers graphics and unique colorway make it the perfect top off to your game day selection.",
           categories.find((category) => category.name === "Hats"),
           31.49,
-          10, 
-            "6 3/4  6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8  8 1/8  8 1/4",
+          10,
+          {
+            filename: "lakers-shirt.webp",
+            originalname: "lakers t-shirt"
+          },
+          "6 3/4  6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8  8 1/8  8 1/4",
           callback
         );
       },
@@ -187,7 +233,11 @@ function createItems(cb) {
           categories.find((category) => category.name === "Hats"),
           54.99,
           10,
-            "6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8",
+          {
+            filename: "lakers-hat.webp",
+            originalname: "lakers hat"
+          },
+          "6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8",
           callback
         );
       },
@@ -198,6 +248,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Footwear"),
           39.99,
           10,
+          {
+            filename: "lakers-sandals.jpg",
+            originalname: "lakers sandals"
+          },
           "7  8  9  10  11  12  13  14/15",
           callback
         );
@@ -209,6 +263,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Footwear"),
           29.99,
           10,
+          {
+            filename: "lakers-moccasins.jpg",
+            originalname: "lakers moccasins"
+          },
           "S  M  L  XL",
           callback
         );
@@ -220,6 +278,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Accessories"),
           35.99,
           10,
+          {
+            filename: "lakers-bottle.jpg",
+            originalname: "lakers bottle"
+          },
           undefined,
           callback
         );
@@ -231,6 +293,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Accessories"),
           5.99,
           10,
+          {
+            filename: "lakers-socks.webp",
+            originalname: "lakers socks"
+          },
           "L",
           callback
         );
@@ -242,6 +308,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Collectibles"),
           49.99,
           10,
+          {
+            filename: "lebron-figure.webp",
+            originalname: "lebron action figure"
+          },
           undefined,
           callback
         );
@@ -253,6 +323,10 @@ function createItems(cb) {
           categories.find((category) => category.name === "Collectibles"),
           262.49,
           10,
+          {
+            filename: "shaq-jersey.webp",
+            originalname: "shaq autographed jersey"
+          },
           undefined,
           callback
         );
