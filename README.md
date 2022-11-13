@@ -57,4 +57,4 @@ Beyond that, other learning outcomes were:
 
 ## Known Bugs
 
-1. None identified so far
+1. Once a user signs into an account, they can't sign into another account. Might have to do with sessions.
