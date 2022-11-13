@@ -58,10 +58,19 @@ li {
   gap: 16px;
 }
 
-.detail__image {
+.detail__article .detail__image {
   display: block;
-  width: 200px;
+  width: 100%;
   border-radius: 8px;
+  margin: 0 auto;
+  margin-top: auto;
+}
+
+.detail__header .detail__image {
+  width: 320px;
+  height: auto;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
 }
 
 .detail__bold {
@@ -133,9 +142,10 @@ li {
 .detail__article {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
   padding: 1rem;
   color: white;
-  gap: 8px;
   border-radius: 8px;
   background-color: #375af2;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
