@@ -1,3 +1,36 @@
+.link {
+  width: 140px;
+  height: 40px;
+  color: white;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+}
+
+.underline {
+  width: 60px;
+  height: 6px;
+  background-color: rgb(254, 76, 80);
+}
+
+.link--red {
+  background-color: rgb(254, 76, 80);
+}
+
+.link--red:hover {
+  background-color: rgb(255, 119, 122);
+}
+
+.link--black {
+  background-color: black;
+}
+
+.link--black:hover {
+  background-color: rgb(53, 53, 53);
+}
+
 .home {
   min-height: 100%;
 }
@@ -78,7 +111,6 @@
 .home__description {
   padding-left: 2rem;
 }
-
 
 .home__link--category {
   text-decoration: none;

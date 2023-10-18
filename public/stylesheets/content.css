@@ -1,0 +1,119 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.content__categories {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.content__category {
+  width: 350px;
+  height: 265px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.content__category--one {
+  background-image: url(../images/gameboxes.jpg);
+}
+
+.content__category--two {
+  background-image: url(../images/xbox.jpg);
+}
+
+.content__category--third {
+  background-image: url(../images/accessories.jpg);
+}
+
+.content__link {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  transition: 0.3s;
+  padding: 0 12px 0 12px;
+  padding: 10px 28px 10px 28px;
+  background-color: white;
+  color: inherit;
+}
+
+.content__link:hover {
+  color: rgb(71, 195, 195);
+}
+
+.content__arrivals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.content__title {
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+.content__picker {
+  margin-top: 44px;
+  display: flex;
+}
+
+.content__button {
+  background-color: white;
+  border: 1px solid rgb(226, 226, 226);
+  border-right: none;
+  height: 40px;
+  min-width: 105px;
+  padding: 0 25px 0 25px;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.content__button--all {
+  border-radius: 4px 0 0 4px;
+}
+
+.content__button--third {
+  border-radius: 1px solid rgb(226, 226, 226);
+  border-radius: 0 4px 4px 0;
+}
+
+.content__button.selection {
+  background-color: rgb(254, 76, 80);
+  border-color: rgb(254, 76, 80);
+  color: white;
+}
+
+.content__window {
+    display: flex;
+}
+
+.content__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    width: 1105px;
+}
+
+.content__item {
+    position: relative;
+}
+
+.content__deal-of-the-week {
+    margin-top: 41px;
+}

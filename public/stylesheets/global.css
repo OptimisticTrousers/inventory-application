@@ -4,6 +4,16 @@
 }
 
 @font-face {
+  font-family: "Lato";
+  src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url(../fonts/Raleway-VariableFont_wght.ttf);
+}
+
+@font-face {
   font-family: "Goldplay";
   src: url(../fonts/GoldplayAlt-Bold.ttf);
 }
@@ -20,7 +30,6 @@
 
 html {
   height: 100%;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -32,11 +41,24 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  /* color: #00b7ff; */
+  color: inherit;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-size: 60px;
 }
 
 p {
@@ -111,8 +133,9 @@ li {
   box-shadow: 5px 5px 2px 0 rgba(0, 0, 0, 0.5);
   font-family: "Goldplay";
   cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 .header__link:hover {
   background: #1b9bff;

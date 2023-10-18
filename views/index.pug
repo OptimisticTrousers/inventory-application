@@ -1,33 +1,115 @@
 extends layout
 
 block styles
-  link(rel='stylesheet' href='/stylesheets/home.css')
+  link(rel='stylesheet' href='/stylesheets/index.css')
   link(rel='stylesheet' href='/stylesheets/global.css')
   link(rel='stylesheet' href='/stylesheets/detail.css')
+  link(rel='stylesheet' href='/stylesheets/hero.css')
+  link(rel='stylesheet' href='/stylesheets/content.css')
+  link(rel='stylesheet' href='/stylesheets/item.css')
+  link(rel='stylesheet' href='/stylesheets/deal-of-the-week.css')
 
 block content
+  div(class="hero")
+    div(class="hero__content")
+      div(class="hero__container")
+        h2(class="hero__small") XBOX SERIES X & PLAYSTATION 5 NOW IN STOCK
+        h1(class="hero__big") The next generation of gaming is here.
+        a(class="link link--red hero__link" href="/shop/gameconsoles") SHOP NOW
+  div(class="main")
+    div(class="content")
+      div(class="content__categories")
+        div(class="content__category content__category--one")
+          a(href="/shop/games" class="content__link") GAMES
+        div(class="content__category content__category--two")
+          a(href="/shop/gameconsoles" class="content__link") CONSOLES
+        div(class="content__category content__category--third")
+          a(href="/shop/accessories" class="content__link") ACCESSORIES
+      div(class="content__arrivals")
+        h2(class="content__title") New Arrivals
+        div(class="underline")
+        div(class="content__picker")
+          button(selected class="content__button content__button--all") ALL
+          button(class="content__button content__button--one") GAMES
+          button(class="content__button content__button--two") CONSOLES
+          button(class="content__button content__button--third") ACCESSORIES
+        div(class="content__window")
+          div(class="content__items")
+            a(href="/" class="item content__item")
+              div(class="item__preview")
+                div(class="item__preview-content")
+                  img(class="item__image" src="/images/ps5.jpg")
+                  div(class="item__info")
+                    div(class="item__console") Sony
+                    div(class="item__name") Playstation 5
+                    div(class="item__price") $699.99
+              div(class="item__window")
+                button(class="item__button") VIEW DETAILS
+            a(href="/" class="item content__item")
+              div(class="item__preview")
+                div(class="item__preview-content")
+                  img(class="item__image" src="/images/ps5.jpg")
+                  div(class="item__info")
+                    div(class="item__console") Sony
+                    div(class="item__name") Playstation 5
+                    div(class="item__price") $699.99
+              div(class="item__window")
+                button(class="item__button") VIEW DETAILS
+            a(href="/" class="item content__item")
+              div(class="item__preview")
+                div(class="item__preview-content")
+                  img(class="item__image" src="/images/ps5.jpg")
+                  div(class="item__info")
+                    div(class="item__console") Sony
+                    div(class="item__name") Playstation 5
+                    div(class="item__price") $699.99
+              div(class="item__window")
+                button(class="item__button") VIEW DETAILS
+            div(class="hider")
+        div(class="hider")
+      div(class="deal-of-the-week content__deal-of-the-week")
+        div(class="deal-of-the-week__content")
+          div(class="deal-of-the-week__container")
+            h2(class="deal-of-the-week__title") Deal Of The Week
+                br
+                h3(class="deal-of-the-week__subtext") Nintendo Switch   
+                  span(class="deal-of-the-week__price") $69.99
+            div(class="underline deal-of-the-week__underline")
+            div(class="deal-of-the-week__timer")
+              div(class="deal-of-the-week__circle")
+                div(class="deal-of-the-week__count deak-of-the-week__count--day") 2
+                div(class="deal-of-the-week__unit") Day
+              div(class="deal-of-the-week__circle")
+                div(class="deal-of-the-week__count deak-of-the-week__count--hour") 23
+                div(class="deal-of-the-week__unit") Hour
+              div(class="deal-of-the-week__circle")
+                div(class="deal-of-the-week__count deak-of-the-week__count--min") 48
+                div(class="deal-of-the-week__unit") Min
+              div(class="deal-of-the-week__circle")
+                div(class="deal-of-the-week__count deal-of-the-week__count--sec") 8 
+                div(class="deal-of-the-week__unit") Sec
+            a(href="/" class="link link--black deal-of-the-week__link") SHOP NOW
+  div(class="detail__container")
+    h2(class="detail__detail") Categories: 
+      span(class="detail__number") (#{data.category_count})
+    a(class="detail__link detail__link--add" href="/category/create") Add Category
+  if error
+    p Error getting dynamic content.
+  section(class="home")
+    h1(class="home__title")= title
 
-    div(class="detail__container")
-      h2(class="detail__detail") Categories: 
-        span(class="detail__number") (#{data.category_count})
-      a(class="detail__link detail__link--add" href="/category/create") Add Category
-    if error
-      p Error getting dynamic content.
-    section(class="home")
-      h1(class="home__title")= title
-
-      nav(class="home__navigation")
-        if data.category_list.length > 0
-          each category in data.category_list
-            a(class="home__link home__link--category" href=`${category.url}`)
-              div(class="home__card")
-                h2(class="home__subtitle") #{category.name}
-                div(class="home__images")
-                  if category.picture
-                    img(class="home__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
-                  else 
-                    img(class="home__image" src="/images/placeholder.png")
-                  img(class="home__image" src="/images/icons8-external-link.svg")
-                p(class="home__category-description") #{category.description}
-        else
-          li There are no categories in this application
+    nav(class="home__navigation")
+      if data.category_list.length > 0
+        each category in data.category_list
+          a(class="home__link home__link--category" href=`${category.url}`)
+            div(class="home__card")
+              h2(class="home__subtitle") #{category.name}
+              div(class="home__images")
+                if category.picture
+                  img(class="home__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
+                else 
+                  img(class="home__image" src="/images/placeholder.png")
+                img(class="home__image" src="/images/icons8-external-link.svg")
+              p(class="home__category-description") #{category.description}
+      else
+        li There are no categories in this application

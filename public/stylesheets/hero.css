@@ -1,0 +1,49 @@
+.hero,
+.main {
+  padding: 0 60px 0 60px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+}
+
+.main {
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero {
+  background-color: lightgray;
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  background-image: url(../images/hero.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  margin-top: -90px;
+}
+
+.hero__content {
+  width: 1120px;
+}
+
+.hero__container {
+  max-width: 700px;
+}
+
+.hero__big {
+  margin: 0;
+  margin-top: 28px;
+}
+
+.hero__small {
+  font-size: 14px;
+}
+
+.hero__link {
+  margin-top: 40px;
+}
+
