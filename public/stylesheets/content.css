@@ -99,21 +99,10 @@
   color: white;
 }
 
-.content__window {
-    display: flex;
-}
-
-.content__items {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 60px;
-    width: 1105px;
-}
-
-.content__item {
-    position: relative;
-}
-
 .content__deal-of-the-week {
-    margin-top: 41px;
+  margin-top: 41px;
+}
+
+.content__best-sellers {
+  margin-top: 48px;
 }

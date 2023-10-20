@@ -1,0 +1,14 @@
+.window {
+  display: flex;
+}
+
+.window__items {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  width: 1105px;
+}
+
+.window__item {
+  position: relative;
+}

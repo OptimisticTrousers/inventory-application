@@ -36,12 +36,24 @@ body {
   min-height: 100%;
   margin: 0;
   color: black;
-  background-image: url("/images/halftone-yellow.png");
+  /* background-image: url("/images/halftone-yellow.png"); */
+  background-color: white;
   background-size: cover;
   display: flex;
   flex-direction: column;
+  align-items: center;
   box-sizing: border-box;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.underline {
+  width: 60px;
+  height: 6px;
+  background-color: rgb(254, 76, 80);
 }
 
 a {
@@ -67,6 +79,58 @@ p {
 
 main {
   padding-bottom: 5rem;
+}
+
+.footer {
+  width: 100vw;
+  height: 120px;
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.footer__link {
+  font-weight: 600;
+  color: rgb(254, 76, 80);
+  text-decoration: underline;
+}
+
+.main__info-bar {
+  margin-top: 41px;
+}
+
+.info-bar {
+  height: 100px;
+  width: 1120px;
+  display: flex;
+}
+
+.info-bar__item {
+  flex: 1;
+  background: rgb(243, 243, 243);
+  border-right: 1px solid white;
+  display: flex;
+  align-items: center;
+  padding: 0 25px 0 25px;
+  box-sizing: border-box;
+}
+
+.info-bar__icon {
+  width: 30px;
+  height: 30px;
+}
+
+.info-bar__texts {
+  padding-left: 22px;
+  font-weight: 600;
+}
+
+.info-bar__description {
+  font-size: 12px;
+  color: rgb(104, 104, 104);
 }
 
 li {
@@ -153,27 +217,6 @@ li {
 
 .header__image:hover {
   opacity: 0.7;
-}
-
-.footer {
-  margin-top: auto;
-  padding: 1rem;
-  line-height: 1.5;
-  background-color: #375af2;
-  height: 8%;
-  display: grid;
-  place-items: center;
-}
-
-.footer__link {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 2px;
-  line-height: 2;
-  text-decoration-color: #a7e8bd;
-  color: #d3f3ff;
-  text-underline-position: under;
 }
 
 .header__logo {

@@ -19,16 +19,41 @@ html(lang='en')
           img(class="header__image" src="/images/optimistictrousers.jpg" alt="smiling pair of pants")
         ul(class="header__list")
           li(class="header__item")
-            a(class="header__link" href="/") Categories
+            a(class="header__link" href="/accessories") Accessories
           li(class="header__item")
-            a(class="header__link" href="/item") Items
+            a(class="header__link" href="/collectibles") Collectibles
           li(class="header__item")
-            a(class="header__link" href="/iteminstance") Item Instances
-    main
-      block content
+            a(class="header__link" href="/footwear") Footwear 
+          li(class="header__item")
+            a(class="header__link" href="/category") Categories
+    block content
+    div(class="info-bar main__info-bar")
+      div(class="info-bar__item")
+        img(class="info-bar__icon" src="/images/truck.svg")
+        div(class="info-bar__texts")
+          div(class="info-bar__text") FREE SHIPPING
+          div(class="info-bar__description") on all orders $50+
+      div(class="info-bar__item")
+        img(class="info-bar__icon" src="/images/money.svg")
+        div(class="info-bar__texts")
+          div(class="info-bar__text") CASH ON DELIVERY
+          div(class="info-bar__description") Opt to pay on receipt of your order
+      div(class="info-bar__item")
+        img(class="info-bar__icon" src="/images/arrow-counter-clockwise.svg")
+        div(class="info-bar__texts")
+          div(class="info-bar__text") 45 DAY RETURN
+          div(class="info-bar__description") Returns are free of charge
+      div(class="info-bar__item")
+        img(class="info-bar__icon" src="/images/clock.svg")
+        div(class="info-bar__texts")
+          div(class="info-bar__text") OPEN 7 DAYS A WEEK
+          div(class="info-bar__description") 8AM - 9PM
     footer(class="footer")
-      a(class="footer__link" href="https://www.flaticon.com/free-icons/basketball-jersey" title="basketball jersey icons") Basketball jersey icons created by Pixel Buddha - Flaticon
-      a(class="footer__link" target="_blank" href="https://icons8.com/icon/zWS3SNRj7odb/external-link") External Link icon by 
-        a(class="footer__link" target="_blank" href="https://icons8.com") Icons8
-      a(class="footer__link" target="_blank" href="https://github.com/OptimisticTrousers") Created by Tony Isern
+      div(class="footer__container")
+        | Made by 
+        a(class="footer__link" href="https://www.tonyisern.com") Tony Isern
+        |  using MongoDB, Express, and Node. 
+      div(class="footer__text")
+        | View the code at this project's
+        a(class="footer__container" href="https://www.tonyisern.com") GitHub repo
 

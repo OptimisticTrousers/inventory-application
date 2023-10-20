@@ -1,29 +1,33 @@
-extends layout
+extends category_detail
 
 block styles
     link(rel='stylesheet' href='/stylesheets/delete.css')
+    link(rel='stylesheet' href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/error.css')
 
-block content
-    if category_items.length
-        div(class="error")
-            h1(class="error__title") #{title}: #{category.name}
+block item-info
+    div(class="delete")
+        if category_items.length 
+            div(class="delete__error")
 
-            p(class="error__description") #[strong Delete the following items before attempting to delete this category.]
+                h4(class="delete__description") Unable to delete this category.
+                h4(class="delete__description") #[strong Delete the following items before attempting to delete this category.]
 
-            ul(class="error__list")
-            each item in category_items
-                li(class="error__item")
-                    a(class="error__link" href=item.url) #{item.name}
-    else
-        div(class="delete")
+                div(class="delete__container")
+                    a(href=category.url class="delete__button delete__button--cancel") Back
+
+                ul(class="delete__list")
+                each item in category_items 
+                    li(class="delete__item")
+                        a(class="delete__link" href=item.url) #{item.name}
+        else
+            p(class="delete__description") Are you sure you want to delete this category? You can't undo this action.
+
             div(class="delete__container")
-                h2(class="delete__header") Delete category?
+                form(class="delete__form" method='POST' action='')
+                    a(href=item.url class="delete__button delete__button--delete")
+                    div(class="delete__form-group")
+                        input(id="categoryid" class="delete__form" type="hidden" name="categoryid" required="true" value=category._id)
 
-                p(class="delete__description") Are you sure you want to delete "#[strong #{category.name}]"
-                p(class="delete__description") You can't undo this action.
-
-                form(method='POST' action='' class='form')
-                    div(class='form__group')
-                        input(id="categoryid" class="form__control" type='hidden' name='categoryid' required="true" value=category._id)
-
-                    button(class='form__button' type='submit') Delete
+                    button(class="delete__button delete__button--confirm" type="submit") Delete

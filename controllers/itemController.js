@@ -41,7 +41,6 @@ exports.item_detail = (req, res, next) => {
       }
 
       res.render("item_detail", {
-        title: results.item.name,
         item: results.item,
         item_instances: results.item_instances,
       });

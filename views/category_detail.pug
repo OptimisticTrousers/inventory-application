@@ -1,35 +1,34 @@
 extends layout
 
 block styles
+    link(rel='stylesheet' href='/stylesheets/global.css')
     link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/content.css')
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+    script(defer, src="/scripts/item_detail.js")
 
 block content
+    div(class="main")
+        div(class="content")
+            div(class="detail content__detail")
+                div(class="detail__image-container")
+                    if category.picture
+                        img(class="detail__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
+                div(class="detail__details")
+                    a(class="detail__type" href=`/category`) Category
+                    h2(class="detail__title") #{category.name}
+                    block item-info
+                        p(class="detail__description") #{category.description}
+                        div(class="fader hidden")
+                        button(class="detail__button hidden") Read More
+                        h4(class="detail__bold") Items in category:
+                        div(class="detail__stock-count") #{category_items.length}
+                        div(class="detail__links")
+                            a(class="detail__link detail__link--edit" href=`${category.url}/update`) Edit
+                            a(class="detail__link detail__link--delete" href=`${category.url}/delete`) Delete
 
-    div(class="detail")
-        header(class="detail__header")
-            div(class="detail__text")
-                h1(class="detail__title")=category.name
-                p(class="detail__description")=category.description
-                if category.picture
-                    img(class="detail__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
-                p(class="detail__count") #{category_items.length} products
 
-            div(class="detail__links")
-                a(class="detail__link" href=`${category.url}/update`) Edit
-                a(class="detail__link" href=`${category.url}/delete`) Delete
-
-        div(class="detail__list")
-            for item in category_items
-                article(class="detail__article")
-                    h2(class="detail__name")=item.name
-                    p(class="detail__description")=item.description
-                    if item.picture
-                        img(class="detail__image" src= `/images/${item.picture.get("filename")}`)
-                    //- p(class="detail__stock")=item.number_in_stock
-                    div(class="detail__links")
-                        a(class="detail__link" href=item.url) Details
-                        a(class="detail__link" href=`${item.url}/update`) Edit
-                        a(class="detail__link" href=`${item.url}/delete`) Delete
 
 
 

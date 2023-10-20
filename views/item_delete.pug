@@ -1,30 +1,33 @@
-extends layout
+extends item_detail
 
 block styles
     link(rel='stylesheet' href='/stylesheets/delete.css')
+    link(rel='stylesheet' href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/error.css')
 
-block content
+block item-info
+    div(class="delete")
+        if item_instances.length 
+            div(class="delete__error")
 
-    if item_instances.length 
-        div(class="error")
-            h1(class="error__title") #{title}: #{item.name}
+                h4(class="delete__description") Unable to delete this item.
+                h4(class="delete__description") #[strong Delete the following item instances before attempting to delete this item.]
 
-            p(class="error__description") #[strong Delete the following item instances before attempting to delete this item.]
+                div(class="delete__container")
+                    a(href=item.url class="delete__button delete__button--cancel") Back
 
-            ul(class="error__list")
-            each instance in item_instances
-                li(class="error__item")
-                    a(class="error__link" href=instance.url) #{instance._id}
-    else
-        div(class="delete")
+                ul(class="delete__list")
+                each instance in item_instances
+                    li(class="delete__item")
+                        a(class="delete__link" href=instance.url) #{instance._id}
+        else
+            p(class="delete__description") Are you sure you want to delete this item? You can't undo this action.
+
             div(class="delete__container")
-                h2(class="delete__header") Delete item?
+                form(class="delete__form" method='POST' action='')
+                    a(href=item.url class="delete__button delete__button--delete")
+                    div(class="delete__form-group")
+                        input(id="itemid" class="delete__form" type="hidden" name="itemid" required="true" value=item._id)
 
-                p(class="delete__description") Are you sure you want to delete "#[strong #{item.name}]"
-                p(class="delete__description") You can't undo this action.
-
-                form(method='POST' action='')
-                    div(class="form__group")
-                        input(id="itemid" class="form__control" type="hidden" name="itemid" required="true" value=item._id)
-
-                    button(class="form__button" type="submit") Delete
+                    button(class="delete__button delete__button--confirm" type="submit") Delete

@@ -6,7 +6,18 @@ const { body, validationResult } = require("express-validator");
 
 // Redirect to the home page
 exports.index = (req, res, next) => {
-  res.redirect("/");
+  Category.find({})
+    .sort({ name: 1 })
+    .exec((err, list_categories) => {
+      if (err) {
+        return next(err);
+      }
+
+      res.render("category_list", {
+        title: "Categories",
+        category_list: list_categories,
+      });
+    });
 };
 
 // Display detail page for a specific Category
@@ -66,7 +77,7 @@ exports.category_create_post = [
     const category = new Category({
       name: req.body.name,
       description: req.body.description,
-      picture: req.file
+      picture: req.file,
     });
 
     if (!errors.isEmpty()) {

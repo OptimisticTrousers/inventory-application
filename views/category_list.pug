@@ -1,0 +1,34 @@
+extends layout
+
+block styles
+    link(rel='stylesheet' href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/window.css')
+    link(rel='stylesheet' href='/stylesheets/item.css')
+    link(rel='stylesheet' href='/stylesheets/content.css')
+
+block content 
+    div(class="main")
+        div(class="content")
+            h2(class="content__title") #{title}
+            div(class="underline")
+    div(class="window")
+        div(class="window__items")
+            if category_list.length > 0
+                each category in category_list
+                    a(href=`${category.url}` class="item window__item")
+                        div(class="item__preview")
+                            div(class="item__preview-content")
+                                if category.picture
+                                    img(class="item__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
+                                else 
+                                    img(class="item__image" src="/images/placeholder.png")
+                                div(class="item__info")
+                                    div(class="item__description item__description--shortened") #{category.description}
+                                    div(class="item__name") #{category.name}
+                        div(class="item__window")
+                            button(class="item__button") VIEW DETAILS
+            else
+                li There are no categories in this application
+
+

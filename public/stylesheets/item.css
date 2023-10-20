@@ -33,13 +33,23 @@
   width: 100%;
 }
 
-.item__console {
+.item__description {
   color: gray;
   font-weight: 400;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%;
+}
+
+.item__description--shortened {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  max-height: 150px;
+  -webkit-box-orient: vertical;
+  white-space: unset;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
 .item__name {
