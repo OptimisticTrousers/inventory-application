@@ -110,10 +110,3 @@
   color: white;
   cursor: pointer;
 }
-
-.hider {
-  background-color: white;
-  width: 1px;
-  margin-left: -1px;
-  z-index: 1;
-}
