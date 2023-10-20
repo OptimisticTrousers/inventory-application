@@ -29,7 +29,7 @@ input::-webkit-inner-spin-button {
   z-index: 1;
 }
 
-.detail__input--hidden,
+.hidden,
 .detail__input[name="picture"] {
   border: 1px solid transparent;
   width: 0;

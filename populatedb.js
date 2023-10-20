@@ -264,7 +264,7 @@ function createItems(cb) {
           29.99,
           10,
           {
-            filename: "lakers-moccasins.jpg",
+            filename: "lakers-moccasins.webp",
             originalname: "lakers moccasins"
           },
           "S  M  L  XL",

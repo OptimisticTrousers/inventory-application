@@ -24,7 +24,7 @@
 }
 
 .detail__details {
-  width: 70%;
+  width: 50%;
   word-wrap: break-word;
 }
 
@@ -79,10 +79,6 @@
   margin-top: -75px;
   z-index: 2;
   position: relative;
-}
-
-.hidden {
-  display: none;
 }
 
 .detail__button {

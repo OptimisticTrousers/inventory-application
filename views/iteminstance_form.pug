@@ -3,6 +3,7 @@ extends layout
 block styles
     link(rel='stylesheet' href='/stylesheets/detail.css')
     link(rel='stylesheet' href='/stylesheets/form.css')
+    script(defer, src="/scripts/item_form.js")
 
 block content
     form(class="form" method="POST" action="" enctype="multipart/form-data")
@@ -20,8 +21,8 @@ block content
                         else
                             span(class="detail__instructions") Upload an image (PNG/JPG)
                             img(class="detail__image" src="")
-                        input(class="detail__input" type="hidden" required name="picture" value = (iteminstance && iteminstance.picture) ? item.picture.get("originalname") : null)
-                        input(class="detail__input detail__input--hidden" id="picture" type="file" max-file-size="10485760" accept="image/png, image/jpeg, /image/webp" value = (iteminstance && iteminstance.picture) ? false: true)
+                        input(class="detail__input" type="hidden" required value =`/images/${(iteminstance && iteminstance.picture) && iteminstance.picture.get("filename")}`)
+                        input(class="detail__input hidden" id="picture" name="picture" type="file" value = (iteminstance && iteminstance.picture) ? false: true)
                     div(class="detail__details")
                         h2(class="detail__title")  #{iteminstance && iteminstance.id}
                         h3(class="detail__subtext")
