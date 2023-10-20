@@ -19,7 +19,7 @@ block content
                                 if category.picture
                                     img(class="item__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
                                 else 
-                                    img(class="item__image" src="/images/placeholder.png")
+                                    img(class="item__image" src="/images/placeholder.png" alt="empty picture")
                                 div(class="item__info")
                                     div(class="item__name") #{category.name}
                                     div(class="item__description item__description--shortened") #{category.description}

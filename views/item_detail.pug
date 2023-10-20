@@ -1,53 +1,52 @@
 extends layout
 
 block styles
-  link(rel='stylesheet' href='/stylesheets/global.css')
-  link(rel='stylesheet' href='/stylesheets/detail.css')
-  link(rel='stylesheet' href='/stylesheets/content.css')
-  link(rel='stylesheet' href='/stylesheets/delete.css')
-  script(defer, src="/scripts/item_detail.js")
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+    script(defer, src="/scripts/item_detail.js")
 
 block content
-  div(class="main")
-    div(class="content")
-      div(class="detail content__detail")
-        div(class="detail__image-container")
-        if item.picture
-          img(class="detail__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
-        div(class="detail__details")
-          a(class="detail__type" href=`/item`) Item
-          h2(class="detail__title") #{item.name}
-          if item.size
-            div(class="detail__sizes") #{item.size.split("  ").join(", ")}
-          block item-info
-            h3(class="detail__price") $#{Number.parseFloat(item.price).toFixed(2)}
-            p(class="detail__description") #{item.description}
-            div(class="fader hidden")
-            button(class="detail__button detail__button--read-more hidden") Read More
-            h4(class="detail__bold") Category:
-            for category, index in item.category
-              if index === item.category.length - 1
-                a(href=item.category.url class="detail__category") #{` ${category.name}`}
-              else
-                a(href=item.category.url class="detail__category") #{category.name},
-            h4(class="detail__bold") In Stock:
-            div(class="detail__info") #{item_instances.length}
-            div(class="detail__links")
-              a(class="detail__link detail__link--edit" href=`${item.url}/update`) Edit
-              a(class="detail__link detail__link--delete" href=`${item.url}/delete`) Delete
-      h2(class="content__subtitle") Stock for: 
-        span(class="content__name") #{item.name}
-      div(class="content__previews")
-        if item_instances.length > 0
-          for iteminstance in item_instances
-            div(class="content__preview")
-              a(href=iteminstance.url class="content__link")
-                if iteminstance.picture
-                  img(class="content__image" src=`/images/${iteminstance.picture.get("filename")}` alt=iteminstance.picture.get("originalname"))
-                else if item.picture
-                  img(class="content__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+    div(class="main")
+        div(class="content")
+            div(class="detail content__detail")
+                div(class="detail__image-container")
+                if item.picture
+                    img(class="detail__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
                 else 
-                  img(class="content__image" src=`/images/placeholder.png` alt="placeholder")
-        else
-          li There is no stock for this item
+                    img(class="detail__image" src="/images/placeholder.png" alt="empty picture")
+                div(class="detail__details")
+                    a(class="detail__type" href=`/item`) Item
+                    h2(class="detail__title") #{item.name}
+                    if item.size
+                        div(class="detail__sizes") #{item.size.split("  ").join(", ")}
+                    block item-info
+                        h3(class="detail__price") $#{Number.parseFloat(item.price).toFixed(2)}
+                        p(class="detail__description") #{item.description}
+                        div(class="detail__fader hidden")
+                        button(class="detail__button hidden") Read More
+                        h4(class="detail__bold") Category:
+                        for category, index in item.category
+                            if index === item.category.length - 1
+                                a(href=item.category.url class="detail__category") #{` ${category.name}`}
+                            else
+                                a(href=item.category.url class="detail__category") #{category.name},
+                        h4(class="detail__bold") In Stock:
+                        div(class="detail__info") #{item_instances.length}
+                        div(class="detail__links")
+                            a(class="detail__link detail__link--edit" href=`${item.url}/update`) Edit
+                            a(class="detail__link detail__link--delete" href=`${item.url}/delete`) Delete
+            h2(class="content__subtitle") Stock for: 
+                span(class="content__name") #{item.name}
+            div(class="content__previews")
+                if item_instances.length > 0
+                    for iteminstance in item_instances
+                        div(class="content__preview")
+                            a(href=iteminstance.url class="content__link")
+                                if iteminstance.picture
+                                    img(class="content__image" src=`/images/${iteminstance.picture.get("filename")}` alt=iteminstance.picture.get("originalname"))
+                                else if item.picture
+                                    img(class="content__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+                                else 
+                                    img(class="content__image" src=`/images/placeholder.png` alt="empty picture")
+                else
+                    li There is no stock for this item
 

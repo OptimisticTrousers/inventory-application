@@ -1,29 +1,3 @@
- /* CONTENT */
-
-.content__previews {
-  display: flex;
-  column-gap: 12px;
-  flex-wrap: wrap;
-  max-width: 100%;
-  justify-content: center;
-  height: 140px;
-  overflow: hidden;
-  margin-top: 16px;
-}
-
-.content__image {
-  height: 140px;
-  object-fit: contain;
-}
-
-.content__subtitle {
-  font-weight: 200;
-}
-
-.content__name {
-  font-weight: 600;
-}
-
 /* DETAIL */
 
 .detail {
@@ -49,9 +23,26 @@
   max-width: 100%;
 }
 
+.detail__details {
+  width: 70%;
+  word-wrap: break-word;
+}
+
+.detail__type {
+  font-family: "Raleway", sans-serif;
+}
+
 .detail__title {
   font-size: 36px;
   margin: 0;
+  margin-top: 8px;
+}
+
+.detail__sizes {
+  color: gray;
+  font-size: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgb(226, 226, 226);
   margin-top: 8px;
 }
 
@@ -63,17 +54,8 @@
   border-bottom: 1px solid rgb(226, 226, 226);
 }
 
-.detail__sizes {
-  color: gray;
-  font-size: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgb(226, 226, 226);
-  margin-top: 8px;
-}
-
-.detail__details {
-  width: 70%;
-  word-wrap: break-word;
+.detail__price {
+  margin-top: 16px;
 }
 
 .detail__description {
@@ -87,11 +69,7 @@
   margin-bottom: 8px;
 }
 
-.detail__price {
-  margin-top: 16px;
-}
-
-.fader {
+.detail__fader {
   background-image: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0),
@@ -103,7 +81,11 @@
   position: relative;
 }
 
-.detail__button--read-more {
+.hidden {
+  display: none;
+}
+
+.detail__button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -111,10 +93,6 @@
   text-decoration: underline;
   color: rgb(254, 76, 80);
   margin-top: 12px;
-}
-
-.detail__type {
-  font-family: "Raleway", sans-serif;
 }
 
 .detail__links {
@@ -149,4 +127,30 @@
 
 .detail__link--delete {
   background-color: rgb(254, 76, 80);
+}
+
+/* CONTENT */
+
+.content__subtitle {
+  font-weight: 200;
+}
+
+.content__name {
+  font-weight: 600;
+}
+
+.content__previews {
+  display: flex;
+  column-gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: center;
+  height: 140px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.content__image {
+  height: 140px;
+  object-fit: contain;
 }

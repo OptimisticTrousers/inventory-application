@@ -1,8 +1,8 @@
-const description = document.querySelector(".product__description");
+const description = document.querySelector(".detail__description");
 
-const readMoreButton = document.querySelector(".product__button");
+const readMoreButton = document.querySelector(".detail__button");
 
-const fader = document.querySelector(".fader");
+const fader = document.querySelector(".detail__fader");
 
 function truncateDescription() {
   description.style.height = "120px";

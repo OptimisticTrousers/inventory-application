@@ -21,7 +21,7 @@ block content
                                 else if iteminstance.item.picture
                                     img(class="item__image" src=`/images/${iteminstance.item.picture.get("filename")}` alt=iteminstance.item.picture.get("originalname"))
                                 else 
-                                    img(class="item__image" src="/images/placeholder.png")
+                                    img(class="item__image" src="/images/placeholder.png" alt="empty picture")
                                 div(class="item__info")
                                     div(class="item__name") ID: #{iteminstance.id}
                                     div(class="item__description item__description--shortened") #{iteminstance.item.name}
