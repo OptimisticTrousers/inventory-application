@@ -9,6 +9,7 @@
 }
 
 .main {
+  padding: 0;
   flex-direction: column;
   flex: 1;
 }

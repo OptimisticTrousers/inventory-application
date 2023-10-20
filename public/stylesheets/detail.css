@@ -1,7 +1,7 @@
 .detail {
   width: 1120px;
   display: flex;
-  column-gap: 32;
+  column-gap: 32px;
 }
 
 .content__detail {
@@ -17,18 +17,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 }
 
 .detail__image {
   object-fit: contain;
   height: 100%;
   max-width: 100%;
-  margin-right: 32px;
 }
 
 .detail__title {
   font-size: 36px;
   margin: 0;
+  margin-top: 8px;
+}
+
+.detail__subtext {
+  color: gray;
+  font-size: 20px;
+  padding-bottom: 12px;
+  margin: 0;
+  border-bottom: 1px solid rgb(226, 226, 226);
 }
 
 .detail__sizes {
@@ -40,7 +49,7 @@
 }
 
 .detail__details {
-  width: 50%;
+  width: 70%;
   word-wrap: break-word;
 }
 
@@ -71,7 +80,7 @@
   position: relative;
 }
 
-.detail__button {
+.detail__button--read-more {
   background-color: transparent;
   border: none;
   cursor: pointer;

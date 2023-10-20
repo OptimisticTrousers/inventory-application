@@ -1,38 +1,46 @@
 extends layout
 
 block styles
+    link(rel='stylesheet' href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/content.css')
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+    link(rel='stylesheet' href='/stylesheets/hero.css')
     link(rel='stylesheet' href='/stylesheets/form.css')
 
 block content
-
-    h1=title
-
-    section(class="form")
-        form(class="form__form" method="POST" action="" enctype="multipart/form-data")
-            div(class="form__group")
-                label(class="form__label" for='name') Name:
-                input(id="name" name="name" class="form__control" required="true" placeholder="Men's Los Angeles Lakers ISlide Black Tonal Pop Slide Sandals" value=(item && item.name))
-            div(class="form__group")
-                label(class="form__label" for='category') Category:
-                div
-                    for category in categories
-                        div
-                            input(class="form__checkbox" type="checkbox" name="category" id=category._id, value=category._id, checked=category.checked)
-                            label(for=category._id) #{category.name}
-            div(class="form__group")
-                label(class="form__label" for='price') Price:
-                input(type="number" id="price" name="price" class="form__control" step="0.01" min="0" required="true" placeholder="39.99" value=(item && item.price))
-            div(class="form__group")
-                label(class="form__label" for='size') Sizes (optional, seperate sizes by TWO spaces):
-                input(id="size" name="size" class="form__control" placeholder="S  M  L  XL  2XL" value=(item && item.size))
-            div(class="form__group")
-                label(class="form__label" for='description') Description
-                textarea(id="description" name="description" class="form__textarea" required="true" placeholder="Show off your team spirit when you get these Los Angeles Lakers Tonal Pop Slide Sandals from ISlide." ) #{item && item.description}
-            div(class="form__group")
-                label(class="form__label" for='picture') Picture
-                input(id="picture" name="picture" type="file")
-            button(class="form__button" type="submit") SUBMIT
-
+    form(class="form" method="POST" action="" enctype="multipart/form-data")
+        div(class="main")
+            div(class="content main__content")
+                h2(class="content__title")=title
+                div(class="detail content__detail")
+                    label(class="detail__image-container detail__image-container--bordered" for="picture")
+                        if item && item.picture
+                            span(class="detail__instructions")
+                            img(class="detail__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+                        else
+                            span(class="detail__instructions") Upload an image (PNG/JPG)
+                            img(class="detail__image" src="")
+                        input(class="detail__input" type="hidden" required name="picture" value = (item && item.picture) ? item.picture.get("originalname") : null)
+                        input(class="detail__input detail__input--hidden" id="picture" type="file" max-file-size="10485760" accept="image/png, image/jpeg, /image/webp" value = (item && item.picture) ? false: true)
+                    div(class="detail__details")
+                        h2(class="detail__title")
+                            input(class="detail__input detail__input--title" type="text" id="name" placeholder="Men's Los Angeles Lakers ISlide Black Tonal Pop Slide Sandals" required maxlength="72" name="name" value= ((item || iteminstance && iteminstance.item || category) && (item || iteminstance && iteminstance.item || category).name))
+                        div(class="detail__sizes")
+                            input(class="detail__input detail__input--sizes" id="size" name="size" class="form__control" placeholder="S  M  L  XL  2XL" value=(item && item.size)) 
+                        block item-info
+                            h2(class="detail__price") $
+                                input(type="number" id="price" name="price" class="detail__input detail__input--price" step="0.01" min="0" required="true" placeholder="39.99" value=(item && item.price))
+                            p(class="detail__description") 
+                                textarea(id="description" name="description" class="detail__textarea" required="true" placeholder="Show off your team spirit when you get these Los Angeles Lakers Tonal Pop Slide Sandals from ISlide." ) #{item && item.description}
+                            h4(class="detail__bold") Category: 
+                                for category in categories
+                                    div(class="detail__group")
+                                        input(class="detail__checkbox" type="checkbox" name="category" id=category._id, value=category._id, checked=category.checked)
+                                        label(class="detail__label" for=category.id) #{category.name}
+                            div(class="detail__buttons")
+                                button(class="detail__button" type="submit") Submit
+                                a(class="detail__link detail__link--cancel" href=item ? item.url : "/item") Cancel
         if errors
             ul
                 for error in errors

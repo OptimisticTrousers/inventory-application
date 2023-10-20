@@ -5,7 +5,6 @@ block styles
     link(rel='stylesheet' href='/stylesheets/detail.css')
     link(rel='stylesheet' href='/stylesheets/content.css')
     link(rel='stylesheet' href='/stylesheets/delete.css')
-    link(rel='stylesheet' href='/stylesheets/delete.css')
     script(defer, src="/scripts/item_detail.js")
 
 block content
@@ -15,6 +14,8 @@ block content
                 div(class="detail__image-container")
                     if category.picture
                         img(class="detail__image" src=`/images/${category.picture.get("filename")}` alt=category.picture.get("originalname"))
+                    else 
+                        img(class="detail__image" src="/images/placeholder.png")
                 div(class="detail__details")
                     a(class="detail__type" href=`/category`) Category
                     h2(class="detail__title") #{category.name}
@@ -23,10 +24,23 @@ block content
                         div(class="fader hidden")
                         button(class="detail__button hidden") Read More
                         h4(class="detail__bold") Items in category:
-                        div(class="detail__stock-count") #{category_items.length}
+                        div(class="detail__info") #{category_items.length}
                         div(class="detail__links")
                             a(class="detail__link detail__link--edit" href=`${category.url}/update`) Edit
                             a(class="detail__link detail__link--delete" href=`${category.url}/delete`) Delete
+            h2(class="content__subtitle") Items associated with: 
+                span(class="content__name") #{category.name}
+            div(class="content__previews")
+                if category_items.length > 0
+                    for item in category_items
+                        div(class="content__preview")
+                            a(href=item.url class="content__link")
+                                if item.picture
+                                    img(class="content__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+                                else 
+                                    img(class="content__image" src=`/images/placeholder.png` alt="placeholder")
+                else
+                    li There are no items associated with this category
 
 
 

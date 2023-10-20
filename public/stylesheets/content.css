@@ -13,6 +13,14 @@
   margin-top: 32px;
 }
 
+.content__subtitle {
+  font-weight: 200;
+}
+
+.content__name {
+  font-weight: 600;
+}
+
 .content__category {
   width: 350px;
   height: 265px;
@@ -105,4 +113,20 @@
 
 .content__best-sellers {
   margin-top: 48px;
+}
+
+.content__previews {
+  display: flex;
+  column-gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: center;
+  height: 140px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.content__image {
+  height: 140px;
+  object-fit: contain;
 }

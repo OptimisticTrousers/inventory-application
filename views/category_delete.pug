@@ -4,6 +4,7 @@ block styles
     link(rel='stylesheet' href='/stylesheets/delete.css')
     link(rel='stylesheet' href='/stylesheets/global.css')
     link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/content.css')
     link(rel='stylesheet' href='/stylesheets/error.css')
 
 block item-info
@@ -26,7 +27,7 @@ block item-info
 
             div(class="delete__container")
                 form(class="delete__form" method='POST' action='')
-                    a(href=item.url class="delete__button delete__button--delete")
+                    a(href=category.url class="delete__button delete__button--cancel") Cancel
                     div(class="delete__form-group")
                         input(id="categoryid" class="delete__form" type="hidden" name="categoryid" required="true" value=category._id)
 

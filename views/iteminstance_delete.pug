@@ -1,19 +1,19 @@
-extends layout
+extends iteminstance_detail
 
 block styles
     link(rel='stylesheet' href='/stylesheets/delete.css')
+    link(rel='stylesheet' href='/stylesheets/global.css')
+    link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/error.css')
 
-block content
-
+block item-info
     div(class="delete")
+        p(class="delete__description") Are you sure you want to delete this item instance? You can't undo this action.
+
         div(class="delete__container")
-            h2(class="delete__header") Delete item?
+            form(class="delete__form" method='POST' action='')
+                a(href=iteminstance.url class="delete__button delete__button--cancel") Cancel
+                div(class="delete__form-group")
+                    input(id="iteminstanceid" class="delete__form" type="hidden" name="iteminstanceid" required="true" value=iteminstance._id)
 
-            p(class="delete__description") Are you sure you want to delete "#[strong #{iteminstance._id}]" from #{iteminstance.item.name}
-            p(class="delete__description") You can't undo this action.
-
-            form(method='POST' action='')
-                div(class="form__group")
-                    input(id="iteminstanceid" class="form__control" type="hidden" name="iteminstanceid" required="true" value=iteminstance._id)
-
-                button(class="form__button" type="submit") Delete
+                button(class="delete__button delete__button--confirm" type="submit") Delete

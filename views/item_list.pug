@@ -1,29 +1,32 @@
 extends layout
 
 block styles
+    link(rel='stylesheet' href='/stylesheets/global.css')
     link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/window.css')
+    link(rel='stylesheet' href='/stylesheets/item.css')
+    link(rel='stylesheet' href='/stylesheets/content.css')
 
-block content
-    div(class="detail__container")
-      h2(class="detail__detail") Items: 
-        span(class="detail__number") (#{item_list.length})
-      a(class="detail__link detail__link--add" href="/item/create") Add Item
-    div(class="detail")
-        header(class="detail__header")
-            div(class="detail__text")
-                h1(class="detail__title") Items
-                p(class="detail__description") A list of all items in the application
-        div(class="detail__list")
+block content 
+    div(class="main")
+        div(class="content")
+            h2(class="content__title") #{title}
+            div(class="underline")
+    div(class="window")
+        div(class="window__items")
             if item_list.length > 0
-                for item in item_list
-                    article(class="detail__article")
-                        h2(class="detail__name")=item.name
-                        p(class="detail__description")=item.description
-                        if item.picture
-                            img(class="detail__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
-                        div(class="detail__links")
-                            a(class="detail__link" href=item.url) Details
-                            a(class="detail__link" href=`${item.url}/update`) Edit
-                            a(class="detail__link" href=`${item.url}/delete`) Delete
+                each item in item_list
+                    a(href=`${item.url}` class="item window__item")
+                        div(class="item__preview")
+                            div(class="item__preview-content")
+                                if item.picture
+                                    img(class="item__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+                                else 
+                                    img(class="item__image" src="/images/placeholder.png")
+                                div(class="item__info")
+                                    div(class="item__name") #{item.name}
+                                    div(class="item__description item__description--shortened") #{item.description}
+                        div(class="item__window")
+                            button(class="item__button") VIEW DETAILS
             else
-                li There are no items in this application
+                li There are no categories in this application

@@ -1,27 +1,37 @@
 extends layout
 
 block styles
+    link(rel='stylesheet' href='/stylesheets/global.css')
     link(rel='stylesheet' href='/stylesheets/detail.css')
+    link(rel='stylesheet' href='/stylesheets/content.css')
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+    link(rel='stylesheet' href='/stylesheets/delete.css')
+    script(defer, src="/scripts/item_detail.js")
 
 block content
+    div(class="main")
+        div(class="content")
+            div(class="detail content__detail")
+                div(class="detail__image-container")
+                    if iteminstance.picture
+                        img(class="detail__image" src=`/images/${iteminstance.picture.get("filename")}` alt=iteminstance.picture.get("originalname"))
+                    else if iteminstance.item.picture
+                        img(class="detail__image" src=`/images/${iteminstance.item.picture.get("filename")}` alt=iteminstance.item.picture.get("originalname"))
+                    else 
+                        img(class="detail__image" src="/images/placeholder.png")
+                div(class="detail__details")
+                    a(class="detail__type" href=`/item`) Item Instance
+                    h2(class="detail__title") ID: #{iteminstance.id}
+                    a(href=iteminstance.item.url class="detail__subtext") for #{iteminstance.item.name}
+                    block item-info
+                        if iteminstance.size
+                            h4(class="detail__bold") Size:
+                            div(class="detail__info") #{iteminstance.size}
+                        h4(class="detail__bold") Condition:
+                        div(class="detail__info") #{iteminstance.condition}
+                        h4(class="detail__bold") Available:
+                        div(class="detail__info") #{iteminstance.available}
+                        div(class="detail__links")
+                            a(class="detail__link detail__link--edit" href=`${iteminstance.url}/update`) Edit
+                            a(class="detail__link detail__link--delete" href=`${iteminstance.url}/delete`) Delete
 
-    div(class="detail")
-        header(class="detail__header")
-            div(class="detail__text")
-                h1(class="detail__title") ID: 
-                    span(class="detail__bold") #{iteminstance._id}
-                p(class="detail__description") Product: 
-                    span(class="detail__bold") #{iteminstance.item.name}
-                if iteminstance.size
-                    p(class="detail__price") Size: 
-                        span(class="detail__bold") #{iteminstance.size}
-                p(class="detail__description") Condition: 
-                    span(class="detail__bold") #{iteminstance.condition}
-                p(class="detail__description") Available: 
-                    span(class="detail__bold") #{iteminstance.available}
-                if iteminstance.picture
-                    img(class="detail__image" src=`/images/${iteminstance.picture.get("filename")}` alt=iteminstance.picture.get("originalname"))
-
-            div(class="detail__links")
-                a(class="detail__link" href=`${iteminstance.url}/update`) Edit
-                a(class="detail__link" href=`${iteminstance.url}/delete`) Delete

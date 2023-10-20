@@ -28,6 +28,8 @@
   src: url(../fonts/FontsFree-Net-Isidora-Soft.ttf);
 }
 
+/* GLOBAL */
+
 html {
   height: 100%;
 }
@@ -46,18 +48,7 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-.hidden {
-  display: none;
-}
-
-.underline {
-  width: 60px;
-  height: 6px;
-  background-color: rgb(254, 76, 80);
-}
-
 a {
-  /* color: #00b7ff; */
   color: inherit;
   text-decoration: none;
 }
@@ -73,30 +64,26 @@ h1 {
   font-size: 60px;
 }
 
+li {
+  font-size: 1.5rem;
+  color: black;
+}
+
 p {
   margin: 0;
 }
 
-main {
-  padding-bottom: 5rem;
+.hidden {
+  display: none;
 }
 
-.footer {
-  width: 100vw;
-  height: 120px;
-  background-color: rgb(243, 243, 243);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 48px;
+.underline {
+  width: 60px;
+  height: 6px;
+  background-color: rgb(254, 76, 80);
 }
 
-.footer__link {
-  font-weight: 600;
-  color: rgb(254, 76, 80);
-  text-decoration: underline;
-}
+/* INFO-BAR */
 
 .main__info-bar {
   margin-top: 41px;
@@ -106,6 +93,9 @@ main {
   height: 100px;
   width: 1120px;
   display: flex;
+  margin-top: auto;
+  margin-bottom: 48px;
+  padding-top: 48px;
 }
 
 .info-bar__item {
@@ -133,10 +123,7 @@ main {
   color: rgb(104, 104, 104);
 }
 
-li {
-  font-size: 1.5rem;
-  color: black;
-}
+/* HEADER */
 
 .header {
   background-color: #0082e6;
@@ -194,7 +181,7 @@ li {
   background-color: #375af2;
   font-weight: 900;
   border: none;
-  box-shadow: 5px 5px 2px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 3px 6px 0 rgba(0, 0, 0, 0.5);
   font-family: "Goldplay";
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease,
@@ -221,6 +208,110 @@ li {
 
 .header__logo {
   z-index: 2;
+}
+
+/* FOOTER */
+
+.footer {
+  width: 100vw;
+  height: 120px;
+  background-color: rgb(243, 243, 243);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__link {
+  font-weight: 600;
+  color: rgb(254, 76, 80);
+  text-decoration: underline;
+}
+
+/* ADMIN WINDOW */
+
+.admin-window {
+  position: fixed;
+  width: 340px;
+  right: 0;
+  top: 20%;
+  display: flex;
+  border-radius: 8px 0 0 8px;
+  transform: translateX(296px);
+  transition: 0.5s;
+  overflow: hidden;
+  color: white;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(57, 57, 89, 0.92);
+}
+
+.admin-window:hover {
+  transform: translateX(1px);
+}
+
+.admin-window__label {
+  min-width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-lr;
+  background-color: rgba(14, 14, 33, 0.92);
+}
+
+.admin-window__title {
+  transform: rotate(180deg);
+}
+
+.admin-window__content {
+  display: flex;
+  flex: 1;
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(28, 28, 51, 0.92);
+  font-weight: 300;
+  column-gap: 20px;
+}
+
+.admin-window__link {
+  padding: 4px 10px 4px 10px;
+  border-radius: 4px;
+  border: 1px solid white;
+  transition: 0.3s;
+}
+
+.admin-window__links:not(.admin-window__links--disabled)
+  .admin-window__link:not(.admin-window__link--delete):hover {
+  background-color: rgb(77, 77, 108, 0.92);
+}
+
+.admin-window__links {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.admin-window__links *:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.admin-window__link--delete {
+  background-color: rgb(254, 76, 80);
+  border-color: rgb(254, 76, 80);
+}
+
+.admin-window__links:not(.admin-window__links--disabled)
+  .admin-window__link--delete:hover {
+  background-color: rgb(255, 119, 122);
+}
+
+.admin-window__links--disabled {
+  opacity: 0.4;
+}
+
+.admin-window__links--disabled .admin-window__link {
+  pointer-events: none;
 }
 
 /* https://stackoverflow.com/questions/1734618/how-to-increase-the-gap-between-text-and-underlining-in-cs */

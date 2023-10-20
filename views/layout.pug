@@ -56,4 +56,18 @@ html(lang='en')
       div(class="footer__text")
         | View the code at this project's
         a(class="footer__container" href="https://www.tonyisern.com") GitHub repo
+    div(class="admin-window")
+      label(class="admin-window__label")
+        span(class="admin-window__title") ADMIN ACTIONS
+      div(class="admin-window__content")
+        div(class="admin-window__links")
+          span(class="admin-window__task") Create New:
+          a(href="/category/create" class="admin-window__link") Category
+          a(href="/item/create" class="admin-window__link") Item
+          a(href="/iteminstance/create" class="admin-window__link") Item Instance
+        div(class=`admin-window__links ${!(item || category || iteminstance) && "admin-window__links--disabled"}`)
+          span(class="admin-window__task") Current Page:
+          a(href=(item || category || iteminstance) && (item || category || iteminstance).url + "/update" class="admin-window__link admin-window__link--update") Update
+          a(href=(item || category || iteminstance) && (item || category || iteminstance).url + "/delete" class="admin-window__link admin-window__link--delete") Delete
+
 
