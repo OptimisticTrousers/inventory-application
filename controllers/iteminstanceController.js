@@ -67,10 +67,9 @@ exports.iteminstance_create_post = [
   body("size")
     .optional({ checkFalsy: true })
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
-  body("condition").trim().isLength({ min: 1 }).escape(),
-  body("available").trim().escape(),
+    .isLength({ min: 1 }),
+  body("condition").trim().isLength({ min: 1 }),
+  body("available").trim(),
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
@@ -142,10 +141,10 @@ exports.iteminstance_update_get = (req, res, next) => {
 // Handle ItemInstance update on POST
 exports.iteminstance_update_post = [
   // Validate and sanitize fields.
-  body("item").trim().escape(),
-  body("size").optional({ checkFalsy: true }).trim().escape(),
-  body("condition").trim().escape(),
-  body("available").trim().escape(),
+  body("item").trim(),
+  body("size").optional({ checkFalsy: true }).trim(),
+  body("condition").trim(),
+  body("available").trim(),
 
   // Process request after validation and sanitization.
   (req, res, next) => {

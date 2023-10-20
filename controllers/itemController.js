@@ -75,16 +75,15 @@ exports.item_create_post = [
     next();
   },
   // Validate and sanitize fields.
-  body("name", "Name must not be empty.").trim().isLength({ min: 1 }).escape(),
-  body("size").trim().isLength({ min: 1 }).escape(),
+  body("name", "Name must not be empty.").trim().isLength({ min: 1 }),
+  body("size").trim().isLength({ min: 1 }),
   body("price", "Price must not be empty.")
     .trim()
     .isLength({ min: 1 })
     .escape(),
   body("description", "Description must not be empty.")
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .isLength({ min: 1 }),
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.

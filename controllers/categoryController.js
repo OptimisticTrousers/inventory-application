@@ -61,12 +61,10 @@ exports.category_create_post = [
   // Validate and sanitize the name field.
   body("name", "Please enter a category name")
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .isLength({ min: 1 }),
   body("description", "Please enter a category description")
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .isLength({ min: 1 }),
   // Process request after validation and sanization
   (req, res, next) => {
     // Extract the validation errors from a request.
@@ -122,12 +120,10 @@ exports.category_update_post = [
   // Validate and sanitize the name and description field.
   body("name", "Please enter a category name")
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .isLength({ min: 1 }),
   body("description", "Please enter a category description")
     .trim()
-    .isLength({ min: 1 })
-    .escape(),
+    .isLength({ min: 1 }),
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request
