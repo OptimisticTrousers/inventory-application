@@ -3,11 +3,7 @@ extends layout
 block styles
   link(rel='stylesheet' href='/stylesheets/index.css')
   link(rel='stylesheet' href='/stylesheets/global.css')
-  link(rel='stylesheet' href='/stylesheets/detail.css')
-  link(rel='stylesheet' href='/stylesheets/hero.css')
-  link(rel='stylesheet' href='/stylesheets/content.css')
   link(rel='stylesheet' href='/stylesheets/item.css')
-  link(rel='stylesheet' href='/stylesheets/deal-of-the-week.css')
   link(rel='stylesheet' href='/stylesheets/window.css')
   script(defer, src="/scripts/index.js")
 
@@ -27,14 +23,14 @@ block content
           a(href="/shop/gameconsoles" class="content__link") CONSOLES
         div(class="content__category content__category--third")
           a(href="/shop/accessories" class="content__link") ACCESSORIES
-      div(class="content__arrivals")
-        h2(class="content__title") New Arrivals
+      div(class="list content__arrivals")
+        h2(class="list__title") New Arrivals
         div(class="underline")
-        div(class="content__picker")
-          button(selected class="content__button content__button--all") ALL
-          button(class="content__button content__button--one") GAMES
-          button(class="content__button content__button--two") CONSOLES
-          button(class="content__button content__button--third") ACCESSORIES
+        div(class="list__picker")
+          button(selected class="list__button list__button--all") ALL
+          button(class="list__button list__button--one") GAMES
+          button(class="list__button list__button--two") CONSOLES
+          button(class="list__button list__button--third") ACCESSORIES
         div(class="window")
           div(class="window__items")
             a(href="/" class="item window__item")
@@ -76,7 +72,7 @@ block content
               br
               h3(class="deal-of-the-week__subtext") Nintendo Switch   
                 span(class="deal-of-the-week__price") $69.99
-            div(class="underline deal-of-the-week__underline")
+            div(class="underline")
             div(class="deal-of-the-week__timer")
               div(class="deal-of-the-week__circle")
                 div(class="deal-of-the-week__count deal-of-the-week__count--day") 2
@@ -91,8 +87,8 @@ block content
                 div(class="deal-of-the-week__count deal-of-the-week__count--sec") 8 
                 div(class="deal-of-the-week__unit") Sec
             a(href="/" class="link link--black deal-of-the-week__link") SHOP NOW
-      div(class="best-sellers content__best-sellers")
-        h2(class="best-sellers__title") Best Sellers
+      div(class="list content__best-sellers")
+        h2(class="list__title") Best Sellers
         div(class="underline")
         div(class="window")
           div(class="window__items")

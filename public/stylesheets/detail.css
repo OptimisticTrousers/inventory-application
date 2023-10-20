@@ -1,12 +1,35 @@
+ /* CONTENT */
+
+.content__previews {
+  display: flex;
+  column-gap: 12px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  justify-content: center;
+  height: 140px;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.content__image {
+  height: 140px;
+  object-fit: contain;
+}
+
+.content__subtitle {
+  font-weight: 200;
+}
+
+.content__name {
+  font-weight: 600;
+}
+
+/* DETAIL */
+
 .detail {
   width: 1120px;
   display: flex;
   column-gap: 32px;
-}
-
-.content__detail {
-  margin-top: 64px;
-  margin-bottom: 16px;
 }
 
 .detail__image-container {

@@ -72,14 +72,58 @@ p {
   margin: 0;
 }
 
+.main {
+  padding: 0 60px 0 60px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+}
+
+.main {
+  padding: 0;
+  flex-direction: column;
+  flex: 1;
+}
+
 .hidden {
   display: none;
+}
+
+/* LIST */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .underline {
   width: 60px;
   height: 6px;
   background-color: rgb(254, 76, 80);
+}
+
+/* CONTENT */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.content__title {
+  font-family: "Raleway", sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+.content__detail {
+  margin-top: 64px;
+  margin-bottom: 16px;
 }
 
 /* HEADER */
