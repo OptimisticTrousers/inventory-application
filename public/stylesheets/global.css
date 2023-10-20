@@ -79,9 +79,6 @@ p {
   align-items: center;
   justify-content: center;
   max-width: 100vw;
-}
-
-.main {
   padding: 0;
   flex-direction: column;
   flex: 1;

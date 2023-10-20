@@ -86,9 +86,12 @@
 }
 
 .detail__button {
-  background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.detail__button--read-more {
+  background-color: transparent;
   padding: 0;
   text-decoration: underline;
   color: rgb(254, 76, 80);

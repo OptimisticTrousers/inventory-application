@@ -1,11 +1,7 @@
 extends layout
 
 block styles
-    link(rel='stylesheet' href='/stylesheets/global.css')
     link(rel='stylesheet' href='/stylesheets/detail.css')
-    link(rel='stylesheet' href='/stylesheets/content.css')
-    link(rel='stylesheet' href='/stylesheets/delete.css')
-    link(rel='stylesheet' href='/stylesheets/hero.css')
     link(rel='stylesheet' href='/stylesheets/form.css')
 
 block content
@@ -29,7 +25,7 @@ block content
                     div(class="detail__details")
                         h2(class="detail__title")  #{iteminstance && iteminstance.id}
                         h3(class="detail__subtext")
-                            label(class="detail__label" for='item') Item:
+                            label(class="detail__label detail__label--item" for='item') Item:
                             select(class="detail__select" id="item" name="item" required)
                                 each item in item_list
                                     option(class="detail__option" value=item._id selected=((iteminstance && item._id.equals(iteminstance.item._id) && "selected"))) #{item.name}

@@ -1,11 +1,7 @@
 extends layout
 
 block styles
-    link(rel='stylesheet' href='/stylesheets/global.css')
     link(rel='stylesheet' href='/stylesheets/detail.css')
-    link(rel='stylesheet' href='/stylesheets/content.css')
-    link(rel='stylesheet' href='/stylesheets/delete.css')
-    link(rel='stylesheet' href='/stylesheets/hero.css')
     link(rel='stylesheet' href='/stylesheets/form.css')
 
 block content
@@ -39,7 +35,7 @@ block content
                                         input(class="detail__checkbox" type="checkbox" name="category" id=category._id, value=category._id, checked=category.checked)
                                         label(class="detail__label" for=category.id) #{category.name}
                             div(class="detail__buttons")
-                                button(class="detail__button" type="submit") Submit
+                                button(class="detail__button detail__button--cancel" type="submit") Submit
                                 a(class="detail__link detail__link--cancel" href=item ? item.url : "/item") Cancel
         if errors
             ul
