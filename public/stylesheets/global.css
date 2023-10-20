@@ -133,7 +133,7 @@ p {
   height: 75px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 15px 10px 20px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.25);
 }
 
 .header__image:hover {
@@ -273,26 +273,22 @@ p {
   column-gap: 20px;
 }
 
-.admin-window__link {
-  padding: 4px 10px 4px 10px;
-  border-radius: 4px;
-  border: 1px solid white;
-  transition: 0.3s;
-}
-
-.admin-window__links:not(.admin-window__links--disabled)
-  .admin-window__link:not(.admin-window__link--delete):hover {
-  background-color: rgb(77, 77, 108, 0.92);
-}
-
 .admin-window__links {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.admin-window__links *:not(:last-child) {
-  margin-bottom: 8px;
+.admin-window__link {
+  padding: 4px 10px 4px 10px;
+  border-radius: 4px;
+  border: 1px solid white;
+  transition: 0.3s;
+  margin-top: 8px;
+}
+
+.admin-window__links--disabled {
+  opacity: 0.4;
 }
 
 .admin-window__link--delete {
@@ -300,17 +296,18 @@ p {
   border-color: rgb(254, 76, 80);
 }
 
+.admin-window__links--disabled .admin-window__link {
+  pointer-events: none;
+}
+
 .admin-window__links:not(.admin-window__links--disabled)
   .admin-window__link--delete:hover {
   background-color: rgb(255, 119, 122);
 }
 
-.admin-window__links--disabled {
-  opacity: 0.4;
-}
-
-.admin-window__links--disabled .admin-window__link {
-  pointer-events: none;
+.admin-window__links:not(.admin-window__links--disabled)
+  .admin-window__link:not(.admin-window__link--delete):hover {
+  background-color: rgb(77, 77, 108, 0.92);
 }
 
 /* https://stackoverflow.com/questions/1734618/how-to-increase-the-gap-between-text-and-underlining-in-cs */
