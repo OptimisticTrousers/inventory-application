@@ -35,9 +35,13 @@ block content
                                     div(class="detail__group")
                                         input(class="detail__checkbox" type="checkbox" name="category" id=category._id, value=category._id, checked=category.checked)
                                         label(class="detail__label" for=category.id) #{category.name}
-                            div(class="detail__buttons")
-                                button(class="detail__button detail__button--cancel" type="submit") Submit
-                                a(class="detail__link detail__link--cancel" href=item ? item.url : "/item") Cancel
+                            if item._id.toString() === "6533456799667077393e225b"
+                                p(class="detail__description") You cannot update this special item
+                                button(class="detail__button" disabled type="submit") Submit
+                            else     
+                                div(class="detail__buttons")
+                                    button(class="detail__button detail__button--cancel" type="submit") Submit
+                                    a(class="detail__link detail__link--cancel" href=item ? item.url : "/item") Cancel
         if errors
             ul
                 for error in errors

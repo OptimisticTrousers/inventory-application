@@ -159,7 +159,7 @@ function createItems(cb) {
           90.95,
           10,
           {
-            filename: "giannis-jersey.webp",
+            filename: "giannis-jersey.avif",
             originalname: "giannis jersey",
           },
           "M  L  XL  2XL",
