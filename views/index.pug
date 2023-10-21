@@ -10,58 +10,43 @@ block content
   div(class="hero")
     div(class="hero__content")
       div(class="hero__container")
-        h2(class="hero__small") XBOX SERIES X & PLAYSTATION 5 NOW IN STOCK
-        h1(class="hero__big") The next generation of gaming is here.
+        h2(class="hero__small") JERSEYS & FOOTWEAR NOW IN STOCK
+        h1(class="hero__big") The next generation of basketball apparel is here.
         a(class="link link--red hero__link" href="/shop/gameconsoles") SHOP NOW
   div(class="main")
     div(class="content")
       div(class="content__categories")
         div(class="content__category content__category--one")
-          a(href="/shop/games" class="content__link") GAMES
+          a(href="/category/6532ccd867ee133486aba431" class="content__link") Accessories
         div(class="content__category content__category--two")
-          a(href="/shop/gameconsoles" class="content__link") CONSOLES
+          a(href="/category/6532ccd867ee133486aba42f" class="content__link") Footwear
         div(class="content__category content__category--third")
-          a(href="/shop/accessories" class="content__link") ACCESSORIES
+          a(href="/category/6532ccd767ee133486aba428" class="content__link") Jerseys
       div(class="list content__arrivals")
         h2(class="list__title") New Arrivals
         div(class="underline")
         div(class="list__picker")
-          button(selected class="list__button list__button--all") ALL
-          button(class="list__button list__button--one") GAMES
-          button(class="list__button list__button--two") CONSOLES
-          button(class="list__button list__button--third") ACCESSORIES
+          button(class="list__button list__button--all list__button--selected") ALL
+          button(class="list__button list__button--one") ACCESSORIES
+          button(class="list__button list__button--two") FOOTWEAR
+          button(class="list__button list__button--third") JERSEYS
         div(class="window")
           div(class="window__items")
-            a(href="/" class="item window__item")
-              div(class="item__preview")
-                div(class="item__preview-content")
-                  img(class="item__image" src="/images/ps5.jpg")
-                  div(class="item__info")
-                    div(class="item__description") Sony
-                    div(class="item__name") Playstation 5
-                    div(class="item__price") $699.99
-              div(class="item__window")
-                button(class="item__button") VIEW DETAILS
-            a(href="/" class="item window__item")
-              div(class="item__preview")
-                div(class="item__preview-content")
-                  img(class="item__image" src="/images/ps5.jpg")
-                  div(class="item__info")
-                    div(class="item__description") Sony
-                    div(class="item__name") Playstation 5
-                    div(class="item__price") $699.99
-              div(class="item__window")
-                button(class="item__button") VIEW DETAILS
-            a(href="/" class="item window__item")
-              div(class="item__preview")
-                div(class="item__preview-content")
-                  img(class="item__image" src="/images/ps5.jpg")
-                  div(class="item__info")
-                    div(class="item__description") Sony
-                    div(class="item__name") Playstation 5
-                    div(class="item__price") $699.99
-              div(class="item__window")
-                button(class="item__button") VIEW DETAILS
+            each item in all
+              - console.log(item.category.name)
+              a(href=item.url class="item window__item" id=`${item.category.map(cat=> cat.name).join(', ').toLowerCase()}`)
+                div(class="item__preview")
+                  div(class="item__preview-content")
+                    if item.picture
+                      img(class="item__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+                    else 
+                      img(class="detail__image" src="/images/placeholder.png" alt="empty picture")
+                    div(class="item__info")
+                      div(class="item__name") #{item.name}
+                      div(class="item__description item__description--shortened") #{item.description}
+                      div(class="item__price") $#{item.price}
+                div(class="item__window")
+                  button(class="item__button") VIEW DETAILS
             div(class="hider")
         div(class="hider")
       div(class="deal-of-the-week content__deal-of-the-week")
@@ -69,7 +54,7 @@ block content
           div(class="deal-of-the-week__container")
             h2(class="deal-of-the-week__title") Deal Of The Week
               br
-              h3(class="deal-of-the-week__subtext") Nintendo Switch   
+              h3(class="deal-of-the-week__subtext") Giannis Antetokoumpo 
                 span(class="deal-of-the-week__price") $69.99
             div(class="underline")
             div(class="deal-of-the-week__timer")
@@ -91,34 +76,18 @@ block content
         div(class="underline")
         div(class="window")
           div(class="window__items")
-            a(href="/" class="item window__item")
-              div(class="item__preview")
-                div(class="item__preview-content")
-                  img(class="item__image" src="/images/ps5.jpg")
-                  div(class="item__info")
-                    div(class="item__description") Sony
-                    div(class="item__name") Playstation 5
-                    div(class="item__price") $699.99
-              div(class="item__window")
-                button(class="item__button") VIEW DETAILS
-            a(href="/" class="item window__item")
-              div(class="item__preview")
-                div(class="item__preview-content")
-                  img(class="item__image" src="/images/ps5.jpg")
-                  div(class="item__info")
-                    div(class="item__description") Sony
-                    div(class="item__name") Playstation 5
-                    div(class="item__price") $699.99
-              div(class="item__window")
-                button(class="item__button") VIEW DETAILS
-            a(href="/" class="item window__item")
-              div(class="item__preview")
-                div(class="item__preview-content")
-                  img(class="item__image" src="/images/ps5.jpg")
-                  div(class="item__info")
-                    div(class="item__description") Sony
-                    div(class="item__name") Playstation 5
-                    div(class="item__price") $699.99
-              div(class="item__window")
-                button(class="item__button") VIEW DETAILS
+            each item in best_selling
+              a(href=item.url class="item window__item")
+                div(class="item__preview")
+                  div(class="item__preview-content")
+                    if item.picture
+                      img(class="item__image" src=`/images/${item.picture.get("filename")}` alt=item.picture.get("originalname"))
+                    else 
+                      img(class="detail__image" src="/images/placeholder.png" alt="empty picture")
+                    div(class="item__info")
+                      div(class="item__name") #{item.name}
+                      div(class="item__description item__description--shortened") #{item.description}
+                      div(class="item__price") $#{item.price}
+                div(class="item__window")
+                  button(class="item__button") VIEW DETAILS
             div(class="hider")

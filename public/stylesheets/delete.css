@@ -31,6 +31,11 @@
   cursor: pointer;
 }
 
+.delete__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .delete__button--cancel {
   border: 1px solid black;
 }

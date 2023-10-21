@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap"); /* Importing a dynamic font */
+
 @font-face {
   font-family: "Poppins";
   src: url(../fonts/Poppins-Regular.ttf);
@@ -126,7 +128,7 @@ p {
 /* HEADER */
 
 .header {
-  background-color: #0082e6;
+  background-color: #004cb1;
   width: 100%;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
   z-index: 1;
@@ -134,8 +136,6 @@ p {
 
 .header__navigation {
   padding-left: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -166,6 +166,14 @@ p {
 
 .header__logo {
   z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out; /* Moved transition property here for a gradual effect */
+}
+
+.header__logo:hover {
+  transform: scale(1.08) rotate(5deg); /* Enlarges and rotates the logo on hover */
+  transition: transform 0.3s ease-in-out;
 }
 
 .header__image {
@@ -175,10 +183,34 @@ p {
   background-color: transparent;
   border-radius: 50%;
   box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.25);
+  margin-right: 8px;
 }
 
-.header__image:hover {
-  opacity: 0.7;
+.header__hoopgear {
+  font-family: "Bangers", cursive; /* Using Bangers for a dynamic look */
+  font-size: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(
+    45deg,
+    white,
+    rgb(254, 76, 80)
+  ); /* Vibrant gradient background */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block; /* Required for gradient to work properly with text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+.header__hoop {
+  color: white; /* Vibrant yellow color for "Gear" */
+  -webkit-text-stroke: 1.5px black; /* Black outline for the text */
+}
+
+.header__gear {
+  color: rgb(254, 76, 80);
+  -webkit-text-stroke: 1.5px black; /* Black outline for the text */
 }
 
 .header__list {

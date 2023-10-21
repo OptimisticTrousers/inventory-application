@@ -15,15 +15,76 @@ const home_controller = (req, res, next) => {
       category_list(callback) {
         Category.find({}, callback);
       },
+      category_list(callback) {
+        const categoryIds = [
+          "6532ccd867ee133486aba431",
+          "6532ccd867ee133486aba42f",
+          "6532ccd767ee133486aba428",
+        ];
+        Category.find({ _id: { $in: categoryIds } }, callback);
+      },
+      new_accessories(callback) {
+        Item.find({ category: "6532ccd867ee133486aba431" })
+          .sort({ createdAt: -1 })
+          .populate("category")
+          .limit(3)
+          .exec(callback);
+      },
+      new_jerseys(callback) {
+        Item.find({ category: "6532ccd867ee133486aba42f" })
+          .sort({ createdAt: -1 })
+          .populate("category")
+          .limit(3)
+          .exec(callback);
+      },
+      new_footwear(callback) {
+        Item.find({ category: "6532ccd767ee133486aba428" })
+          .sort({ createdAt: -1 })
+          .populate("category")
+          .limit(3)
+          .exec(callback);
+      },
+      best_selling_accessories(callback) {
+        Item.find({ category: "6532ccd867ee133486aba431" })
+          .sort({ name: -1 })
+          .limit(1)
+          .exec(callback);
+      },
+      best_selling_footwear(callback) {
+        Item.find({ category: "6532ccd867ee133486aba42f" })
+          .sort({ name: -1 })
+          .limit(2)
+          .exec(callback);
+      },
+      best_selling_jerseys(callback) {
+        Item.find({ category: "6532ccd767ee133486aba428" })
+          .sort({ name: -1 })
+          .limit(2)
+          .exec(callback);
+      },
     },
     (err, results) => {
       if (err) {
         return next(err);
       }
+      const all = [
+        ...results.new_accessories,
+        ...results.new_jerseys,
+        ...results.new_footwear,
+      ];
+      const best_selling = [
+        ...results.best_selling_accessories,
+        ...results.best_selling_footwear,
+        ...results.best_selling_jerseys,
+      ];
       res.render("index", {
         title: "Inventory Management Application",
         error: err,
-        data: results,
+        all,
+        best_selling,
+        new_accessories: results.new_accessories,
+        new_jerseys: results.new_jerseys,
+        new_footwear: results.new_footwear,
       });
     }
   );

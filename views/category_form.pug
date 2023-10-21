@@ -26,9 +26,13 @@ block content
                         block item-info
                             p(class="detail__description") 
                                 textarea(id="description" name="description" class="detail__textarea" required="true" placeholder="Celebrate your team and your city with the 2021/22 NBA City Edition Jerseys to rep your team in style. We also offer NBA Statement Edition jerseys for your favorite players." ) #{category && category.description}
-                            div(class="detail__buttons")
-                                button(class="detail__button" type="submit") Submit
-                                a(class="detail__link detail__link--cancel" href=category ? category.url : "/category") Cancel
+                            if (category && (category._id === "6532ccd867ee133486aba431" || category._id === "6532ccd867ee133486aba433" || category._id === "6532ccd867ee133486aba42f" || category._id === "6532ccd867ee133486aba42d" || category._id === "6532ccd767ee133486aba428" || category._id === "6532ccd867ee133486aba42b"))
+                                p(class="detail__description") You cannot update this special category
+                                button(class="detail__button" disabled type="submit") Submit
+                            else
+                                div(class="detail__buttons")
+                                    button(class="detail__button" type="submit") Submit
+                                    a(class="detail__link detail__link--cancel" href=category ? category.url : "/category") Cancel
         if errors
             ul
                 for error in errors

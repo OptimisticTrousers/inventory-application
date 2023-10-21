@@ -6,7 +6,7 @@
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
-  background-image: url(../images/hero.jpg);
+  background-image: url(../images/hero.webp);
   background-size: cover;
   background-position: center;
   color: white;
@@ -88,15 +88,15 @@
 }
 
 .content__category--one {
-  background-image: url(../images/gameboxes.jpg);
+  background-image: url(../images/accessories.avif);
 }
 
 .content__category--two {
-  background-image: url(../images/xbox.jpg);
+  background-image: url(../images/footwear-2.avif);
 }
 
 .content__category--third {
-  background-image: url(../images/accessories.jpg);
+  background-image: url(../images/jerseys-2.jpeg);
 }
 
 .content__link {
@@ -146,7 +146,7 @@
   white-space: nowrap;
 }
 
-.list__button.selection {
+.list__button--selected {
   background-color: rgb(254, 76, 80);
   border-color: rgb(254, 76, 80);
   color: white;
@@ -172,9 +172,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/switch.jpg");
-  background-size: cover;
-  background-position: center;
+  background-image: url(/images/deal-of-the-week-2.jpg);
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
 }
 
 .content__deal-of-the-week {

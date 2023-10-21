@@ -1,23 +1,20 @@
-const categoryButtons = document.querySelectorAll(".content__button");
-const newArrivals = document.querySelectorAll(".content__arrivals .item");
+const categoryButtons = document.querySelectorAll(".list__button");
+const newArrivals = document.querySelectorAll(".window .item");
 
 // handle category button clicked
 function switchCategory(e) {
   const categorySelected = e.target.innerText.toLowerCase();
   for (const item of newArrivals) {
-    if (
-      categorySelected === "all" ||
-      item.dataset.category.includes(categorySelected)
-    ) {
+    if (categorySelected === "all" || item.id.includes(categorySelected)) {
       item.style.display = "flex";
     } else {
       item.style.display = "none";
     }
   }
   for (const categoryButton of categoryButtons) {
-    categoryButton.classList.remove("selected");
+    categoryButton.classList.remove("list__button--selected");
   }
-  e.target.classList.add("selected");
+  e.target.classList.add("list__button--selected");
 }
 
 // add event listeners to category buttons

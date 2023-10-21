@@ -54,7 +54,7 @@
 
 .item__description--shortened {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   max-height: 150px;
   -webkit-box-orient: vertical;
   white-space: unset;
@@ -69,7 +69,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   word-wrap: break-word;
   max-width: 100%;

@@ -86,6 +86,11 @@
   cursor: pointer;
 }
 
+.detail__button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .detail__button--read-more {
   background-color: transparent;
   padding: 0;
