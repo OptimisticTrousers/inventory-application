@@ -82,7 +82,7 @@ function createCategories(cb) {
           "Celebrate your team and your city with the 2021/22 NBA City Edition Jerseys to rep your team in style. We also offer NBA Statement Edition jerseys for your favorite players.",
           {
             filename: "jersey.png",
-            originalname: "jersey"
+            originalname: "jersey",
           },
           callback
         );
@@ -93,7 +93,7 @@ function createCategories(cb) {
           "Shop for all the latest t-shirts from any of your favorite NBA teams right here at NBAStore.com! Browse our wide collection of exclusive t-shirts from any team in the NBA, including championship t-shirts, name and number tees, and much more. Our collection of t-shirts come in a constiety of styles from short and long sleeved tees to tank tops. No matter if you're looking for shirts or tops for men, women, or kids, you can find any kind of shirt from any NBA team right here at the official online store of the NBA. Place your order on your NBA t-shirt today and be sure to check back later for new arrivals that may be added!",
           {
             filename: "t-shirt.jpg",
-            originalname: "t-shirt"
+            originalname: "t-shirt",
           },
           callback
         );
@@ -104,7 +104,7 @@ function createCategories(cb) {
           "Buy NBA team hats from the official online store of the NBA. We carry the latest NBA basketball hats from Mitchell & Ness and New Era. Complete your basketball gear with your favorite NBA team cap. The NBA store offers a wide range of NBA fitted hats, NBA snapback hats, NBA stretchfit hats, novelty hats, and knit hats. Visit us regularly for exclusive online discounts on the latest and hottest NBA hats! Make sure to check NBA hat sizing before you buy a fitted cap!",
           {
             filename: "hat.jpg",
-            originalname: "hat"
+            originalname: "hat",
           },
           callback
         );
@@ -115,7 +115,7 @@ function createCategories(cb) {
           "When you're ready to hit the court, make sure you get your kicks at the official NBA Store! We're your source for the latest and hottest NBA basketball shoes from your favorite stars! Shop the newest arrivals of NBA Jordan Shoes featuring sneakers from Carmelo Anthony, Chris Paul, and Michael Jordan. Or, our Nike Sneaker collection boasts of shoes from LeBron James, Kobe Bryant, and Kevin Durant. Also, don't forget about our selection of new Air Jordan Shoes and Under Armour Footwear featuring new, unique designs. Whether you're looking for the KD VII, LeBron XII, or any other NBA shoe, stay tuned to NBAStore.com for the latest updates.",
           {
             filename: "footwear.png",
-            originalname: "footwear"
+            originalname: "footwear",
           },
           callback
         );
@@ -126,7 +126,7 @@ function createCategories(cb) {
           "Don't limit your basketball gear to just jerseys and hats! NBA Store is your top source for all the best NBA accessories and gifts as well. Buy NBA jewelry, sunglasses, watches, and so much more featuring your favorite team's logo and colors. Check out the latest electronics like headphones, bluetooth speakers, and covers for your phone, tablet, or laptop, including the latest iPhone and Android phone cases. We have hundreds of accessories for men, women, and kids. You are sure to find the perfect basketball accessory for yourself or as a gift for a loved one at the official online store of the NBA.",
           {
             filename: "accessory.jpg",
-            originalname: "accessory"
+            originalname: "accessory",
           },
           callback
         );
@@ -137,7 +137,7 @@ function createCategories(cb) {
           "Grab the greatest NBA Collectibles from your favorite teams to remember all the greatest moments in NBA history. Enjoy your player Collectibles from the greats like Kobe Bryant, Lebron James, Stephen Curry and more. Get your Signed pictures and autographed jerseys from the hottest NBA players to ever play the game. Browse through and shop for your favorite NBA collectibles from the Official NBA Store.",
           {
             filename: "collectible.webp",
-            originalname: "collectible"
+            originalname: "collectible",
           },
           callback
         );
@@ -153,6 +153,21 @@ function createItems(cb) {
     [
       function (callback) {
         itemCreate(
+          "Nike 2020-21 City Edition Giannis Antetokounmpo Milwaukee Bucks Swingman Jersey",
+          "The number three is the story of the 2020-21 Milwaukee Bucks City Edition Nike NBA Swingman Jersey. Known as a gathering place by the water, this great city on a Great Lake was built by three original founders where three rivers come together. It also stands for the team‚Äôs Big Three playmakers, past and present. The uniform features shades of blue to represent the waters of Milwaukee that have always been the city‚Äôs lifeline.",
+          categories.find((category) => category.name === "Jerseys"),
+          90.95,
+          10,
+          {
+            filename: "giannis-jersey.webp",
+            originalname: "giannis jersey",
+          },
+          "M  L  XL  2XL",
+          callback
+        );
+      },
+      function (callback) {
+        itemCreate(
           "Men's Chicago Bulls Zach LaVine Fanatics Branded Red Fast Break Replica Jersey - Icon Edition",
           "We want fans to celebrate their fandom by customizing and personalizing certain products. For these customizable products, including jerseys, we invite customers to tell us how they would like their preferred name or other text to appear by typing that text into the field indicated. However, just because a customer is able to type proposed customization text into the field and is able to complete the order through the website, not all proposed customization text will be accepted. Please note, Fanatics may reject and cancel any customization order for any reason, including for messages that are deemed offensive or inappropriate. Represent your team's distinct on-court look with this Chicago Bulls Fast Break Replica jersey from Fanatics Branded.",
           categories.find((category) => category.name === "Jerseys"),
@@ -160,7 +175,7 @@ function createItems(cb) {
           10,
           {
             filename: "zach-lavine-jersey.jpg",
-            originalname: "zach lavine jersey"
+            originalname: "zach lavine jersey",
           },
           "S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
@@ -175,7 +190,7 @@ function createItems(cb) {
           10,
           {
             filename: "kevin-durant-jersey.webp",
-            originalname: "kevin durant jersey"
+            originalname: "kevin durant jersey",
           },
           "S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
@@ -190,7 +205,7 @@ function createItems(cb) {
           10,
           {
             filename: "steph-curry-shirt.webp",
-            originalname: "steph curry t-shirt"
+            originalname: "steph curry t-shirt",
           },
           "XS  S  M  L  XL  2XL  3XL  4XL  5XL",
           callback
@@ -205,7 +220,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-shirt.webp",
-            originalname: "lakers t-shirt"
+            originalname: "lakers t-shirt",
           },
           "XS  S  M  L  XL  2XL  3XL  4XL",
           callback
@@ -220,7 +235,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-shirt.webp",
-            originalname: "lakers t-shirt"
+            originalname: "lakers t-shirt",
           },
           "6 3/4  6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8  8 1/8  8 1/4",
           callback
@@ -235,7 +250,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-hat.webp",
-            originalname: "lakers hat"
+            originalname: "lakers hat",
           },
           "6 7/8  7  7 1/8  7 1/4  7 3/8  7 1/2  7 5/8  7 3/4  7 7/8  8",
           callback
@@ -250,7 +265,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-sandals.jpg",
-            originalname: "lakers sandals"
+            originalname: "lakers sandals",
           },
           "7  8  9  10  11  12  13  14/15",
           callback
@@ -265,7 +280,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-moccasins.webp",
-            originalname: "lakers moccasins"
+            originalname: "lakers moccasins",
           },
           "S  M  L  XL",
           callback
@@ -280,7 +295,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-bottle.jpg",
-            originalname: "lakers bottle"
+            originalname: "lakers bottle",
           },
           undefined,
           callback
@@ -295,7 +310,7 @@ function createItems(cb) {
           10,
           {
             filename: "lakers-socks.webp",
-            originalname: "lakers socks"
+            originalname: "lakers socks",
           },
           "L",
           callback
@@ -310,7 +325,7 @@ function createItems(cb) {
           10,
           {
             filename: "lebron-figure.webp",
-            originalname: "lebron action figure"
+            originalname: "lebron action figure",
           },
           undefined,
           callback
@@ -325,7 +340,7 @@ function createItems(cb) {
           10,
           {
             filename: "shaq-jersey.webp",
-            originalname: "shaq autographed jersey"
+            originalname: "shaq autographed jersey",
           },
           undefined,
           callback

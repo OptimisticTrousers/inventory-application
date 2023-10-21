@@ -24,40 +24,40 @@ const home_controller = (req, res, next) => {
         Category.find({ _id: { $in: categoryIds } }, callback);
       },
       new_accessories(callback) {
-        Item.find({ category: "6532ccd867ee133486aba431" })
+        Item.find({ category: "65333da238cff7ed9d851d9d" })
           .sort({ createdAt: -1 })
           .populate("category")
           .limit(3)
           .exec(callback);
       },
       new_jerseys(callback) {
-        Item.find({ category: "6532ccd867ee133486aba42f" })
+        Item.find({ category: "65333da138cff7ed9d851d94" })
           .sort({ createdAt: -1 })
           .populate("category")
           .limit(3)
           .exec(callback);
       },
       new_footwear(callback) {
-        Item.find({ category: "6532ccd767ee133486aba428" })
+        Item.find({ category: "65333da238cff7ed9d851d9b" })
           .sort({ createdAt: -1 })
           .populate("category")
           .limit(3)
           .exec(callback);
       },
       best_selling_accessories(callback) {
-        Item.find({ category: "6532ccd867ee133486aba431" })
+        Item.find({ category: "65333da238cff7ed9d851d9d" })
           .sort({ name: -1 })
           .limit(1)
           .exec(callback);
       },
       best_selling_footwear(callback) {
-        Item.find({ category: "6532ccd867ee133486aba42f" })
+        Item.find({ category: "65333da238cff7ed9d851d9b" })
           .sort({ name: -1 })
           .limit(2)
           .exec(callback);
       },
       best_selling_jerseys(callback) {
-        Item.find({ category: "6532ccd767ee133486aba428" })
+        Item.find({ category: "65333da138cff7ed9d851d94" })
           .sort({ name: -1 })
           .limit(2)
           .exec(callback);
@@ -78,7 +78,7 @@ const home_controller = (req, res, next) => {
         ...results.best_selling_jerseys,
       ];
       res.render("index", {
-        title: "Inventory Management Application",
+        title: "HoopGear | Home",
         error: err,
         all,
         best_selling,

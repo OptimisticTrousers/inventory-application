@@ -173,9 +173,8 @@
   justify-content: center;
   align-items: center;
   background-image: url(/images/deal-of-the-week-2.jpg);
-  background-size: contain;
-  background-position: left;
-  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .content__deal-of-the-week {
@@ -193,6 +192,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.deal-of-the-week__background {
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  border-radius: 8px;
 }
 
 .deal-of-the-week__title {
@@ -251,4 +258,47 @@
   width: 1px;
   margin-left: -1px;
   z-index: 1;
+}
+
+@media (max-width: 1120px) {
+  .content__categories {
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media(max-width: 540px) {
+  .deal-of-the-week__circle {
+    width: unset;
+    height: unset;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-right: 4px;
+  }
+  .deal-of-the-week__count {
+    font-size: 36px;
+  }
+  .deal-of-the-week__title {
+    font-size: 30px;
+  }
+  .deal-of-the-week__subtext {
+    font-size: 16px;
+  }
+  .list__picker {
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  .list__button {
+    border-right: 1px solid rgb(226, 226, 226);
+  }
+}
+
+@media (max-width: 440px) {
+  .hero__big {
+    font-size: 50px;
+  }
 }

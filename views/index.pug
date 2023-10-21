@@ -12,16 +12,16 @@ block content
       div(class="hero__container")
         h2(class="hero__small") JERSEYS & FOOTWEAR NOW IN STOCK
         h1(class="hero__big") The next generation of basketball apparel is here.
-        a(class="link link--red hero__link" href="/shop/gameconsoles") SHOP NOW
+        a(class="link link--red hero__link" href="/category") SHOP NOW
   div(class="main")
     div(class="content")
       div(class="content__categories")
         div(class="content__category content__category--one")
-          a(href="/category/6532ccd867ee133486aba431" class="content__link") Accessories
+          a(href="/category/65333da238cff7ed9d851d9d" class="content__link") Accessories
         div(class="content__category content__category--two")
-          a(href="/category/6532ccd867ee133486aba42f" class="content__link") Footwear
+          a(href="/category/65333da238cff7ed9d851d9b" class="content__link") Footwear
         div(class="content__category content__category--third")
-          a(href="/category/6532ccd767ee133486aba428" class="content__link") Jerseys
+          a(href="/category/65333da138cff7ed9d851d94" class="content__link") Jerseys
       div(class="list content__arrivals")
         h2(class="list__title") New Arrivals
         div(class="underline")
@@ -33,7 +33,6 @@ block content
         div(class="window")
           div(class="window__items")
             each item in all
-              - console.log(item.category.name)
               a(href=item.url class="item window__item" id=`${item.category.map(cat=> cat.name).join(', ').toLowerCase()}`)
                 div(class="item__preview")
                   div(class="item__preview-content")
@@ -52,10 +51,11 @@ block content
       div(class="deal-of-the-week content__deal-of-the-week")
         div(class="deal-of-the-week__content")
           div(class="deal-of-the-week__container")
-            h2(class="deal-of-the-week__title") Deal Of The Week
-              br
-              h3(class="deal-of-the-week__subtext") Giannis Antetokoumpo 
-                span(class="deal-of-the-week__price") $69.99
+            div(class="deal-of-the-week__background")
+              h2(class="deal-of-the-week__title") Deal Of The Week
+                br
+                h3(class="deal-of-the-week__subtext") Giannis Antetokounmpo 
+                  span(class="deal-of-the-week__price") $90.95
             div(class="underline")
             div(class="deal-of-the-week__timer")
               div(class="deal-of-the-week__circle")
@@ -70,7 +70,7 @@ block content
               div(class="deal-of-the-week__circle")
                 div(class="deal-of-the-week__count deal-of-the-week__count--sec") 8 
                 div(class="deal-of-the-week__unit") Sec
-            a(href="/" class="link link--black deal-of-the-week__link") SHOP NOW
+            a(href="/item/65333da238cff7ed9d851da1" class="link link--black deal-of-the-week__link") SHOP NOW
       div(class="list content__best-sellers")
         h2(class="list__title") Best Sellers
         div(class="underline")

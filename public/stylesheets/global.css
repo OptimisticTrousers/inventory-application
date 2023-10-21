@@ -131,7 +131,7 @@ p {
   background-color: #004cb1;
   width: 100%;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
-  z-index: 1;
+  z-index: 3;
 }
 
 .header__navigation {
@@ -385,7 +385,21 @@ p {
 
 /* https://stackoverflow.com/questions/1734618/how-to-increase-the-gap-between-text-and-underlining-in-cs */
 
-@media (max-width: 858px) {
+@media (max-width: 1180px) {
+  .info-bar {
+    flex-wrap: wrap;
+    width: unset;
+    height: unset;
+    justify-content: center;
+  }
+  .info-bar__item {
+    height: unset;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+@media (max-width: 1010px) {
   .header__navigation {
     flex-direction: row-reverse;
   }
@@ -419,5 +433,18 @@ p {
   }
   .header__check:checked ~ ul {
     left: -150%;
+  }
+}
+
+@media (max-width: 440px) {
+  .header__image {
+    display: none;
+  }
+
+  .header__navigation {
+    padding-left: 1rem;
+  }
+  .footer__container {
+    text-align: center;
   }
 }
